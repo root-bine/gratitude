@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="f6cf6e5c-e033-463f-8c0b-f6cea27fcb50" name="Changes" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Unnamed" />
+        <option value="Vue Single File Component" />
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="localRepository" value="D:\Java\Maven\maven-repository" />
+        <option name="mavenHome" value="D:/Java/Maven/apache-maven-3.8.4" />
+        <option name="userSettingsFile" value="D:\Java\Maven\apache-maven-3.8.4\conf\settings.xml" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="MavenRunner">
+    <option name="jreName" value="1.8" />
+    <option name="vmOptions" value="-Dmaven.wagon.http.ssl.insecure=true -Dmaven.wagon.http.ssl.allowall=true -Dmaven.wagon.http.ssl.ignore.validity.dates=true" />
+  </component>
+  <component name="ProjectId" id="2Mlkexqp2XvMa8XSrsohvKnbW1Z" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="autoscrollToSource" value="true" />
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="mysql" />
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="jdk.selected.JAVA_MODULE" value="1.8" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="MavenSettings" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\root-bine\Desktop\biye_Project\vue\src\views\admin" />
+      <recent name="C:\Users\root-bine\Desktop\biye_Project\vue\src\assets" />
+      <recent name="C:\Users\root-bine\Desktop\biye_Project\vue\src\components" />
+      <recent name="C:\Users\root-bine\Desktop\biye_Project\vue\src\layout" />
+      <recent name="C:\Users\root-bine\Desktop\biye_Project\vue\src\utils" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\root-bine\Desktop\biye_Project\vue\src\views\user" />
+      <recent name="C:\Users\root-bine\Desktop\biye_Project\vue\src\views" />
+      <recent name="C:\Users\root-bine\Desktop\biye_Project\vue\src\assets" />
+      <recent name="C:\Users\root-bine\Desktop\biye_Project\vue\src\components" />
+      <recent name="C:\Users\root-bine\Desktop\biye_Project\vue\static" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.zgy.springboot_dev.config" />
+    </key>
+  </component>
+  <component name="RunManager" selected="npm.dev">
+    <configuration name="SpringBootBiyeApplicationTests.contextLoads" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SpringBoot_biye" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.zgy.springboot_biye.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.zgy.springboot_biye" />
+      <option name="MAIN_CLASS_NAME" value="com.zgy.springboot_biye.SpringBootBiyeApplicationTests" />
+      <option name="METHOD_NAME" value="contextLoads" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SpringBootBiyeApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="SpringBoot_biye" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.zgy.springboot_biye.SpringBootBiyeApplication" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="dev" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/vue/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="dev" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="JUnit.SpringBootBiyeApplicationTests.contextLoads" />
+      <item itemvalue="npm.dev" />
+      <item itemvalue="Spring Boot.SpringBootBiyeApplication" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="npm.dev" />
+        <item itemvalue="JUnit.SpringBootBiyeApplicationTests.contextLoads" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f6cf6e5c-e033-463f-8c0b-f6cea27fcb50" name="Changes" comment="" />
+      <created>1678349659291</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1678349659291</updated>
+      <workItem from="1678349663795" duration="8588000" />
+      <workItem from="1678413683121" duration="5490000" />
+      <workItem from="1678419237258" duration="96000" />
+      <workItem from="1678419354433" duration="1638000" />
+      <workItem from="1678427097442" duration="2403000" />
+      <workItem from="1678434000049" duration="26000" />
+      <workItem from="1678434044609" duration="6113000" />
+      <workItem from="1678498276853" duration="11825000" />
+      <workItem from="1678606156037" duration="1210000" />
+      <workItem from="1678670220733" duration="6390000" />
+      <workItem from="1678765487618" duration="12017000" />
+      <workItem from="1678842915782" duration="612000" />
+      <workItem from="1678861775099" duration="15198000" />
+      <workItem from="1678884857709" duration="2036000" />
+      <workItem from="1678932231038" duration="2607000" />
+      <workItem from="1678935841895" duration="10109000" />
+      <workItem from="1678959445340" duration="8398000" />
+      <workItem from="1679017313141" duration="2870000" />
+      <workItem from="1679020216400" duration="13252000" />
+      <workItem from="1679292177063" duration="8685000" />
+      <workItem from="1679301792177" duration="895000" />
+      <workItem from="1679302710714" duration="1126000" />
+      <workItem from="1679451896388" duration="639000" />
+      <workItem from="1679469145572" duration="11200000" />
+      <workItem from="1679556126235" duration="3770000" />
+      <workItem from="1679641648444" duration="13774000" />
+      <workItem from="1679656047593" duration="1065000" />
+      <workItem from="1679814241566" duration="9171000" />
+      <workItem from="1679894256030" duration="2595000" />
+      <workItem from="1679897028628" duration="137000" />
+      <workItem from="1679897637663" duration="479000" />
+      <workItem from="1679898657125" duration="605000" />
+      <workItem from="1679900191960" duration="80000" />
+      <workItem from="1679904837883" duration="7325000" />
+      <workItem from="1679912246142" duration="457000" />
+      <workItem from="1679912736914" duration="802000" />
+      <workItem from="1679913568565" duration="2000" />
+      <workItem from="1679913849745" duration="1315000" />
+      <workItem from="1679923217162" duration="2997000" />
+      <workItem from="1679926311299" duration="65000" />
+      <workItem from="1679991758375" duration="10590000" />
+      <workItem from="1680006649185" duration="4047000" />
+      <workItem from="1680011536699" duration="603000" />
+      <workItem from="1680142281249" duration="9599000" />
+      <workItem from="1680577193409" duration="1025000" />
+      <workItem from="1680678064958" duration="11826000" />
+      <workItem from="1680690017425" duration="813000" />
+      <workItem from="1680691110703" duration="404000" />
+      <workItem from="1680691854808" duration="391000" />
+      <workItem from="1680697620432" duration="1441000" />
+      <workItem from="1680703851352" duration="212000" />
+      <workItem from="1680764346340" duration="12230000" />
+      <workItem from="1680779357363" duration="216000" />
+      <workItem from="1680787275938" duration="309000" />
+      <workItem from="1680787611912" duration="4905000" />
+      <workItem from="1680922405166" duration="12121000" />
+      <workItem from="1681006685904" duration="6963000" />
+      <workItem from="1681098122745" duration="5017000" />
+      <workItem from="1681135775760" duration="50000" />
+      <workItem from="1681135848930" duration="182000" />
+      <workItem from="1681136051852" duration="96000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

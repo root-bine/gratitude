@@ -1,0 +1,21 @@
+# 端口号
+server:
+  port: 9090
+# 数据源
+spring:
+  datasource:
+    druid:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://localhost:3306/springboot_biye?serverTimezone=UTC&characterEncoding=utf-8
+      username: root
+      password: 123456
+
+mybatis:
+  # 指定mapper隐射文件
+  mapper-locations: classpath:mappers/*.xml
+  # 配置别名, 在Mapper.xml中只需使用类名即可
+  type-aliases-package: com.zgy.springboot_byte.domain
+  # 配置mybatis运行日志
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+

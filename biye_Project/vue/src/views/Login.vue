@@ -1,0 +1,105 @@
+<template>
+  <div class="logincontent">
+    <div style="width: 400px; margin: 150px auto;" class="window">
+      <h1 style="text-align: center; margin-bottom: 30px">推免研究生登录界面</h1>
+      <!--:rules="rules" ref="ruleFormRef", 表单验证标识-->
+      <el-form :model="user" :rules="rules" ref="ruleFormRef">
+        <el-form-item prop="username">
+          <el-input style="height: 50px;width: 500px" v-model="user.username" :prefix-icon="User" clearable/>
+        </el-form-item>
+        <!--prop标签内容, 与rules对应-->
+        <el-form-item prop="password">
+          <el-input style="height: 50px" v-model="user.password" :prefix-icon="Lock" show-password clearable/>
+        </el-form-item>
+        <el-form-item style="margin-left: 100px">
+          <el-radio-group v-model="user.id" class="ml-4">
+            <el-radio label="管理员" size="large"></el-radio>
+            <el-radio label="学生" size="large"></el-radio>
+          </el-radio-group>
+        </el-form-item>
+        <el-form-item style="margin-left: 100px">
+          <el-button type="success" size="large" style="margin-right: 5px" @click="login">登录</el-button>
+          <el-button type="primary" size="large" style="margin-right: 5px" @click="$router.push('/register')">注册</el-button>
+        </el-form-item>
+      </el-form>
+    </div>
+  </div>
+</template>
+
+<script setup>
+  // 引入router, 便于页面跳转
+  import router from "../router/index.js";
+
+  import {getCurrentInstance, reactive} from "vue";
+  import {User,Lock} from "@element-plus/icons-vue";
+  import {ElMessage,ElNotification} from "element-plus";
+  import request from "../utils/request.js";
+  const {proxy} = getCurrentInstance()
+
+  const user = reactive({
+        /*username: 'Tom',
+        password: 123456*/
+  })
+  // 表单验证
+  const rules = reactive({
+    username: [
+      {required: true, message: '请输入用户名', trigger: 'blur'},
+    ],
+    password: [
+      {required: true, message: '请输入密码', trigger: 'blur'},
+    ]
+  })
+
+  // 登录实现
+  const login = () => {
+    proxy.$refs.ruleFormRef.validate((valid) => {
+          if(valid){
+            /**
+             * 向后台发送请求:http://localhost:9090
+             * 后端数据格式: {"code" : "200","msg" : "",，"data": null}
+             * 此处请求为Post, 后端登录功能接口也必须是Post
+             */
+            request.post('/users/login',user).then(res => {
+              if(res.code === '200'){ // 请求成功
+                ElMessage({
+                  type: 'success',
+                  message: '登录成功'})
+                /*登录成功, 进行页面跳转*/
+                router.push("/front")
+              }else{ // 请求失败
+                ElNotification({
+                  type: 'error',
+                  message: res.msg
+                })
+              }
+            })
+          }else{
+            ElNotification({
+              type: 'error',
+              message: res.msg
+            })
+          }
+        }
+    )
+  }
+</script>
+
+<style scoped>
+.logincontent {
+  display: flex;
+  background-image: url("../assets/wyy8.png");
+  width: 100%;
+  height: 100%;
+  min-width: 100px;
+  min-height: 760px;
+  justify-content: center;
+  align-items: center;
+}
+</style>
+<style>
+/*去除图片白边*/
+html,body{
+  margin:0;
+  padding:0;
+}
+</style>

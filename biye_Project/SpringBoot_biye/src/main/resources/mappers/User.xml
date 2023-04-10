@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zgy.springboot_biye.dao.UserDao">
+    <insert id="insert">
+        insert into user(username, password, age, sex, phone, email, address)
+        values(#{username}, #{password}, #{age},  #{sex}, #{phone}, #{email}, #{address})
+    </insert>
+    <insert id="register">
+        insert into user(username, password)
+        values(#{username}, #{password})
+    </insert>
+    <update id="update">
+        update user set
+            username=#{username}, password=#{password}, age=#{age},
+            sex=#{sex}, phone=#{phone}, email=#{email}, address=#{address}
+        where id=#{id}
+    </update>
+    <update id="updatePass">
+        update user set
+                        username=#{username},password=#{password}
+        where username=#{username}
+    </update>
+    <delete id="deleteById">
+        delete from user where id=#{id}
+    </delete>
+    <select id="findAll" resultType="com.zgy.springboot_biye.domain.User">
+        select * from user;
+    </select>
+    <select id="findById" resultType="com.zgy.springboot_biye.domain.User">
+        select * from user where id=#{id};
+    </select>
+    <select id="findUser" resultType="com.zgy.springboot_biye.domain.User">
+        select * from user where username=#{username} and password=#{password}
+    </select>
+    <select id="findPage" resultType="com.zgy.springboot_biye.domain.User">
+        select * from user
+        <where>
+            <if test="username != null and username !=''">
+                and username like concat('%', #{username}, '%')
+            </if>
+            <if test="phone != null and phone !=''">
+                and phone like concat('%', #{phone}, '%')
+            </if>
+            <if test="email != null and email !=''">
+                and email like concat('%', #{email}, '%')
+            </if>
+        </where>
+        limit #{pageNum}, #{pageSize}
+    </select>
+    <select id="count" resultType="java.lang.Long">
+        select count(id) from user
+        <where>
+            <if test="username != null and username !=''">
+                and username like concat('%', #{username}, '%')
+            </if>
+            <if test="phone != null and phone !=''">
+                and phone like concat('%', #{phone}, '%')
+            </if>
+            <if test="email != null and email !=''">
+                and email like concat('%', #{email}, '%')
+            </if>
+        </where>
+    </select>
+    <!--使用PageHelper, 则不必使用limit-->
+    <select id="findPageHelper" resultType="com.zgy.springboot_biye.domain.User">
+        select * from user
+        <where>
+            <if test="username != null and username !=''">
+                and username like concat('%', #{username}, '%')
+            </if>
+            <if test="phone != null and phone !=''">
+                and phone like concat('%', #{phone}, '%')
+            </if>
+            <if test="email != null and email !=''">
+                and email like concat('%', #{email}, '%')
+            </if>
+        </where>
+    </select>
+</mapper>
