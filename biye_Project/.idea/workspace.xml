@@ -4,7 +4,33 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f6cf6e5c-e033-463f-8c0b-f6cea27fcb50" name="Changes" comment="" />
+    <list default="true" id="f6cf6e5c-e033-463f-8c0b-f6cea27fcb50" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/0309b3f1-e24d-4cd0-9d2f-340ac49ed748.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/0309b3f1-e24d-4cd0-9d2f-340ac49ed748.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SpringBoot_biye/src/main/java/com/zgy/springboot_biye/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/SpringBoot_biye/src/main/java/com/zgy/springboot_biye/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SpringBoot_biye/src/main/resources/mappers/User.xml" beforeDir="false" afterPath="$PROJECT_DIR$/SpringBoot_biye/src/main/resources/mappers/User.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/vue/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/vue/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/src/assets/bg-0b9df28.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/vue/static/bg-0b9df28.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/src/assets/bg-0e129fe.png" beforeDir="false" afterPath="$PROJECT_DIR$/vue/static/bg-0e129fe.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/src/assets/bg-103c3c8.png" beforeDir="false" afterPath="$PROJECT_DIR$/vue/static/bg-103c3c8.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/src/assets/future.png" beforeDir="false" afterPath="$PROJECT_DIR$/vue/static/future.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/src/assets/redLight.png" beforeDir="false" afterPath="$PROJECT_DIR$/vue/static/redLight.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/src/assets/sea.png" beforeDir="false" afterPath="$PROJECT_DIR$/vue/static/sea.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/src/assets/the dock.png" beforeDir="false" afterPath="$PROJECT_DIR$/vue/static/the dock.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/src/assets/wyy8.png" beforeDir="false" afterPath="$PROJECT_DIR$/vue/static/wyy8.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/src/components/Admin-M.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/components/Admin-M.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/src/components/Header.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/components/Header.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/router/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/src/views/Login.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/views/Login.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/src/views/Register.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/views/Register.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/src/views/admin/AdminPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/views/admin/AdminPage.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/src/views/user/ApplicationForm.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/views/user/ApplicationForm.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/src/views/user/FrontPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/views/user/FrontPage.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/src/views/user/NewPassword.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/views/user/NewPassword.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/src/views/user/Person.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/views/user/Person.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/src/views/user/WaiverApplication.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/views/user/WaiverApplication.vue" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -81,11 +107,11 @@
       <recent name="C:\Users\root-bine\Desktop\biye_Project\vue\src\utils" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\root-bine\Desktop\gratitude\biye_Project\vue\static" />
       <recent name="C:\Users\root-bine\Desktop\biye_Project\vue\src\views\user" />
       <recent name="C:\Users\root-bine\Desktop\biye_Project\vue\src\views" />
       <recent name="C:\Users\root-bine\Desktop\biye_Project\vue\src\assets" />
       <recent name="C:\Users\root-bine\Desktop\biye_Project\vue\src\components" />
-      <recent name="C:\Users\root-bine\Desktop\biye_Project\vue\static" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.zgy.springboot_dev.config" />
@@ -207,10 +233,26 @@
       <workItem from="1681135775760" duration="50000" />
       <workItem from="1681135848930" duration="182000" />
       <workItem from="1681136051852" duration="96000" />
+      <workItem from="1681179139980" duration="5183000" />
+      <workItem from="1681196294869" duration="6842000" />
+      <workItem from="1681203380137" duration="3289000" />
+      <workItem from="1681220100619" duration="612000" />
+      <workItem from="1681222032495" duration="50000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

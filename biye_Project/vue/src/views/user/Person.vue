@@ -113,7 +113,7 @@ export default {
 }
 .imag {
   display: flex;
-  background-image: url("src/assets/bg-0b9df28.jpg");
+  background-image: url("../static/bg-0b9df28.jpg");
   width: 100%;
   height: 680px;
   justify-content: center;

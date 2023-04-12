@@ -250,7 +250,7 @@ const handleExceed: UploadProps['onExceed'] = (files, uploadFiles) => {
 }
 .applicate {
   display: flex;
-  background-image: url("../../assets/redLight.png");
+  background-image: url("../static/redLight.png");
   width: 100%;
   height: 680px;
   justify-content: center;

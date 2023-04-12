@@ -29,7 +29,7 @@
         select * from user;
     </select>
     <select id="findById" resultType="com.zgy.springboot_biye.domain.User">
-        select * from user where id=#{id};
+        select username from user where id=#{id};
     </select>
     <select id="findUser" resultType="com.zgy.springboot_biye.domain.User">
         select * from user where username=#{username} and password=#{password}

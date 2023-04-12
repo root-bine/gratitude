@@ -4,7 +4,6 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.zgy.springboot_biye.config.Result;
 import com.zgy.springboot_biye.controller.dto.SearchPage;
-import com.zgy.springboot_biye.dao.UserDao;
 import com.zgy.springboot_biye.domain.User;
 import com.zgy.springboot_biye.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,11 +14,8 @@ import java.util.List;
 @RestController
 @RequestMapping("/users")
 public class UserController {
-    /*@Autowired
-    private UserDao userDao;*/
     @Autowired
     private UserService userService;
-
 
     /** 分页 1.0
      @GetMapping("/page")

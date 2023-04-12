@@ -1,6 +1,6 @@
 <template>
   <el-menu  class="el" router>
-    <el-menu-item index="front">
+    <el-menu-item index="adminF">
       <el-icon><HomeFilled /></el-icon>
       <span style="font-size: 25px">首页</span>
     </el-menu-item>

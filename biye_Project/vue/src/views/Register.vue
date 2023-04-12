@@ -82,7 +82,7 @@
 <style scoped>
 .logincontent {
   display: flex;
-  background-image: url("../assets/future.png");
+  background-image: url("../static/future.png");
   width: 100%;
   height: 100%;
   min-width: 100px;

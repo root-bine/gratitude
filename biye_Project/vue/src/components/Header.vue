@@ -10,7 +10,7 @@
       <!--<span class="demonstration">用户</span>-->
       <el-dropdown trigger="click">
           <span class="el-dropdown-link">
-            用户
+            学生 {{user.username}}
             <el-icon class="el-icon--right"><arrow-down /></el-icon>
           </span>
         <template #dropdown>
@@ -25,7 +25,17 @@
 </template>
 
 <script setup>
-  import {ArrowDown, Check, CircleCheck, CirclePlus, CirclePlusFilled, Plus} from '@element-plus/icons-vue'
+  import {ArrowDown, CircleCheck, CirclePlus} from '@element-plus/icons-vue'
+  import {useRouter} from 'vue-router'
+  import request from "../utils/request.js";
+  import {ElMessage, ElNotification} from "element-plus";
+  import {reactive, ref} from "vue";
+  const router = useRouter()
+  const id = router.currentRoute.value.params.id
+  const user = reactive({})
+  request.get('/users/'+id).then(res => {
+     user.username = res.data.username
+  })
 </script>
 
 <style scoped>

@@ -12,9 +12,9 @@
           <el-input style="height: 50px" v-model="user.password" :prefix-icon="Lock" show-password clearable/>
         </el-form-item>
         <el-form-item style="margin-left: 100px">
-          <el-radio-group v-model="user.id" class="ml-4">
-            <el-radio label="管理员" size="large"></el-radio>
-            <el-radio label="学生" size="large"></el-radio>
+          <el-radio-group v-model="radio" class="ml-4">
+            <el-radio label="1" size="large" >管理员</el-radio>
+            <el-radio label="2" size="large">学生</el-radio>
           </el-radio-group>
         </el-form-item>
         <el-form-item style="margin-left: 100px">
@@ -29,8 +29,7 @@
 <script setup>
   // 引入router, 便于页面跳转
   import router from "../router/index.js";
-
-  import {getCurrentInstance, reactive} from "vue";
+  import {getCurrentInstance, reactive, ref} from "vue";
   import {User,Lock} from "@element-plus/icons-vue";
   import {ElMessage,ElNotification} from "element-plus";
   import request from "../utils/request.js";
@@ -49,14 +48,14 @@
       {required: true, message: '请输入密码', trigger: 'blur'},
     ]
   })
-
+  const radio = ref(1)
   // 登录实现
   const login = () => {
     proxy.$refs.ruleFormRef.validate((valid) => {
-          if(valid){
+          if(valid && radio.value == 2){
             /**
              * 向后台发送请求:http://localhost:9090
-             * 后端数据格式: {"code" : "200","msg" : "",，"data": null}
+             * 后端数据格式: {"code" : "200","msg" : " ",，"data": null}
              * 此处请求为Post, 后端登录功能接口也必须是Post
              */
             request.post('/users/login',user).then(res => {
@@ -65,7 +64,7 @@
                   type: 'success',
                   message: '登录成功'})
                 /*登录成功, 进行页面跳转*/
-                router.push("/front")
+                router.push({name: 'FrontPage', params:{id: res.data.id}})
               }else{ // 请求失败
                 ElNotification({
                   type: 'error',
@@ -73,7 +72,22 @@
                 })
               }
             })
-          }else{
+          } else if(valid && radio.value == 1) {
+            request.post('/root/in',user).then(res => {
+              if(res.code === '200'){ // 请求成功
+                ElMessage({
+                  type: 'success',
+                  message: '登录成功'})
+                /*登录成功, 进行页面跳转*/
+                router.push("/adminF")
+              }else{ // 请求失败
+                ElNotification({
+                  type: 'error',
+                  message: res.msg
+                })
+              }
+            })
+          } else{
             ElNotification({
               type: 'error',
               message: res.msg
@@ -87,7 +101,7 @@
 <style scoped>
 .logincontent {
   display: flex;
-  background-image: url("../assets/wyy8.png");
+  background-image: url("../static/wyy8.png");
   width: 100%;
   height: 100%;
   min-width: 100px;

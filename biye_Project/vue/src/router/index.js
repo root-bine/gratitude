@@ -3,7 +3,7 @@ import Home from '../views/Home.vue'
 // 路由配置
 const routers = [
     {
-        path: '/',
+        path: '/:id',
         name: 'Layout',
         component:() => import('../layout/Layout.vue'),
         meta: { title: "页面布局" },
@@ -15,12 +15,6 @@ const routers = [
                 component:() => import('../views/user/FrontPage.vue'),
                 meta: { title: "主页演示" }
             },
-            /*{
-                path: 'home',
-                name: 'Home',
-                component: Home,
-                meta: { title: "主页演示" }
-            },*/
             {
               path: 'waiver',
               name: 'WaiverApplication',
@@ -53,21 +47,6 @@ const routers = [
         ]
     },
     {
-        path: '/',
-        name: 'Admin',
-        component:() => import('../layout/Admin.vue'),
-        meta: { title: "页面布局" },
-        redirect: '/login',
-        children: [
-            {
-                path: 'front',
-                name: 'FrontPage',
-                component:() => import('../views/user/FrontPage.vue'),
-                meta: { title: "主页演示" }
-            },
-        ]
-    },
-    {
         path: '/login',
         name: 'Login',
         component:() => import('../views/Login.vue'),
@@ -78,7 +57,22 @@ const routers = [
         name: 'Register',
         component:() => import('../views/Register.vue'),
         meta: { title: "注册页面" }
-    }
+    },
+    {
+        path: '/',
+        name: 'Admin',
+        component:() => import('../layout/Admin.vue'),
+        meta: { title: "页面布局" },
+        redirect: '/login',
+        children: [
+            {
+                path: 'adminF',
+                name: 'AdminPag',
+                component:() => import('../views/admin/AdminPage.vue'),
+                meta: { title: "主页演示" }
+            },
+        ]
+    },
 ]
 
 const router = createRouter({

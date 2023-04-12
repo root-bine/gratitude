@@ -74,7 +74,7 @@ const updatePass = () => {
 <style scoped>
 .newpassword {
   display: flex;
-  background-image: url("src/assets/the dock.png");
+  background-image: url("../static/the dock.png");
   width: 100%;
   height: 680px;
   justify-content: center;

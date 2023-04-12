@@ -13,7 +13,7 @@ export default {
 <style scoped>
 .img {
   display: flex;
-  background-image: url("src/assets/bg-0e129fe.png");
+  background-image: url("../static/bg-0e129fe.png");
   width: 100%;
   height: 680px;
   justify-content: center;
