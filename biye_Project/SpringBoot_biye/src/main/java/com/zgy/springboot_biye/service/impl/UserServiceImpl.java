@@ -25,6 +25,16 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public int updateOne(User user) {
+        return userDao.updateOne(user);
+    }
+
+    @Override
+    public User findOneById(Integer id) {
+        return userDao.findOneByID(id);
+    }
+
+    @Override
     public User findUser(String username, String password) {
         return userDao.findUser(username, password);
     }

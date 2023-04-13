@@ -1,126 +1,148 @@
 <template>
-  <div class="imag">
-    <el-card class="colo">
-      <el-form label-width="80px" size="large">
-        <el-upload
-            class="avatar-uploader"
-            :action="'http://' + serverIp +':9090/file/upload'"
-            :show-file-list="false"
-            :on-success="handleAvatarSuccess">
-          <img v-if="form.avatarUrl" :src="form.avatarUrl" class="avatar">
-          <i v-else class="el-icon-plus avatar-uploader-icon"></i>
-        </el-upload>
-        <el-form-item label="学校">
-          <el-input v-model="form.college" disabled autocomplete="off"></el-input>
-        </el-form-item>
-        <el-form-item label="姓名">
-          <el-input v-model="form.username" disabled autocomplete="off"></el-input>
-        </el-form-item>
-        <el-form-item label="专业">
-          <el-input v-model="form.sex" disabled autocomplete="off"></el-input>
-        </el-form-item>
-        <el-form-item label="学号">
-          <el-input v-model="form.stuID" autocomplete="off"></el-input>
-        </el-form-item>
-        <el-form-item label="邮箱">
-          <el-input v-model="form.email" autocomplete="off"></el-input>
-        </el-form-item>
-        <el-form-item label="政治面貌">
-          <el-input v-model="form.phone" autocomplete="off"></el-input>
-        </el-form-item>
-        <el-form-item>
-          <el-button type="primary" @click="save">修改</el-button>
-        </el-form-item>
-      </el-form>
-    </el-card>
+  <div class="person">
+    <el-form :model="user"
+             label-width="100px">
+      <el-row>
+        <el-col :span="24">
+          <el-upload
+              class="avatar-uploader"
+              action="https://run.mocky.io/v3/9d059bf9-4660-45f2-925d-ce80ad6c4d15"
+              :show-file-list="false"
+              :on-success="handleAvatarSuccess"
+              :before-upload="beforeAvatarUpload"
+          >
+            <img v-if="imageUrl" :src="imageUrl" class="avatar" />
+            <el-icon v-else class="avatar-uploader-icon"><Plus /></el-icon>
+          </el-upload>
+        </el-col>
+        <el-col :span="12">
+          <el-form-item label="学校" class="setLavle">
+            <el-input v-model="state.form.college" disabled style="width: 300px;height: 35px"></el-input>
+          </el-form-item>
+        </el-col>
+        <el-col :span="12">
+          <el-form-item label="专业" class="setLavle">
+            <el-input v-model="state.form.profession" disabled style="width: 300px;height: 35px"></el-input>
+          </el-form-item>
+        </el-col>
+        <el-col :span="12">
+          <el-form-item label="姓名" class="setLavle">
+            <el-input v-model="state.form.username" disabled style="width: 250px;height: 35px"></el-input>
+          </el-form-item>
+        </el-col>
+        <el-col :span="12">
+          <el-form-item label="学号" class="setLavle">
+            <el-input v-model="state.form.studentid" disabled style="width: 250px;height: 35px"></el-input>
+          </el-form-item>
+        </el-col>
+        <el-col :span="12">
+          <el-form-item label="性别" class="setLavle">
+            <el-input v-model="state.form.sex" disabled style="width: 100px;height: 35px"></el-input>
+          </el-form-item>
+        </el-col>
+        <el-col :span="12">
+          <el-form-item label="年龄" class="setLavle">
+            <el-input v-model="state.form.age" disabled style="width: 100px;height: 35px"></el-input>
+          </el-form-item>
+        </el-col>
+        <el-col :span="12">
+          <el-form-item label="政治面貌" class="setLavle">
+            <el-input v-model="state.form.region" disabled style="width: 250px;height: 35px"></el-input>
+          </el-form-item>
+        </el-col>
+        <el-col :span="12">
+          <el-form-item label="邮箱" class="setLavle">
+            <el-input v-model="state.form.email" disabled style="width: 250px;height: 35px"></el-input>
+          </el-form-item>
+        </el-col>
+      </el-row>
+    </el-form>
   </div>
 </template>
 
-<script>
-import {serverIp} from "../../../public/config.js";
-export default {
-  name: "Person",
-  data() {
-    return {
-      serverIp: serverIp,
-      form: {},
-      user: localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user")) : {}
-    }
-  },
-  created() {
-    this.getUser().then(res => {
-      console.log(res)
-      this.form = res
-    })
-  },
-  methods: {
-    async getUser() {
-      return (await this.request.get("/user/username/" + this.user.username)).data
-    },
-    save() {
-      this.request.post("/user", this.form).then(res => {
-        if (res.code === '200') {
-          this.$message.success("保存成功")
-
-          // 触发父级更新User的方法
-          this.$emit("refreshUser")
-
-          // 更新浏览器存储的用户信息
-          this.getUser().then(res => {
-            res.token = JSON.parse(localStorage.getItem("user")).token
-            localStorage.setItem("user", JSON.stringify(res))
-          })
-
-        } else {
-          this.$message.error("保存失败")
-        }
-      })
-    },
-    handleAvatarSuccess(res) {
-      this.form.avatarUrl = res
-    }
+<script setup lang="ts">
+import {getCurrentInstance, reactive} from "vue";
+  import { ref } from 'vue'
+  import { ElMessage } from 'element-plus'
+  import { Plus } from '@element-plus/icons-vue'
+  import request from '../../utils/request.js'
+  import type { UploadProps } from 'element-plus'
+  const imageUrl = ref('')
+  const {proxy} = getCurrentInstance()
+  const handleAvatarSuccess: UploadProps['onSuccess'] = (
+      response,
+      uploadFile
+  ) => {
+    imageUrl.value = URL.createObjectURL(uploadFile.raw!)
   }
-}
+
+  const beforeAvatarUpload: UploadProps['beforeUpload'] = (rawFile) => {
+    if (rawFile.type !== 'image/jpeg') {
+      ElMessage.error('Avatar picture must be JPG format!')
+      return false
+    } else if (rawFile.size / 1024 / 1024 > 2) {
+      ElMessage.error('Avatar picture size can not exceed 2MB!')
+      return false
+    }
+    return true
+  }
+  import {reactive, ref} from "vue";
+  import {useRouter} from 'vue-router'
+  const router = useRouter()
+  const state = reactive({
+    form: {},
+  })
+  const id = router.currentRoute.value.params.id
+  request.get('/users/one/'+id).then(res => {
+    state.form = res.data
+  })
 </script>
 
-<style>
+<style scoped>
 .avatar-uploader {
   text-align: center;
-  padding-bottom: 10px;
+  padding-bottom: 20px;
 }
 .avatar-uploader .el-upload {
-  border: 1px dashed #d9d9d9;
+  border: 1px dashed var(--el-border-color);
   border-radius: 6px;
   cursor: pointer;
   position: relative;
   overflow: hidden;
+  transition: var(--el-transition-duration-fast);
 }
+
 .avatar-uploader .el-upload:hover {
-  border-color: #409EFF;
+  border-color: var(--el-color-primary);
 }
+
 .avatar-uploader-icon {
   font-size: 28px;
-  color: #8c939d;
-  width: 138px;
-  height: 138px;
-  line-height: 138px;
+  color: burlywood;
+  width: 178px;
+  height: 178px;
   text-align: center;
 }
-.avatar {
-  width: 138px;
-  height: 138px;
-  display: block;
+.ml-4 {
+    margin-left: 450px;
+    margin-top: 25px;
 }
-.imag {
+.setLavle {
+  margin-left: 35px;
+  margin-top: 30px;
+}
+.person {
   display: flex;
-  background-image: url("../static/bg-0b9df28.jpg");
+  background-image: url("../static/cat.png");
   width: 100%;
   height: 680px;
   justify-content: center;
   align-items: center;
 }
-.colo {
-  width: 800px;
-  height: 680px;
+</style>
+
+<style>
+.setLavle .el-form-item__label {
+  color: cyan;
 }
 </style>

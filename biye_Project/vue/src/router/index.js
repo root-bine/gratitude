@@ -10,7 +10,7 @@ const routers = [
         redirect: '/login',
         children: [
             {
-                path: 'front',
+                path: '/:id/front',
                 name: 'FrontPage',
                 component:() => import('../views/user/FrontPage.vue'),
                 meta: { title: "主页演示" }
@@ -42,7 +42,13 @@ const routers = [
                 path:'person',
                 name:'Person',
                 component:() => import('../views/user/Person.vue'),
-                meta: { title: "个人中心" }
+                meta: { title: "个人信息" }
+            },
+            {
+                path:'editPerson',
+                name:'EditPerson',
+                component:() => import('../views/user/EditPerson.vue'),
+                meta: { title: "修改个人信息" }
             },
         ]
     },

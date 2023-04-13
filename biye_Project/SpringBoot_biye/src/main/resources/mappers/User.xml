@@ -78,4 +78,14 @@
             </if>
         </where>
     </select>
+    <select id="findOneByID" resultType="com.zgy.springboot_biye.domain.User">
+        select * from user where id = #{id}
+    </select>
+    <update id="updateOne">
+        update user set
+            studentid=#{studentid}, college=#{college}, username=#{username},
+            email=#{email}, profession=#{profession}, region=#{region},
+            age=#{age}, sex=#{sex}
+        where username=#{username}
+    </update>
 </mapper>

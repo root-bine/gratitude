@@ -193,7 +193,7 @@ const handleExceed: UploadProps['onExceed'] = (files, uploadFiles) => {
   align-items: center;
 }
 .imset .el-form-item__label{
-  color: coral;
+  color: cyan;
 }
 .el-upload__tip {
   color: brown;

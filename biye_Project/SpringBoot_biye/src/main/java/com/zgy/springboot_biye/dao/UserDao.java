@@ -4,11 +4,17 @@ import com.zgy.springboot_biye.controller.dto.SearchPage;
 import com.zgy.springboot_biye.domain.User;
 import org.apache.ibatis.annotations.Mapper;
 
+import javax.jws.soap.SOAPBinding;
 import java.util.List;
 @Mapper
 public interface UserDao {
     List<User> findAll();
+    // 根据ID查询用户名, 用于展示在前端右上角
     User findById(Integer id);
+    // 根据ID查询用户部分信息, 显示个人单独部分信息
+    User findOneByID(Integer id);
+    int updateOne(User user);
+    // 登录
     User findUser(String username, String password);
     int insert(User user);
     int update(User user);

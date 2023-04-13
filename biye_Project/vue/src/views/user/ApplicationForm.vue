@@ -3,7 +3,7 @@
     <el-form ref="ruleFormRef"
              :model="baomingbiao" :rules="rules"
              label-width="100px" style="margin-left: 35px;margin-top: 10px">
-      <el-row style="">
+      <el-row>
         <el-col :span="12">
           <el-form-item label="学号" prop="stuID" class="imset">
             <el-input v-model="baomingbiao.stuID" placeholder="学生学号"
@@ -116,7 +116,7 @@
 
       <el-form-item>
         <el-button type="primary" @click="onSubmit">提交</el-button>
-        <el-button @click="$router.push('/console')">取消</el-button>
+        <el-button @click="$router.push({name: 'ConsolidatedTable'})">取消</el-button>
       </el-form-item>
     </el-form>
   </div>
@@ -125,7 +125,6 @@
 import {getCurrentInstance, reactive} from "vue";
 import { ref } from 'vue'
 import { ElMessage, ElMessageBox } from 'element-plus'
-
 import type { UploadProps, UploadUserFile } from 'element-plus'
 
 //import router from "../router/index.js";
@@ -257,7 +256,7 @@ const handleExceed: UploadProps['onExceed'] = (files, uploadFiles) => {
   align-items: center;
 }
 .imset .el-form-item__label{
-  color: coral;
+  color: cyan;
 }
 .el-upload__tip {
   color: brown;

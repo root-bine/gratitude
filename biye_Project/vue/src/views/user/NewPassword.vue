@@ -13,7 +13,7 @@
         </el-form-item>
         <el-form-item style="margin-left: 100px">
           <el-button type="success" size="large" style="margin-right: 5px" @click="updatePass">确认</el-button>
-          <el-button type="primary" size="large" style="margin-right: 5px" @click="$router.push('/front')">取消</el-button>
+          <el-button type="primary" size="large" style="margin-right: 5px" @click="$router.push('/:id/front')">取消</el-button>
         </el-form-item>
       </el-form>
     </div>

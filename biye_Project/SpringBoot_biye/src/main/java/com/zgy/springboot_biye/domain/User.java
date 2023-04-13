@@ -11,10 +11,15 @@ public class User {
     private int id;
     private String username;
     private String password;
+    private String studentid;
+    private String college;
+    private String profession;
+    private String region;
+    private String email;
+    private String avaterUrl;
+    private String Department;
+    private String address;
     private Integer age;
     private String sex;
     private String phone;
-    private String email;
-    private String address;
-    private String avater;
 }

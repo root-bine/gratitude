@@ -16,6 +16,7 @@
         <template #dropdown>
           <el-dropdown-menu>
             <el-dropdown-item :icon="CirclePlus" style="font-size: 20px">系统公告</el-dropdown-item>
+            <el-dropdown-item :icon="Edit" style="font-size: 20px" @click="$router.push({name: 'EditPerson'})">编辑信息</el-dropdown-item>
             <el-dropdown-item :icon="CircleCheck" style="font-size: 20px" @click="$router.push('/login')">退出登录</el-dropdown-item>
           </el-dropdown-menu>
         </template>
@@ -25,11 +26,10 @@
 </template>
 
 <script setup>
-  import {ArrowDown, CircleCheck, CirclePlus} from '@element-plus/icons-vue'
-  import {useRouter} from 'vue-router'
+  import {ArrowDown, CircleCheck, CirclePlus, Edit} from '@element-plus/icons-vue'
   import request from "../utils/request.js";
-  import {ElMessage, ElNotification} from "element-plus";
   import {reactive, ref} from "vue";
+  import {useRouter} from 'vue-router'
   const router = useRouter()
   const id = router.currentRoute.value.params.id
   const user = reactive({})

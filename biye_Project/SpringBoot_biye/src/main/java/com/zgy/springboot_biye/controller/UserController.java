@@ -115,10 +115,22 @@ public class UserController {
         }
         return Result.error("该用户不存在");
     }
-
+    // 查询单个数据, 用于前端获取用户名并展示在页面右上角
     @GetMapping("/{id}") // https://localhost:8090/users/id
     public Result findById(@PathVariable Integer id){
         return Result.success(userService.findById(id));
+    }
+
+    // 根据ID查询用户部分信息, 用于展示用户部分数据
+    @GetMapping("/one/{id}")
+    public Result findOne(@PathVariable Integer id){
+        return Result.success(userService.findOneById(id));
+    }
+
+    // 修改个人信息
+    @PutMapping("/message")
+    public  Result updateOne(@RequestBody User user){
+        return Result.success(userService.updateOne(user));
     }
 
     // 查询全部
