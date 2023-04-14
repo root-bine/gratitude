@@ -249,14 +249,14 @@ const handleExceed: UploadProps['onExceed'] = (files, uploadFiles) => {
 }
 .applicate {
   display: flex;
-  background-image: url("../static/redLight.png");
+  background-image: url("../static/bg-girl.jpg");
   width: 100%;
   height: 680px;
   justify-content: center;
   align-items: center;
 }
 .imset .el-form-item__label{
-  color: cyan;
+  color: darkorange;
 }
 .el-upload__tip {
   color: brown;

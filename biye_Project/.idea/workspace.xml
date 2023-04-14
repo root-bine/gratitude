@@ -5,22 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f6cf6e5c-e033-463f-8c0b-f6cea27fcb50" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/vue/static/cat.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SpringBoot_biye/src/main/java/com/zgy/springboot_biye/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/SpringBoot_biye/src/main/java/com/zgy/springboot_biye/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SpringBoot_biye/src/main/java/com/zgy/springboot_biye/dao/UserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/SpringBoot_biye/src/main/java/com/zgy/springboot_biye/dao/UserDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SpringBoot_biye/src/main/java/com/zgy/springboot_biye/domain/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/SpringBoot_biye/src/main/java/com/zgy/springboot_biye/domain/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SpringBoot_biye/src/main/java/com/zgy/springboot_biye/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/SpringBoot_biye/src/main/java/com/zgy/springboot_biye/service/UserService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SpringBoot_biye/src/main/java/com/zgy/springboot_biye/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/SpringBoot_biye/src/main/java/com/zgy/springboot_biye/service/impl/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SpringBoot_biye/src/main/resources/mappers/User.xml" beforeDir="false" afterPath="$PROJECT_DIR$/SpringBoot_biye/src/main/resources/mappers/User.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue/public/config.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue/src/components/Header.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/components/Header.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/src/components/Menu.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/components/Menu.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vue/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/router/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/src/views/Login.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/views/Login.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vue/src/views/user/ApplicationForm.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/views/user/ApplicationForm.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue/src/views/user/NewPassword.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/views/user/NewPassword.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue/src/views/user/Person.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/views/user/Person.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/src/views/user/EditPerson.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/views/user/EditPerson.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vue/src/views/user/WaiverApplication.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/views/user/WaiverApplication.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue/static/bg-0b9df28.jpg" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,9 +23,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Unnamed" />
+        <option value="Vue Single File Component" />
         <option value="Interface" />
         <option value="Class" />
-        <option value="Vue Single File Component" />
       </list>
     </option>
   </component>
@@ -65,7 +57,9 @@
     <option name="vmOptions" value="-Dmaven.wagon.http.ssl.insecure=true -Dmaven.wagon.http.ssl.allowall=true -Dmaven.wagon.http.ssl.ignore.validity.dates=true" />
   </component>
   <component name="ProjectId" id="2Mlkexqp2XvMa8XSrsohvKnbW1Z" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="autoscrollToSource" value="true" />
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -232,6 +226,10 @@
       <workItem from="1681284642143" duration="12755000" />
       <workItem from="1681299247168" duration="10994000" />
       <workItem from="1681357218483" duration="628000" />
+      <workItem from="1681359073073" duration="852000" />
+      <workItem from="1681371083299" duration="839000" />
+      <workItem from="1681371944962" duration="17107000" />
+      <workItem from="1681454298939" duration="11423000" />
     </task>
     <servers />
   </component>

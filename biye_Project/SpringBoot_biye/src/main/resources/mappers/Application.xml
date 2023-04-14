@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zgy.springboot_biye.dao.ApplicationDao">
+
+    <insert id="insert">
+        insert into
+            shenqingbiao(stuID, stuName, profession, test, average, course, myself, school, file)
+        values
+               (#{stuID}, #{stuName}, #{profession}, #{test},
+                #{average}, #{course}, #{myself}, #{school}, #{file})
+    </insert>
+    <update id="update">
+        update shenqingbiao set
+                        stuID=#{stuID}, school=#{school}, profession=#{profession}, stuName=#{stuName},
+                        test=#{test}, average=#{average}, course=#{course}, myself=#{myself}, file=#{file}
+        where stuID=#{stuID}
+    </update>
+    <delete id="delete">
+        delete from shenqingbiao where stuID=
+                (select studentid from user where id=#{id})
+    </delete>
+    <select id="findAll" resultType="com.zgy.springboot_biye.domain.Application">
+        select * from shenqingbiao
+    </select>
+    <select id="findByID" resultType="com.zgy.springboot_biye.domain.Application">
+        select * from shenqingbiao where id =
+            (select s.id from shenqingbiao s left outer join user u on s.stuID=u.studentid where u.id=#{id})
+    </select>
+</mapper>

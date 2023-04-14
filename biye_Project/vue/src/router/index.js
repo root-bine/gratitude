@@ -16,15 +16,16 @@ const routers = [
                 meta: { title: "主页演示" }
             },
             {
-              path: 'waiver',
-              name: 'WaiverApplication',
-              component: () => import('../views/user/WaiverApplication.vue')
+                path: 'waiver',
+                name: 'WaiverApplication',
+                component: () => import('../views/user/WaiverApplication.vue'),
+                meta: {title: "推免申请表"}
             },
             {
                 path: 'application',
                 name: 'ApplicationForm',
                 component:()  => import('../views/user/ApplicationForm.vue'),
-                meta: { title: "推免申请表" }
+                meta: { title: "推免报名表" }
             },
             {
                 path: 'console',
@@ -50,6 +51,12 @@ const routers = [
                 component:() => import('../views/user/EditPerson.vue'),
                 meta: { title: "修改个人信息" }
             },
+            {
+                path:'logo',
+                name:'WaiverLgo',
+                component:() => import('../views/user/WaiverLgo.vue'),
+                meta: { title: "修改申请记录" }
+            },
         ]
     },
     {
@@ -65,7 +72,7 @@ const routers = [
         meta: { title: "注册页面" }
     },
     {
-        path: '/',
+        path: '/:id',
         name: 'Admin',
         component:() => import('../layout/Admin.vue'),
         meta: { title: "页面布局" },

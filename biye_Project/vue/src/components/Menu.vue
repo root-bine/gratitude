@@ -14,10 +14,14 @@
       <el-menu-item class="els" index="new">修改密码</el-menu-item>
     </el-sub-menu>
 
-    <el-menu-item index="waiver">
-      <el-icon><Grid /></el-icon>
-      <span style="font-size: 25px">推免申请</span>
-    </el-menu-item>
+    <el-sub-menu index="2">
+      <template #title>
+        <el-icon><Grid /></el-icon>
+        <span style="font-size: 25px">推免申请</span>
+      </template>
+      <el-menu-item class="els" index="waiver">上传申请</el-menu-item>
+      <el-menu-item class="els" index="logo">申请信息</el-menu-item>
+    </el-sub-menu>
 
     <el-sub-menu index="3">
       <template #title>

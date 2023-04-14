@@ -79,7 +79,7 @@
                   type: 'success',
                   message: '登录成功'})
                 /*登录成功, 进行页面跳转*/
-                router.push("/adminF")
+                router.push({name: 'AdminPag', params:{id: res.data.id}})
               }else{ // 请求失败
                 ElNotification({
                   type: 'error',
