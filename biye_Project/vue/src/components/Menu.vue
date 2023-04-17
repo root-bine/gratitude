@@ -28,8 +28,8 @@
         <el-icon><icon-menu /></el-icon>
         <span style="font-size: 25px">推免报名</span>
       </template>
-      <el-menu-item class="els" index="application">推免申请表</el-menu-item>
-      <el-menu-item class="els" index="console">综合信息表</el-menu-item>
+      <el-menu-item class="els" index="application">信息上传</el-menu-item>
+      <el-menu-item class="els" index="console">报名记录</el-menu-item>
     </el-sub-menu>
 
     <el-menu-item index="4">
@@ -40,11 +40,6 @@
     <el-menu-item index="5">
       <el-icon><Promotion /></el-icon>
       <span style="font-size: 25px">录取结果</span>
-    </el-menu-item>
-
-    <el-menu-item index="6">
-      <el-icon><Message /></el-icon>
-      <span style="font-size: 25px">留言板</span>
     </el-menu-item>
   </el-menu>
 </template>

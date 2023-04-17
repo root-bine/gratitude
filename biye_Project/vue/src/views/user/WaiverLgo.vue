@@ -151,7 +151,6 @@
 </template>
 
 <script setup>
-import {Edit, Delete} from "@element-plus/icons-vue";
 import {getCurrentInstance, reactive, ref} from "vue";
 import request from "../../utils/request.js";
 import {ElMessage} from "element-plus";
@@ -204,7 +203,6 @@ request.get('/apply/'+id).then(res => {
   state.application.file = res.data.file
   state.application.school = res.data.school
   state.application.myself = res.data.myself
-  //console.log(res.data)
 })
 
 // 编辑
@@ -247,7 +245,7 @@ request.get('/apply/'+id).then(res => {
 <style scoped>
 .waiver {
   display: flex;
-  background-image: url("../static/bg-girl.jpg");
+  background-image: url("../static/redLight.png");
   width: 100%;
   height: 680px;
   justify-content: center;

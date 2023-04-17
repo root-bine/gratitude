@@ -1,234 +1,337 @@
 <template>
-  <el-table :data="state.tableData" stripe style="width: 100%;margin-top: 30px;margin-left: 30px" >
-<!--    <el-table-column type="selection" width="55"/>-->
-    <el-table-column prop="id" label="ID" width="100"/>
-    <el-table-column prop="stuID" label="学号" width="120"/>
-    <el-table-column prop="stuName" label="姓名" width="120"/>
-    <el-table-column prop="sex" label="性别" width="120"/>
-    <el-table-column prop="profession" label="专业" width="120"/>
-    <el-table-column prop="english" label="四六级" width="120"/>
-    <el-table-column prop="average" label="平均绩点" width="140"/>
-    <el-table-column prop="stuStatus" label="政治面貌" width="140"/>
+  <div class="applicate">
+    <el-form ref="ruleFormRef"
+             :model="state.baomingbiao" :rules="rules"
+             label-width="100px" style="margin-left: 35px;margin-top: 10px">
+      <el-row>
+        <el-col :span="12">
+          <el-form-item label="学号" prop="stuID" class="imset">
+            <el-input v-model="state.baomingbiao.stuID" disabled
+                      clearable style="width: 400px;height: 35px"/>
+          </el-form-item>
+        </el-col>
 
-    <!--修改和删除按钮-->
-    <el-table-column fixed="right" label="操作">
-      <template #default="scope">
-        <el-button size="small" type="success" @click="handleEdit(scope.row)">
-          <!--设置按钮大小、图标与字体间距-->
-          <el-icon size="20" style="margin-right: 3px"><Edit /></el-icon>编辑
-        </el-button>
-        <el-popconfirm title="是否要删除此条信息?" confirm-button-text="确定"
-                       cancel-button-text="取消" @confirm="handleDelete(scope.row.id)">
+        <el-col :span="12">
+          <el-form-item label="姓名" prop="stuName" class="imset">
+            <el-input v-model="state.baomingbiao.stuName" disabled
+                      style="width: 400px;height: 35px"/>
+          </el-form-item>
+        </el-col>
+
+        <el-col :span="12">
+          <el-form-item label="性别" prop="sex" class="imset">
+            <el-input v-model="state.baomingbiao.sex" disabled
+                      style="width: 400px;height: 35px"/>
+          </el-form-item>
+        </el-col>
+
+        <el-col :span="12">
+          <el-form-item label="专业" prop="profession" class="imset">
+            <el-input v-model="state.baomingbiao.profession" disabled
+                      style="width: 400px;height: 35px"/>
+          </el-form-item>
+        </el-col>
+
+        <el-col :span="12">
+          <el-form-item label="四/六级" prop="english" class="imset">
+            <el-input v-model="state.baomingbiao.english" disabled
+                      style="width: 400px;height: 35px"/>
+          </el-form-item>
+        </el-col>
+
+        <el-col :span="12">
+          <el-form-item label="平均绩点" prop="average" class="imset">
+            <el-input v-model="state.baomingbiao.average" disabled
+                      style="width: 400px;height: 35px"/>
+          </el-form-item>
+        </el-col>
+
+        <el-col :span="12">
+          <el-form-item label="政治面貌" prop="stuStatus" class="imset">
+            <el-input v-model="state.baomingbiao.stuStatus" disabled
+                      style="width: 400px;height: 35px"/>
+          </el-form-item>
+        </el-col>
+
+        <el-col :span="12">
+          <el-form-item label="电话号码" prop="phone" class="imset">
+            <el-input v-model="state.baomingbiao.phone" disabled
+                       style="width: 400px;height: 35px"/>
+          </el-form-item>
+        </el-col>
+
+        <el-col :span="24">
+          <el-form-item label="相关附件" class="imset">
+            <el-input style="min-width: 100px; max-width: 600px;" :rows="3"
+                      disabled v-model="state.baomingbiao.file"
+                      type="textarea" autocomplete="off"/>
+          </el-form-item>
+        </el-col>
+      </el-row>
+
+      <el-row>
+        <el-col :span="24">
+          <el-form-item label="毕设内容" prop="gratitude" class="imset">
+            <el-input style="min-width: 100px; max-width: 600px;" :rows="3"
+                      disabled v-model="state.baomingbiao.gratitude"
+                      type="textarea" autocomplete="off"/>
+          </el-form-item>
+        </el-col>
+      </el-row>
+
+      <el-row>
+        <el-col :span="24">
+          <el-form-item label="自我介绍" prop="myself" class="imset">
+            <el-input style="min-width: 100px; max-width: 600px;" :rows="3"
+                      disabled v-model="state.baomingbiao.myself"
+                      type="textarea" autocomplete="off"/>
+          </el-form-item>
+        </el-col>
+      </el-row>
+
+      <el-form-item>
+        <el-button type="primary" style="margin-left: 400px;margin-top: 20px"
+                   size="large" @click="handleEdit">修改</el-button>
+        <el-popconfirm title="确定要删除该记录 ?" confirm-button-text="确定"
+                       cancel-button-text="取消" @confirm="handleDelete">
           <template #reference>
-            <el-button size="small" type="danger">
-              <el-icon size="20" style="margin-right: 3px"><Delete/></el-icon>删除
-            </el-button>
+            <el-button style="margin-left: 150px;margin-top: 20px"
+                       size="large" type="danger">删除</el-button>
           </template>
         </el-popconfirm>
-      </template>
-    </el-table-column>
-  </el-table>
-
-  <!--分页配置-->
-  <div style="margin: 10px 0;margin-left: 35px">
-    <el-pagination
-        v-model:current-page="currentPage"
-        v-model:page-size="pageSize"
-        :page-sizes="[5, 10, 15, 25]"
-        :small="large"
-        :disabled="false"
-        :background="true"
-        layout="total, sizes, prev, pager, next, jumper"
-        :total="total"
-        @size-change="handleSizeChange"
-        @current-change="handleCurrentChange"
-    />
-  </div>
-
-  <el-dialog v-model="dialogFormVisible" title="编辑信息" width="50%">
-    <el-form :model="state.form" :rules="state.rules" ref="ruleFormRef" label-width="100px">
-      <el-form-item label="学号" prop="stuID">
-        <el-input v-model="state.form.stuID" autocomplete="off" placeholder="请输入学号" style="width: 20%"/>
-      </el-form-item>
-      <el-form-item label="姓名" prop="stuName">
-        <el-input v-model="state.form.stuName" autocomplete="off" placeholder="请输入姓名" style="width: 20%"/>
-      </el-form-item>
-      <el-form-item label="性别" prop="sex">
-        <el-radio-group v-model="state.form.sex" class="ml-4">
-          <el-radio label="男" size="large"/>
-          <el-radio label="女" size="large"/>
-        </el-radio-group>
-      </el-form-item>
-      <el-form-item label="专业" prop="profession">
-        <el-input v-model="state.form.profession" autocomplete="off" placeholder="请填写专业" style="width: 35%"/>
-      </el-form-item>
-      <el-form-item label="四/六级" prop="english" class="imset">
-        <el-radio-group v-model="state.form.english" class="ml-4">
-          <el-radio label="ETC-4" size="default" border/>
-          <el-radio label="ETC-6" size="default" border/>
-        </el-radio-group>
-      </el-form-item>
-      <el-form-item label="平均绩点" prop="average">
-        <el-input v-model="state.form.english" autocomplete="off" placeholder="请填写三年平均绩点" style="width: 35%"/>
-      </el-form-item>
-      <el-form-item label="政治面貌" prop="stuStatus" class="imset">
-        <el-select v-model="state.form.stuStatus" placeholder="请选择" size="large">
-          <el-option
-              v-for="item in options"
-              :key="item.value"
-              :label="item.label"
-              :value="item.value"
-          />
-        </el-select>
       </el-form-item>
     </el-form>
-    <template #footer>
-      <span class="dialog-footer">
-        <el-button @click="dialogFormVisible = false">取消</el-button>
-        <el-button type="primary" @click="Confirm">确认</el-button>
-      </span>
-    </template>
-  </el-dialog>
-</template>
-<script setup>
-import {Edit, Delete} from "@element-plus/icons-vue";
-import {getCurrentInstance, reactive, ref} from "vue";
-import request from "../../utils/request.js";
-import {ElMessage} from "element-plus";
-// 表单校验引入
-const {proxy} = getCurrentInstance()
-// 弹窗配置
-const dialogFormVisible = ref(false)
 
+    <el-dialog v-model="dialogFormVisible1" title="编辑信息" width="50%">
+      <el-form :model="state.baomingbiao" :rules="rules" ref="ruleFormRef" label-width="100px">
+        <el-form-item label="学号" prop="stuID">
+          <el-input v-model="state.baomingbiao.stuID" autocomplete="off" placeholder="请输入学号" style="width: 20%"/>
+        </el-form-item>
+        <el-form-item label="姓名" prop="stuName">
+          <el-input v-model="state.baomingbiao.stuName" autocomplete="off" placeholder="请输入姓名" style="width: 20%"/>
+        </el-form-item>
+        <el-form-item label="性别" prop="sex">
+          <el-radio-group v-model="state.baomingbiao.sex">
+            <el-radio label="男" size="large">男</el-radio>
+            <el-radio label="女" size="large">女</el-radio>
+          </el-radio-group>
+        </el-form-item>
+        <el-form-item label="专业" prop="profession">
+          <el-input v-model="state.baomingbiao.profession" autocomplete="off" placeholder="请输入专业名称" style="width: 35%"/>
+        </el-form-item>
+        <el-form-item label="四/六级" prop="english">
+          <el-radio-group v-model="state.baomingbiao.english" class="ml-4">
+            <el-radio label="ETC-4" size="default" border/>
+            <el-radio label="ETC-6" size="default" border/>
+          </el-radio-group>
+        </el-form-item>
+        <el-form-item label="平均绩点" prop="average">
+          <el-input v-model="state.baomingbiao.average" autocomplete="off" placeholder="请输入平均绩点" style="width: 35%"/>
+        </el-form-item>
+        <el-form-item label="毕设内容" prop="gratitude">
+          <el-input  type="textarea" v-model="state.baomingbiao.gratitude" autocomplete="off" placeholder="毕设内容" style="width: 60%"/>
+        </el-form-item>
+        <el-form-item label="政治面貌" prop="stuStatus">
+          <el-radio-group v-model="state.baomingbiao.stuStatus">
+            <el-radio label="普通群众" size="large"></el-radio>
+            <el-radio label="共青团员" size="large"></el-radio>
+            <el-radio label="预备党员" size="large"></el-radio>
+            <el-radio label="正式党员" size="large"></el-radio>
+          </el-radio-group>
+        </el-form-item>
+        <el-form-item label="电话号码" prop="phone">
+          <el-input  type="textarea" v-model="state.baomingbiao.phone" autocomplete="off" placeholder="请输入电话号码" style="width: 60%"/>
+        </el-form-item>
+        <el-form-item label="自我介绍" prop="myself">
+          <el-input  type="textarea" v-model="state.baomingbiao.myself" autocomplete="off" placeholder="请进行自我描述" style="width: 60%"/>
+        </el-form-item>
+        <el-form-item label="相关文件">
+          <el-upload
+              v-model:file-list="state.baomingbiao.file"
+              class="upload-demo"
+              action="https://run.mocky.io/v3/9d059bf9-4660-45f2-925d-ce80ad6c4d15"
+              multiple
+              :on-preview="handlePreview"
+              :on-remove="handleRemove"
+              :before-remove="beforeRemove"
+              :limit="3"
+              :on-exceed="handleExceed"
+          >
+            <el-button type="primary">Click to upload</el-button>
+            <template #tip>
+              <div class="el-upload__tip">
+                应届毕业证明、四六级证书、毕业体检报告
+              </div>
+            </template>
+          </el-upload>
+        </el-form-item>
+      </el-form>
+      <template #footer>
+      <span class="dialog-footer">
+        <el-popconfirm title="请确认信息是否有误？" confirm-button-text="确定"
+                       cancel-button-text="取消" @confirm="Confirm">
+          <template #reference>
+            <el-button size="20" type="danger">确定</el-button>
+          </template>
+        </el-popconfirm>
+        <el-button @click="dialogFormVisible1 = false">取消</el-button>
+      </span>
+      </template>
+    </el-dialog>
+  </div>
+</template>
+
+<script setup>
+import {getCurrentInstance, reactive} from "vue";
+import { ref } from 'vue'
+import {ElMessage} from 'element-plus'
+import request from "../../utils/request.js";
+//import type { UploadProps, UploadUserFile } from 'element-plus'
+const {proxy} = getCurrentInstance()
+const dialogFormVisible1 = ref(false)
+import {useRouter} from 'vue-router'
 const state = reactive({
-  tableData: [],
-  form: {},
+  baomingbiao : {},
   rules: {
-    /*此处校验: 用户名、密码、地址*/
-    username: [
-      {required: true, message: '请输入用户名', trigger: 'blur'},
+    stuID: [
+      {required: true, message: '请输入学号', trigger: 'blur'},
     ],
-    password: [
-      {required: true, message: '请输入密码', trigger: 'blur'},
-      {min:3, message: '密码不能少于3位', trigger: 'blur'}
+    stuName: [
+      {required: true, message: '请输入姓名', trigger: 'blur'},
     ],
-    address: [
-      {required: true, message: '请输入地址', trigger: 'blur'},
-      {max:255, message: '最多输入255个字符', trigger: 'blur'}
-    ]
+    sex: [
+      {required: true, message: '请选择性别', trigger: 'blur'},
+    ],
+    profession: [
+      {required: true, message: '请输入专业', trigger: 'blur'},
+    ],
+    english: [
+      {required: true, message: '请输入英语成绩', trigger: 'blur'},
+    ],
+    average: [
+      {required: true, message: '请输入平均绩点', trigger: 'blur'},
+    ],
+    gratitude: [
+      {required: true, message: '请输入毕设内容', trigger: 'blur'},
+    ],
+    stuStatus: [
+      {required: true, message: '请选择政治面貌', trigger: 'blur'},
+    ],
+    phone: [
+      {required: true, message: '请填写电话号码', trigger: 'blur'},
+    ],
+    /*file: [
+      {required: true, message: '请上传相关附件', trigger: 'blur'},
+    ],*/
+    myself: [
+      {required: true, message: '请做自我介绍', trigger: 'blur'},
+    ],
   }
 })
-const options = [
-  {
-    value: '1',
-    label: '正式党员',
-  },
-  {
-    value: '2',
-    label: '预备党员',
-  },
-  {
-    value: '3',
-    label: '共青团员',
-  },
-  {
-    value: '4',
-    label: '普通群众'
-  }
-]
-// 页面刷新 + 分页刷新
-const currentPage = ref(1)
-const pageSize = ref(5)
-const total = ref(0)
-const username = ref('')
-const phone = ref('')
-const email = ref('')
-/* const load=() =>{
-   request.get("/users/page").then(res => {
-     state.tableData = res.data.list
-   })
- }*/
-const load= ()=>{
-  request.get("/users/page", {
-    params: {
-      currentPage: currentPage.value,
-      pageSize: pageSize.value,
-      username: username.value,
-      phone: phone.value,
-      email: email.value
-    }
-  }).then(res => {
-    if (res.code === '200') {
-      /**
-       * 使用PageHelper数据组成结构变化
-       *    原版: data[total, data]
-       *    修改: data[total, list]
-       */
-      /* state.tableData = res.data.data*/
-      state.tableData = res.data.list
-      total.value = res.data.total
-    }
-  })
-}
-load()
-const handleSizeChange = (val)=>{
-  pageSize.value = val
-  load()
-}
-const handleCurrentChange = (val)=>{
-  currentPage.value = val
-  load()
-}
+
+const router = useRouter()
+const id = router.currentRoute.value.params.id
+request.get('/add/'+id).then(res => {
+  state.baomingbiao.stuID = res.data.stuID
+  state.baomingbiao.stuName = res.data.stuName
+  state.baomingbiao.sex = res.data.sex
+  state.baomingbiao.profession = res.data.profession
+  state.baomingbiao.english = res.data.english
+  state.baomingbiao.gratitude = res.data.gratitude
+  state.baomingbiao.average = res.data.average
+  state.baomingbiao.stuStatus = res.data.stuStatus
+  state.baomingbiao.file = res.data.file
+  state.baomingbiao.phone = res.data.phone
+  state.baomingbiao.myself = res.data.myself
+})
 
 // 编辑
-const handleEdit= (row)=>{
-  dialogFormVisible.value = true
-  state.form = JSON.parse(JSON.stringify(row))
+const handleEdit = (row) => {
+  dialogFormVisible1.value = true
+  state.baomingbiao = JSON.parse(JSON.stringify(row))
 }
 // 删除
-const handleDelete= (id)=>{
-  request.delete("/users/"+id).then(res => {
-    if(res.code === '200' && res.data === true){
+const handleDelete = () => {
+  request.delete("/add/" + id).then(res => {
+    if (res.code === '200' && res.data === true) {
       ElMessage.success("删除成功！")
-    }else {
+      router.push({name: 'FrontPage'})
+    } else {
       ElMessage.error(res.msg)
     }
-    load()
   })
 }
-/**
- * 需要区分新增、编辑时, 按钮的后端接口判断
- * 编辑与新增的区别在于: id
- * @constructor
- */
-    // 确定选项
-const Confirm= ()=>{
-      // 表单验证
-      proxy.$refs.ruleFormRef.validate((valid) => {
-        if(valid === true){ // 请求后台接口
-          if(state.form.id) {
-            request.put("/users", state.form).then(res => {
-              if (res.code === '200') {
-                ElMessage({type: 'success', message: '修改成功！！！'})
-                /*关闭弹窗*/
-                dialogFormVisible.value = false
-                /*刷新表格*/
-                load()
-              } else {
-                ElMessage({type: 'error', message: res.msg})
-              }
-            })
-          }
-        }else{
-          ElMessage({ type: 'error', message: '操作失败！！！'})
+// 确定选项
+const Confirm = () => {
+  // 表单验证
+  proxy.$refs.ruleFormRef.validate((valid) => {
+    if (valid === true) { // 请求后台接口
+      request.put("/add", state.baomingbiao).then(res => {
+        if (res.code === '200') {
+          ElMessage({type: 'success', message: '修改成功！！！'})
+          /*关闭弹窗*/
+          dialogFormVisible1.value = false
+        } else {
+          ElMessage({type: 'error', message: res.msg})
         }
       })
+    } else {
+      ElMessage({type: 'error', message: '操作失败！！！'})
     }
+  })
+}
+/*const fileList = ref<UploadUserFile[]>([
+  {
+    name: 'element-plus-logo.svg',
+    url: 'https://element-plus.org/images/element-plus-logo.svg',
+  },
+  {
+    name: 'element-plus-logo2.svg',
+    url: 'https://element-plus.org/images/element-plus-logo.svg',
+  },
+  {
+    name: 'element-plus-logo3.svg',
+    url: 'https://element-plus.org/images/element-plus-logo.svg',
+  },
+])*/
+
+/*const handleRemove: UploadProps['onRemove'] = (file, uploadFiles) => {
+  console.log(file, uploadFiles)
+}
+
+const handlePreview: UploadProps['onPreview'] = (uploadFile) => {
+  console.log(uploadFile)
+}
+
+const handleExceed: UploadProps['onExceed'] = (files, uploadFiles) => {
+  ElMessage.warning(
+      `The limit is 3, you selected ${files.length} files this time, add up to ${
+          files.length + uploadFiles.length
+      } totally`
+  )
+}*/
 </script>
 
 <style>
+.avatar-uploader .avatar {
+  width: 150px;
+  height: 150px;
+  display: block;
+}
+.applicate {
+  display: flex;
+  background-image: url("../static/bg-girl.jpg");
+  width: 100%;
+  height: 680px;
+  justify-content: center;
+  align-items: center;
+}
 .imset .el-form-item__label{
-  color: coral;
+  color: darkorange;
+}
+.el-upload__tip {
+  color: brown;
+  font-size: 10px;
 }
 .ml-4 .el-radio__input.is-checked + .el-radio__label{
   color: black;

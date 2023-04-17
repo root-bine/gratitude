@@ -38,4 +38,9 @@ public class ApplicationServiceImpl implements ApplicationService {
     public int delete(Integer id) {
         return applicationDao.delete(id);
     }
+
+    @Override
+    public Application search(Application app) {
+        return applicationDao.search(app);
+    }
 }

@@ -31,7 +31,7 @@ const routers = [
                 path: 'console',
                 name: 'ConsolidatedTable',
                 component:()  => import('../views/user/ConsolidatedTable.vue'),
-                meta: { title: "综合信息表" }
+                meta: { title: "报名信息表" }
             },
             {
                 path:'new',
@@ -86,6 +86,12 @@ const routers = [
             },
         ]
     },
+    {
+        path: '/',
+        name: 'inLogin',
+        redirect: '/Login',
+        meta: {title: "在分权后, 强制进入登陆界面"}
+    }
 ]
 
 const router = createRouter({

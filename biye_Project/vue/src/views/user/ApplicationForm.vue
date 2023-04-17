@@ -115,19 +115,19 @@
       </el-row>
 
       <el-form-item>
-        <el-button type="primary" @click="onSubmit">提交</el-button>
-        <el-button @click="$router.push({name: 'ConsolidatedTable'})">取消</el-button>
+        <el-button type="primary" style="margin-left: 400px;margin-top: 20px"
+                   size="large" @click="onSubmit">提交</el-button>
       </el-form-item>
     </el-form>
   </div>
 </template>
-<script lang="ts" setup>
+<script setup>
 import {getCurrentInstance, reactive} from "vue";
 import { ref } from 'vue'
-import { ElMessage, ElMessageBox } from 'element-plus'
-import type { UploadProps, UploadUserFile } from 'element-plus'
-
-//import router from "../router/index.js";
+import {ElMessage, ElMessageBox, ElNotification} from 'element-plus'
+import request from "../../utils/request.js";
+//import type { UploadProps, UploadUserFile } from 'element-plus'
+import router from "../../router/index.js";
 const {proxy} = getCurrentInstance()
 const options = [
   {
@@ -147,32 +147,7 @@ const options = [
     label: '普通群众'
   }
 ]
-const baomingbiao = reactive({
-    stuID: '',
-    stuName: '',
-    sex: '',
-    profession: '',
-    english: '',
-    average: '',
-    gratitude: '',
-    stuStatus: '',
-    phone: '',
-    file: [
-      {
-        name: 'element-plus-logo.svg',
-        url: 'https://element-plus.org/images/element-plus-logo.svg',
-      },
-      {
-        name: 'element-plus-logo2.svg',
-        url: 'https://element-plus.org/images/element-plus-logo.svg',
-      },
-      {
-        name: 'element-plus-logo3.svg',
-        url: 'https://element-plus.org/images/element-plus-logo.svg',
-      },
-    ],
-    myself: ''
-  })
+const baomingbiao = reactive({})
 const rules = reactive({
   stuID: [
     {required: true, message: '请输入学号', trigger: 'blur'},
@@ -201,15 +176,34 @@ const rules = reactive({
   phone: [
     {required: true, message: '请填写电话号码', trigger: 'blur'},
   ],
-  file: [
+  /*file: [
     {required: true, message: '请上传相关附件', trigger: 'blur'},
-  ],
+  ],*/
   myself: [
     {required: true, message: '请做自我介绍', trigger: 'blur'},
   ],
 })
-
-const fileList = ref<UploadUserFile[]>([
+const onSubmit = () => {
+  proxy.$refs.ruleFormRef.validate((valid) => {
+    if(valid){
+      request.post('/add', baomingbiao).then(res => {
+        if(res.code === '200'){ // 请求成功
+          ElMessage({
+            type: 'success',
+            message: '上传成功'})
+          /*登录成功, 进行页面跳转*/
+          router.push({name: 'ConsolidatedTable'})
+        }else{ // 请求失败
+          ElNotification({
+            type: 'error',
+            message: res.msg
+          })
+        }
+      })
+    }
+  })
+}
+/*const fileList = ref<UploadUserFile[]>([
   {
     name: 'element-plus-logo.svg',
     url: 'https://element-plus.org/images/element-plus-logo.svg',
@@ -222,9 +216,9 @@ const fileList = ref<UploadUserFile[]>([
     name: 'element-plus-logo3.svg',
     url: 'https://element-plus.org/images/element-plus-logo.svg',
   },
-])
+])*/
 
-const handleRemove: UploadProps['onRemove'] = (file, uploadFiles) => {
+/*const handleRemove: UploadProps['onRemove'] = (file, uploadFiles) => {
   console.log(file, uploadFiles)
 }
 
@@ -238,7 +232,7 @@ const handleExceed: UploadProps['onExceed'] = (files, uploadFiles) => {
           files.length + uploadFiles.length
       } totally`
   )
-}
+}*/
 </script>
 
 <style>

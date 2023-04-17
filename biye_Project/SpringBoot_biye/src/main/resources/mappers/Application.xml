@@ -28,4 +28,8 @@
         select * from shenqingbiao where id =
             (select s.id from shenqingbiao s left outer join user u on s.stuID=u.studentid where u.id=#{id})
     </select>
+    <select id="search" resultType="com.zgy.springboot_biye.domain.Application">
+        select stuID, stuName, audit from shenqingbiao where id =
+                (select s.id from shenqingbiao s left outer join user u on s.stuID=u.studentid where u.id=#{id})
+    </select>
 </mapper>

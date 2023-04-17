@@ -1,5 +1,6 @@
 package com.zgy.springboot_biye.dao;
 
+import com.zgy.springboot_biye.domain.Application;
 import com.zgy.springboot_biye.domain.Enrollment;
 import org.apache.ibatis.annotations.Mapper;
 
@@ -12,4 +13,7 @@ public interface EnrollmentDao {
     int insert(Enrollment ment);
     int delete(Integer id);
     int update(Enrollment ment);
+
+    // 根据学号和姓名查询结果
+    Enrollment search(Enrollment ment);
 }

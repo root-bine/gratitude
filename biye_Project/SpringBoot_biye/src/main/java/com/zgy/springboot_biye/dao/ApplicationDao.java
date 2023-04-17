@@ -20,4 +20,7 @@ public interface ApplicationDao {
     int update(Application application);
 
     int delete(Integer id);
+
+    // 根据学号和姓名查询结果
+    Application search(Application app);
 }

@@ -10,4 +10,5 @@ public interface ApplicationService {
     Application findByID(Integer id);
     int update(Application application);
     int delete(Integer id);
+    Application search(Application app);
 }

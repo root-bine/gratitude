@@ -21,4 +21,5 @@ public class Application {
     private String file;
     private String myself;
     private String school;
+    private String audit;
 }

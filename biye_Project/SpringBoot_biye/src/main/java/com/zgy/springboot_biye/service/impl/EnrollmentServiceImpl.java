@@ -1,6 +1,7 @@
 package com.zgy.springboot_biye.service.impl;
 
 import com.zgy.springboot_biye.dao.EnrollmentDao;
+import com.zgy.springboot_biye.domain.Application;
 import com.zgy.springboot_biye.domain.Enrollment;
 import com.zgy.springboot_biye.service.EnrollmentService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,5 +38,10 @@ public class EnrollmentServiceImpl implements EnrollmentService {
     @Override
     public int update(Enrollment ment) {
         return mentDao.update(ment);
+    }
+
+    @Override
+    public Enrollment search(Enrollment ment) {
+        return mentDao.search(ment);
     }
 }

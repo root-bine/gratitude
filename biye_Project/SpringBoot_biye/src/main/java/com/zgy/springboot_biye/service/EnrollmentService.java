@@ -1,5 +1,6 @@
 package com.zgy.springboot_biye.service;
 
+import com.zgy.springboot_biye.domain.Application;
 import com.zgy.springboot_biye.domain.Enrollment;
 
 import java.util.List;
@@ -10,4 +11,5 @@ public interface EnrollmentService {
     int insert(Enrollment ment);
     int delete(Integer id);
     int update(Enrollment ment);
+    Enrollment search(Enrollment ment);
 }

@@ -16,11 +16,12 @@ public class Enrollment {
     private String stuName;
     private String sex;
     private String profession;
-    private double english;
+    private String english;
     private double average;
     private String gratitude;
     private String stuStatus;
     private String phone;
     private String myself;
     private String file;
+    private String audit;
 }

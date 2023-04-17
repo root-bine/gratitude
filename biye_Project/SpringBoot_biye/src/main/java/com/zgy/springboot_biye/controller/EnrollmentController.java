@@ -1,14 +1,10 @@
 package com.zgy.springboot_biye.controller;
 
 import com.zgy.springboot_biye.config.Result;
-import com.zgy.springboot_biye.domain.Application;
 import com.zgy.springboot_biye.domain.Enrollment;
 import com.zgy.springboot_biye.service.EnrollmentService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -30,5 +26,19 @@ public class EnrollmentController {
             }
         }
         return Result.success(mentService.insert(ment));
+    }
+    @GetMapping("/{id}")
+    public Result findByID(@PathVariable Integer id) {
+        return Result.success(mentService.findByID(id));
+    }
+
+    @PutMapping
+    public Result update (@RequestBody Enrollment ment) {
+        return Result.success(mentService.update(ment));
+    }
+
+    @DeleteMapping("/{id}")
+    public Result delete(@PathVariable Integer id) {
+        return Result.success(mentService.delete(id));
     }
 }
