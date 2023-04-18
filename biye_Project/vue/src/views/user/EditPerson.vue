@@ -109,7 +109,7 @@ const Confirm= ()=> {
 <style scoped>
 .edit {
   display: flex;
-  background-image: url("../static/bg-row.jpg");
+  background-image: url("../static/bg-apple.jpg");
   width: 100%;
   height: 680px;
   justify-content: center;

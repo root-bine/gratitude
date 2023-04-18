@@ -57,6 +57,30 @@ const routers = [
                 component:() => import('../views/user/WaiverLgo.vue'),
                 meta: { title: "修改申请记录" }
             },
+            {
+                path:'searchWaiver',
+                name:'SearchWaiver',
+                component:() => import('../views/user/SearchWaiver.vue'),
+                meta: { title: "修改申请记录" }
+            },
+            {
+                path:'searchApplication',
+                name:'SearchApplication',
+                component:() => import('../views/user/SearchApplication.vue'),
+                meta: { title: "修改申请记录" }
+            },
+            {
+                path:'resultWa',
+                name:'ResultWa',
+                component:() => import('../views/user/ResultWa.vue'),
+                meta: { title: "修改申请记录" }
+            },
+            {
+                path:'resultAp',
+                name:'ResultAp',
+                component:() => import('../views/user/ResultAp.vue'),
+                meta: { title: "修改申请记录" }
+            },
         ]
     },
     {

@@ -69,11 +69,11 @@ public class UserController {
     // 登录
     @RequestMapping(value = "/login",method = RequestMethod.POST)
     public Result findUser(@RequestBody User user){
-        if(user.getUsername() == null|| user.getPassword() == null){
+        if(user.getStudentid() == null|| user.getPassword() == null){
             return Result.error("用户名或密码为空");
         }
         List<User> list = userService.findAll();
-        User result = userService.findUser(user.getUsername(), user.getPassword());
+        User result = userService.findUser(user.getStudentid(), user.getPassword());
         if(!list.contains(result)) {
             return Result.error("用户不存在, 请注册");
         }
@@ -82,7 +82,7 @@ public class UserController {
     // 注册
     @RequestMapping(value = "/register",method = RequestMethod.POST)
     public Result registerUser(@RequestBody User user){
-        User re1 = userService.findUser(user.getUsername(), user.getPassword());
+        User re1 = userService.findUser(user.getStudentid(), user.getPassword());
         if(re1 != null){
             return Result.error("用户已存在！！！");
         }
@@ -109,7 +109,7 @@ public class UserController {
         List<User> all = userService.findAll();
         for (int i = 0; i < all.size(); i++) {
             User result = all.get(i);
-            if(result.getUsername().equals(user.getUsername())) {
+            if(result.getStudentid().equals(user.getStudentid())) {
                 return Result.success(userService.updatePass(user));
             }
         }

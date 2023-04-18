@@ -11,7 +11,7 @@ public interface UserService {
     User findById(Integer id);
     int  updateOne(User user);
     User findOneById(Integer id);
-    User findUser(String username, String password);
+    User findUser(String studentid, String password);
     int insert(User user);
     int update(User user);
     int deleteById(Integer id);

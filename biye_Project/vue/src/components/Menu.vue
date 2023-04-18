@@ -32,12 +32,12 @@
       <el-menu-item class="els" index="console">报名记录</el-menu-item>
     </el-sub-menu>
 
-    <el-menu-item index="4">
+    <el-menu-item index="searchWaiver">
       <el-icon><HelpFilled /></el-icon>
       <span style="font-size: 25px">申请结果</span>
     </el-menu-item>
 
-    <el-menu-item index="5">
+    <el-menu-item index="searchApplication">
       <el-icon><Promotion /></el-icon>
       <span style="font-size: 25px">录取结果</span>
     </el-menu-item>

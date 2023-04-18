@@ -1,7 +1,7 @@
 <template>
   <div class="applicate">
     <el-form ref="ruleFormRef"
-             :model="state.baomingbiao" :rules="rules"
+             :model="state.baomingbiao" :rules="state.rules"
              label-width="100px" style="margin-left: 35px;margin-top: 10px">
       <el-row>
         <el-col :span="12">

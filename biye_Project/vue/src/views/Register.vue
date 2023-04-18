@@ -4,8 +4,8 @@
       <h1 style="text-align: center; margin-bottom: 30px">推免研究生注册界面</h1>
       <!--:rules="rules" ref="ruleFormRef", 表单验证标识-->
       <el-form :model="user" size="large" :rules="rules" ref="ruleFormRef">
-        <el-form-item prop="username"> <!--label="用  户"-->
-          <el-input v-model="user.username" :prefix-icon="User" clearable/>
+        <el-form-item prop="studentid"> <!--label="用  户"-->
+          <el-input v-model="user.studentid" :prefix-icon="User" clearable/>
         </el-form-item>
         <!--prop标签内容, 与rules对应-->
         <el-form-item prop="password"> <!--label="密  码"-->
@@ -36,8 +36,8 @@
   const user = reactive({})
   // 表单验证
   const rules = reactive({
-    username: [
-      {required: true, message: '请输入用户名', trigger: 'blur'},
+    studentid: [
+      {required: true, message: '请输入学号', trigger: 'blur'},
     ],
     password: [
       {required: true, message: '请输入密码', trigger: 'blur'},

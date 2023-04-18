@@ -40,7 +40,7 @@ public class ApplicationServiceImpl implements ApplicationService {
     }
 
     @Override
-    public Application search(Application app) {
-        return applicationDao.search(app);
+    public Application search(Integer id) {
+        return applicationDao.search(id);
     }
 }

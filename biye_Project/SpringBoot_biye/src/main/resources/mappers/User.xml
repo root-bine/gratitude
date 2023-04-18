@@ -8,8 +8,8 @@
         values(#{username}, #{password}, #{age},  #{sex}, #{phone}, #{email}, #{address})
     </insert>
     <insert id="register">
-        insert into user(username, password)
-        values(#{username}, #{password})
+        insert into user(studentid, password)
+        values(#{studentid}, #{password})
     </insert>
     <update id="update">
         update user set
@@ -19,8 +19,8 @@
     </update>
     <update id="updatePass">
         update user set
-                        username=#{username},password=#{password}
-        where username=#{username}
+                password=#{password}
+        where studentid=#{studentid}
     </update>
     <delete id="deleteById">
         delete from user where id=#{id}
@@ -32,7 +32,7 @@
         select username from user where id=#{id};
     </select>
     <select id="findUser" resultType="com.zgy.springboot_biye.domain.User">
-        select * from user where username=#{username} and password=#{password}
+        select * from user where studentid=#{studentid} and password=#{password}
     </select>
     <select id="findPage" resultType="com.zgy.springboot_biye.domain.User">
         select * from user
@@ -86,6 +86,6 @@
             studentid=#{studentid}, college=#{college}, username=#{username},
             email=#{email}, profession=#{profession}, region=#{region},
             age=#{age}, sex=#{sex}
-        where username=#{username}
+        where studentid=#{studentid}
     </update>
 </mapper>

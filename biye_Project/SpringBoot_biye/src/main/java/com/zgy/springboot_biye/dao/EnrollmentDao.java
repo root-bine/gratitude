@@ -15,5 +15,5 @@ public interface EnrollmentDao {
     int update(Enrollment ment);
 
     // 根据学号和姓名查询结果
-    Enrollment search(Enrollment ment);
+    Enrollment search(Integer id);
 }

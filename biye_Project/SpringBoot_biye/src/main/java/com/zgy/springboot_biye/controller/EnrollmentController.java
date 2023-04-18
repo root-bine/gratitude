@@ -41,4 +41,10 @@ public class EnrollmentController {
     public Result delete(@PathVariable Integer id) {
         return Result.success(mentService.delete(id));
     }
+
+    @GetMapping("/search/{id}")
+    public Result search(@PathVariable Integer id) {
+        Enrollment ment = mentService.search(id);
+        return Result.success(ment);
+    }
 }

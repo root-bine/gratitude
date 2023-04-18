@@ -48,4 +48,10 @@ public class ApplicationController {
     public Result delete(@PathVariable Integer id) {
         return Result.success(applicationService.delete(id));
     }
+
+    @GetMapping("/searching/{id}")
+    public Result search(@PathVariable Integer id) {
+        Application app = applicationService.search(id);
+        return Result.success(app);
+    }
 }

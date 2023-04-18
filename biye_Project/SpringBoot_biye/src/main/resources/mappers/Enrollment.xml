@@ -29,7 +29,7 @@
             (select s.id from baomingbiao s left outer join user u on s.stuID=u.studentid where u.id=#{id})
     </select>
     <select id="search" resultType="com.zgy.springboot_biye.domain.Enrollment">
-        select stuID, stuName, audit from baomingbiao where id =
-                (select s.id from baomingbiao s left outer join user u on s.stuID=u.studentid where u.id=#{id})
+        select stuID, stuName, audit, profession, english, average from baomingbiao where (stuID, stuName) in
+            (select studentid, username from user u where u.id = #{id} )
     </select>
 </mapper>

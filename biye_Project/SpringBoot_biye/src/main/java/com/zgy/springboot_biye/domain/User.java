@@ -17,9 +17,9 @@ public class User {
     private String region;
     private String email;
     private String avaterUrl;
-    private String Department;
+    private String sex;
+
     private String address;
     private Integer age;
-    private String sex;
     private String phone;
 }

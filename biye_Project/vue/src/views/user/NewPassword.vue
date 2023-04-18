@@ -2,8 +2,8 @@
   <div class="newpassword">
     <div style="width: 400px; margin: 150px auto;">
       <el-form :model="user" :rules="rules" ref="ruleFormRef">
-        <el-form-item label="UserNm" prop="username">
-          <el-input v-model="user.username" style="margin-left: 20px" autocomplete="off" placeholder="请输入用户名" clearable/>
+        <el-form-item label="UserNm" prop="studentid">
+          <el-input v-model="user.studentid" style="margin-left: 20px" autocomplete="off" placeholder="请输入用户名" clearable/>
         </el-form-item>
         <el-form-item label="NewPass" prop="password">
           <el-input v-model="user.password" style="margin-left: 15px" autocomplete="off" placeholder="请输入新密码" clearable show-password/>
@@ -35,8 +35,8 @@ const rules = reactive({
   password: [
     {required: true, message: '请输入新密码', trigger: 'blur'},
   ],
-  username: [
-    {required: true, message: '请输入用户名', trigger: 'blur'},
+  studentid: [
+    {required: true, message: '请输入学号', trigger: 'blur'},
   ]
 })
 const updatePass = () => {
