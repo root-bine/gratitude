@@ -86,7 +86,7 @@
             <el-button type="primary">Click to upload</el-button>
             <template #tip>
               <div class="el-upload__tip">
-                推免报名表、综合信息表、相关证明材料压缩包
+                压缩包(推免报名表、综合信息表、相关证明材料), 后缀: .zip
               </div>
             </template>
           </el-upload>
@@ -203,36 +203,7 @@ const onSubmit = () => {
     }
   })
 }
-/*const fileList = ref<UploadUserFile[]>([
-  {
-    name: 'element-plus-logo.svg',
-    url: 'https://element-plus.org/images/element-plus-logo.svg',
-  },
-  {
-    name: 'element-plus-logo2.svg',
-    url: 'https://element-plus.org/images/element-plus-logo.svg',
-  },
-  {
-    name: 'element-plus-logo3.svg',
-    url: 'https://element-plus.org/images/element-plus-logo.svg',
-  },
-])*/
 
-/*const handleRemove: UploadProps['onRemove'] = (file, uploadFiles) => {
-  console.log(file, uploadFiles)
-}
-
-const handlePreview: UploadProps['onPreview'] = (uploadFile) => {
-  console.log(uploadFile)
-}
-
-const handleExceed: UploadProps['onExceed'] = (files, uploadFiles) => {
-  ElMessage.warning(
-      `The limit is 3, you selected ${files.length} files this time, add up to ${
-          files.length + uploadFiles.length
-      } totally`
-  )
-}*/
 </script>
 
 <style>
@@ -253,7 +224,7 @@ const handleExceed: UploadProps['onExceed'] = (files, uploadFiles) => {
   color: darkorange;
 }
 .el-upload__tip {
-  color: brown;
+  color: lightblue;
   font-size: 10px;
 }
 .ml-4 .el-radio__input.is-checked + .el-radio__label{

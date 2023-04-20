@@ -2,9 +2,11 @@
   <div class="edit">
     <el-card style="width: 600px;height: 680px;background-color: burlywood">
       <el-form :model="user" :rules="rules" ref="ruleFormRef" label-width="100px">
-        <!--头像-->
         <el-form-item label="学校" prop="college">
           <el-input v-model="user.college" autocomplete="off" style="width: 300px;height: 35px"></el-input>
+        </el-form-item>
+        <el-form-item label="学院" prop="college">
+          <el-input v-model="user.department" autocomplete="off" style="width: 300px;height: 35px"></el-input>
         </el-form-item>
         <el-form-item label="专业" prop="profession">
           <el-input v-model="user.profession" autocomplete="off" style="width: 300px;height: 35px"></el-input>
@@ -60,7 +62,8 @@ request.get('/users/one/'+id).then(res => {
       user.age = res.data.age,
       user.sex = res.data.sex,
       user.region =res.data.region,
-      user.email = res.data.email
+      user.email = res.data.email,
+      user.department = res.data.department
 })
 const user = reactive({})
 const rules = reactive({
@@ -87,6 +90,9 @@ const rules = reactive({
   ],
   email: [
     {required: true, message: '请输入邮箱', trigger: 'blur'},
+  ],
+  department: [
+    {required: true, message: '请输入学院', trigger: 'blur'},
   ]
 })
 const Confirm= ()=> {

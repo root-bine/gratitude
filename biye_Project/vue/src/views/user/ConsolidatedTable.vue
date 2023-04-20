@@ -60,13 +60,13 @@
           </el-form-item>
         </el-col>
 
-        <el-col :span="24">
+<!--        <el-col :span="24">
           <el-form-item label="相关附件" class="imset">
             <el-input style="min-width: 100px; max-width: 600px;" :rows="3"
                       disabled v-model="state.baomingbiao.file"
                       type="textarea" autocomplete="off"/>
           </el-form-item>
-        </el-col>
+        </el-col>-->
       </el-row>
 
       <el-row>
@@ -147,22 +147,12 @@
         </el-form-item>
         <el-form-item label="相关文件">
           <el-upload
-              v-model:file-list="state.baomingbiao.file"
-              class="upload-demo"
-              action="https://run.mocky.io/v3/9d059bf9-4660-45f2-925d-ce80ad6c4d15"
-              multiple
-              :on-preview="handlePreview"
-              :on-remove="handleRemove"
-              :before-remove="beforeRemove"
-              :limit="3"
-              :on-exceed="handleExceed"
-          >
-            <el-button type="primary">Click to upload</el-button>
-            <template #tip>
-              <div class="el-upload__tip">
-                应届毕业证明、四六级证书、毕业体检报告
-              </div>
-            </template>
+              action="http://localhost:8080/api/upload"
+              :auto-upload="false"
+              :on-change="handleUploadChange"
+              :file-list="fileList">
+            <el-button slot="trigger" size="small" type="primary">选取文件</el-button>
+            <el-button style="margin-left: 10px;" size="small" type="success" @click="uploadFile">上传文件</el-button>
           </el-upload>
         </el-form-item>
       </el-form>
@@ -181,15 +171,14 @@
   </div>
 </template>
 
-<script setup>
+<script>
 import {getCurrentInstance, reactive} from "vue";
 import { ref } from 'vue'
 import {ElMessage} from 'element-plus'
 import request from "../../utils/request.js";
-//import type { UploadProps, UploadUserFile } from 'element-plus'
-const {proxy} = getCurrentInstance()
-const dialogFormVisible1 = ref(false)
 import {useRouter} from 'vue-router'
+/*const dialogFormVisible1 = ref(false)
+const {proxy} = getCurrentInstance()
 const state = reactive({
   baomingbiao : {},
   rules: {
@@ -220,9 +209,9 @@ const state = reactive({
     phone: [
       {required: true, message: '请填写电话号码', trigger: 'blur'},
     ],
-    /*file: [
+    /!*file: [
       {required: true, message: '请上传相关附件', trigger: 'blur'},
-    ],*/
+    ],*!/
     myself: [
       {required: true, message: '请做自我介绍', trigger: 'blur'},
     ],
@@ -243,9 +232,9 @@ request.get('/add/'+id).then(res => {
   state.baomingbiao.file = res.data.file
   state.baomingbiao.phone = res.data.phone
   state.baomingbiao.myself = res.data.myself
-})
+})*/
 
-// 编辑
+/*// 编辑
 const handleEdit = (row) => {
   dialogFormVisible1.value = true
   state.baomingbiao = JSON.parse(JSON.stringify(row))
@@ -269,7 +258,7 @@ const Confirm = () => {
       request.put("/add", state.baomingbiao).then(res => {
         if (res.code === '200') {
           ElMessage({type: 'success', message: '修改成功！！！'})
-          /*关闭弹窗*/
+          /!*关闭弹窗*!/
           dialogFormVisible1.value = false
         } else {
           ElMessage({type: 'error', message: res.msg})
@@ -279,45 +268,122 @@ const Confirm = () => {
       ElMessage({type: 'error', message: '操作失败！！！'})
     }
   })
-}
-/*const fileList = ref<UploadUserFile[]>([
-  {
-    name: 'element-plus-logo.svg',
-    url: 'https://element-plus.org/images/element-plus-logo.svg',
-  },
-  {
-    name: 'element-plus-logo2.svg',
-    url: 'https://element-plus.org/images/element-plus-logo.svg',
-  },
-  {
-    name: 'element-plus-logo3.svg',
-    url: 'https://element-plus.org/images/element-plus-logo.svg',
-  },
-])*/
-
-/*const handleRemove: UploadProps['onRemove'] = (file, uploadFiles) => {
-  console.log(file, uploadFiles)
-}
-
-const handlePreview: UploadProps['onPreview'] = (uploadFile) => {
-  console.log(uploadFile)
-}
-
-const handleExceed: UploadProps['onExceed'] = (files, uploadFiles) => {
-  ElMessage.warning(
-      `The limit is 3, you selected ${files.length} files this time, add up to ${
-          files.length + uploadFiles.length
-      } totally`
-  )
 }*/
+
+export default {
+  name: 'FileUpload',
+  setup() {
+    const fileList = ref([]);
+    const dialogFormVisible1 = ref(false)
+    const {proxy} = getCurrentInstance()
+    const state = reactive({
+      baomingbiao : {},
+      rules: {
+        stuID: [
+          {required: true, message: '请输入学号', trigger: 'blur'},
+        ],
+        stuName: [
+          {required: true, message: '请输入姓名', trigger: 'blur'},
+        ],
+        sex: [
+          {required: true, message: '请选择性别', trigger: 'blur'},
+        ],
+        profession: [
+          {required: true, message: '请输入专业', trigger: 'blur'},
+        ],
+        english: [
+          {required: true, message: '请输入英语成绩', trigger: 'blur'},
+        ],
+        average: [
+          {required: true, message: '请输入平均绩点', trigger: 'blur'},
+        ],
+        gratitude: [
+          {required: true, message: '请输入毕设内容', trigger: 'blur'},
+        ],
+        stuStatus: [
+          {required: true, message: '请选择政治面貌', trigger: 'blur'},
+        ],
+        phone: [
+          {required: true, message: '请填写电话号码', trigger: 'blur'},
+        ],
+        /*file: [
+          {required: true, message: '请上传相关附件', trigger: 'blur'},
+        ],*/
+        myself: [
+          {required: true, message: '请做自我介绍', trigger: 'blur'},
+        ],
+      }
+    })
+
+    const router = useRouter()
+    const id = router.currentRoute.value.params.id
+    request.get('/add/'+id).then(res => {
+      state.baomingbiao.stuID = res.data.stuID
+      state.baomingbiao.stuName = res.data.stuName
+      state.baomingbiao.sex = res.data.sex
+      state.baomingbiao.profession = res.data.profession
+      state.baomingbiao.english = res.data.english
+      state.baomingbiao.gratitude = res.data.gratitude
+      state.baomingbiao.average = res.data.average
+      state.baomingbiao.stuStatus = res.data.stuStatus
+      state.baomingbiao.file = res.data.file
+      state.baomingbiao.phone = res.data.phone
+      state.baomingbiao.myself = res.data.myself
+    })
+    function handleUploadChange(file, fileList) {
+      console.log('uploaded:', file, fileList);
+    }
+    function uploadFile() {
+      // 进行文件上传，可使用axios等工具
+      console.log('uploading files:', fileList.value);
+    }
+    function handleEdit(row) {
+      dialogFormVisible1.value = true
+      state.baomingbiao = JSON.parse(JSON.stringify(row))
+    }
+    function handleDelete() {
+      request.delete("/add/" + id).then(res => {
+        if (res.code === '200' && res.data === true) {
+          ElMessage.success("删除成功！")
+          router.push({name: 'FrontPage'})
+        } else {
+          ElMessage.error(res.msg)
+        }
+      })
+    }
+    function Confirm() {
+      // 表单验证
+      proxy.$refs.ruleFormRef.validate((valid) => {
+        if (valid === true) { // 请求后台接口
+          request.put("/add", state.baomingbiao).then(res => {
+            if (res.code === '200') {
+              ElMessage({type: 'success', message: '修改成功！！！'})
+              /*关闭弹窗*/
+              dialogFormVisible1.value = false
+            } else {
+              ElMessage({type: 'error', message: res.msg})
+            }
+          })
+        } else {
+          ElMessage({type: 'error', message: '操作失败！！！'})
+        }
+      })
+    }
+    return {
+      fileList,
+      handleUploadChange,
+      uploadFile,
+      handleEdit,
+      handleDelete,
+      Confirm,
+      dialogFormVisible1,
+      state
+    }
+  },
+};
 </script>
 
 <style>
-.avatar-uploader .avatar {
-  width: 150px;
-  height: 150px;
-  display: block;
-}
 .applicate {
   display: flex;
   background-image: url("../static/bg-girl.jpg");

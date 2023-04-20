@@ -1,7 +1,9 @@
 package com.zgy.springboot_biye.service.impl;
 
+import com.zgy.springboot_biye.controller.dto.SearchPage;
 import com.zgy.springboot_biye.dao.ApplicationDao;
 import com.zgy.springboot_biye.domain.Application;
+import com.zgy.springboot_biye.domain.User;
 import com.zgy.springboot_biye.service.ApplicationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -42,5 +44,20 @@ public class ApplicationServiceImpl implements ApplicationService {
     @Override
     public Application search(Integer id) {
         return applicationDao.search(id);
+    }
+
+    @Override
+    public int updateList(Application app) {
+        return applicationDao.updateList(app);
+    }
+
+    @Override
+    public int deleteList(Integer id) {
+        return applicationDao.deleteList(id);
+    }
+
+    @Override
+    public List<Application> findPageHelper(SearchPage searchPage) {
+        return applicationDao.findPageHelper(searchPage);
     }
 }

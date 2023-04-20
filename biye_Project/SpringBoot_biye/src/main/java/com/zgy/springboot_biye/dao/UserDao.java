@@ -14,6 +14,7 @@ public interface UserDao {
     // 根据ID查询用户部分信息, 显示个人单独部分信息
     User findOneByID(Integer id);
     int updateOne(User user);
+
     // 登录
     User findUser(String studentid, String password);
     int insert(User user);

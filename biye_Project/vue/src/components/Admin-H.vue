@@ -10,12 +10,13 @@
       <!--<span class="demonstration">用户</span>-->
       <el-dropdown trigger="click">
           <span class="el-dropdown-link">
-            用户
+            院级管理员
             <el-icon class="el-icon--right"><arrow-down /></el-icon>
           </span>
         <template #dropdown>
           <el-dropdown-menu>
             <el-dropdown-item :icon="CirclePlus" style="font-size: 20px">系统公告</el-dropdown-item>
+            <el-dropdown-item :icon="EditPen" style="font-size: 20px" @click="$router.push({name: 'NewPassword'})">修改密码</el-dropdown-item>
             <el-dropdown-item :icon="CircleCheck" style="font-size: 20px" @click="$router.push('/login')">退出登录</el-dropdown-item>
           </el-dropdown-menu>
         </template>
@@ -25,7 +26,7 @@
 </template>
 
 <script setup>
-  import {ArrowDown, Check, CircleCheck, CirclePlus, CirclePlusFilled, Plus} from '@element-plus/icons-vue'
+  import {ArrowDown, EditPen, CircleCheck, CirclePlus} from '@element-plus/icons-vue'
 </script>
 
 <style scoped>

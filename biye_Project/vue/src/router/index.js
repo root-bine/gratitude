@@ -96,7 +96,7 @@ const routers = [
         meta: { title: "注册页面" }
     },
     {
-        path: '/:id',
+        path: '/',
         name: 'Admin',
         component:() => import('../layout/Admin.vue'),
         meta: { title: "页面布局" },
@@ -107,6 +107,24 @@ const routers = [
                 name: 'AdminPag',
                 component:() => import('../views/admin/AdminPage.vue'),
                 meta: { title: "主页演示" }
+            },
+            {
+                path:'new',
+                name:'NewPassword',
+                component:() => import('../views/admin/NewPassword.vue'),
+                meta: { title: "修改密码" }
+            },
+            {
+                path:'userList',
+                name:'UserList',
+                component:() => import('../views/admin/UserList.vue'),
+                meta: { title: "学生信息列表" }
+            },
+            {
+                path:'applicationReview',
+                name:'ApplicationReview',
+                component:() => import('../views/admin/ApplicationReview.vue'),
+                meta: { title: "申请审核" }
             },
         ]
     },

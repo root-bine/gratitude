@@ -11,4 +11,9 @@ public class Admin {
     private int id;
     private String username;
     private String password;
+    private String studentid;
+    private String department;
+    private String college;
+    private String region;
+    private String email;
 }

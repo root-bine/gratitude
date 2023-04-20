@@ -4,19 +4,22 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.zgy.springboot_biye.dao.AdminDao">
     <insert id="register">
-        insert into root(username, password)
-        values(#{username}, #{password})
+        insert into root(studentid, password)
+        values(#{studentid}, #{password})
     </insert>
     <update id="updatePass">
         update root set
-            username=#{username},password=#{password}
-        where username=#{username}
+            password=#{password}
+        where studentid=#{studentid}
     </update>
 
     <select id="findAll" resultType="com.zgy.springboot_biye.domain.Admin">
         select * from root
     </select>
     <select id="findAdmin" resultType="com.zgy.springboot_biye.domain.Admin">
-        select * from root where username=#{username} and password=#{password}
+        select * from root where studentid=#{studentid} and password=#{password}
+    </select>
+    <select id="findByID" resultType="com.zgy.springboot_biye.domain.Admin">
+        select * from root where studentid=#{studentid}
     </select>
 </mapper>

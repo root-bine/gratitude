@@ -46,13 +46,13 @@
           </el-form-item>
         </el-col>
 
-        <el-col :span="24">
+<!--        <el-col :span="24">
           <el-form-item label="相关附件" class="imset">
             <el-input style="min-width: 100px; max-width: 600px;" :rows="3"
                       disabled v-model="state.application.file"
                       type="textarea" autocomplete="off"/>
           </el-form-item>
-        </el-col>
+        </el-col>-->
       </el-row>
 
       <el-row>
@@ -116,24 +116,14 @@
         <el-input  type="textarea" v-model="state.application.myself" autocomplete="off" placeholder="奖励/处分" style="width: 60%"/>
       </el-form-item>
       <el-form-item label="相关文件">
-                    <el-upload
-                        v-model:file-list="state.application.file"
-                        class="upload-demo"
-                        action="https://run.mocky.io/v3/9d059bf9-4660-45f2-925d-ce80ad6c4d15"
-                        multiple
-                        :on-preview="handlePreview"
-                        :on-remove="handleRemove"
-                        :before-remove="beforeRemove"
-                        :limit="3"
-                        :on-exceed="handleExceed"
-                    >
-                      <el-button type="primary">Click to upload</el-button>
-                      <template #tip>
-                        <div class="el-upload__tip">
-                          应届毕业证明、四六级证书、毕业体检报告
-                        </div>
-                      </template>
-                    </el-upload>
+        <el-upload
+            action="http://localhost:8080/api/upload"
+            :auto-upload="false"
+            :on-change="handleUploadChange"
+            :file-list="fileList">
+          <el-button slot="trigger" size="small" type="primary">选取文件</el-button>
+          <el-button style="margin-left: 10px;" size="small" type="success" @click="uploadFile">上传文件</el-button>
+        </el-upload>
       </el-form-item>
     </el-form>
     <template #footer>
@@ -150,11 +140,12 @@
   </el-dialog>
 </template>
 
-<script setup>
+<script>
 import {getCurrentInstance, reactive, ref} from "vue";
 import request from "../../utils/request.js";
 import {ElMessage} from "element-plus";
-// 表单校验引入
+import {useRouter} from 'vue-router'
+/*// 表单校验引入
 const {proxy} = getCurrentInstance()
 // 弹窗配置
 const dialogFormVisible = ref(false)
@@ -187,7 +178,7 @@ myself: [
   {required: true, message: '请输入学校名称', trigger: 'blur'},
 ],
 })
-import {useRouter} from 'vue-router'
+
 const state = reactive({
   application : {}
 })
@@ -229,7 +220,7 @@ request.get('/apply/'+id).then(res => {
           request.put("/apply", state.application).then(res => {
             if (res.code === '200') {
               ElMessage({type: 'success', message: '修改成功！！！'})
-              /*关闭弹窗*/
+              /!*关闭弹窗*!/
               dialogFormVisible.value = false
             } else {
               ElMessage({type: 'error', message: res.msg})
@@ -239,7 +230,117 @@ request.get('/apply/'+id).then(res => {
         ElMessage({type: 'error', message: '操作失败！！！'})
       }
     })
+  }*/
+export default {
+  name: 'FileUpload',
+  setup() {
+    const fileList = ref([]);
+    function handleUploadChange(file, fileList) {
+      console.log('uploaded:', file, fileList);
+    }
+    function uploadFile() {
+      // 进行文件上传，可使用axios等工具
+      console.log('uploading files:', fileList.value);
+    }
+    // 表单校验引入
+    const {proxy} = getCurrentInstance()
+// 弹窗配置
+    const dialogFormVisible = ref(false)
+    const rules = reactive({
+      stuID: [
+        {required: true, message: '请输入学号', trigger: 'blur'},
+      ],
+      stuName: [
+        {required: true, message: '请输入姓名', trigger: 'blur'},
+      ],
+      profession: [
+        {required: true, message: '请输入专业', trigger: 'blur'},
+      ],
+      test: [
+        {required: true, message: '请输入平局综测成绩', trigger: 'blur'},
+      ],
+      average: [
+        {required: true, message: '请输入平均绩点', trigger: 'blur'},
+      ],
+      course: [
+        {required: true, message: '请介绍专业修读情况', trigger: 'blur'},
+      ],
+      file: [
+        {required: true, message: '请上传相关附件', trigger: 'blur'},
+      ],
+      myself: [
+        {required: true, message: '请做自我介绍', trigger: 'blur'},
+      ],
+      school: [
+        {required: true, message: '请输入学校名称', trigger: 'blur'},
+      ],
+    })
+
+    const state = reactive({
+      application : {}
+    })
+    const router = useRouter()
+    const id = router.currentRoute.value.params.id
+    request.get('/apply/'+id).then(res => {
+      state.application.stuID = res.data.stuID
+      state.application.stuName = res.data.stuName
+      state.application.profession = res.data.profession
+      state.application.test = res.data.test
+      state.application.average = res.data.average
+      state.application.course = res.data.course
+      state.application.file = res.data.file
+      state.application.school = res.data.school
+      state.application.myself = res.data.myself
+    })
+
+// 编辑
+    const handleEdit = (row) => {
+      dialogFormVisible.value = true
+      state.application = JSON.parse(JSON.stringify(row))
+    }
+// 删除
+    const handleDelete = () => {
+      request.delete("/apply/" + id).then(res => {
+        if (res.code === '200' && res.data === true) {
+          ElMessage.success("删除成功！")
+          router.push({name: 'FrontPage'})
+        } else {
+          ElMessage.error(res.msg)
+        }
+      })
+    }
+// 确定选项
+    const Confirm = () => {
+      // 表单验证
+      proxy.$refs.ruleFormRef.validate((valid) => {
+        if (valid === true) { // 请求后台接口
+          request.put("/apply", state.application).then(res => {
+            if (res.code === '200') {
+              ElMessage({type: 'success', message: '修改成功！！！'})
+              /*关闭弹窗*/
+              dialogFormVisible.value = false
+            } else {
+              ElMessage({type: 'error', message: res.msg})
+            }
+          })
+        } else {
+          ElMessage({type: 'error', message: '操作失败！！！'})
+        }
+      })
+    }
+    return {
+      fileList,
+      handleUploadChange,
+      uploadFile,
+      handleEdit,
+      handleDelete,
+      Confirm,
+      state,
+      rules,
+      dialogFormVisible
+    }
   }
+}
 </script>
 
 <style scoped>

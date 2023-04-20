@@ -41,6 +41,13 @@
           </el-col>
 
           <el-col :span="24">
+            <el-form-item label="报名结果" prop="file" style="background-color: red">
+              <el-input v-model="state.baomingbiao.file"
+                        disabled style="width: 400px; height: 35px;"/>
+            </el-form-item>
+          </el-col>
+
+          <el-col :span="24">
             <el-form-item label="报名结果" prop="audit" style="background-color: red">
               <el-input v-model="state.baomingbiao.audit"
                         disabled style="width: 400px; height: 35px;"/>
@@ -63,6 +70,9 @@ import request from "../../utils/request.js";
 const state = reactive({
   baomingbiao: {},
   rules: {
+    file: [
+      {required: true, trigger: 'blur'},
+    ],
     audit: [
       {required: true, trigger: 'blur'},
     ],
@@ -75,6 +85,7 @@ request.get('/add/search/'+id).then(res => {
   state.baomingbiao.stuID = res.data.stuID
   state.baomingbiao.stuName = res.data.stuName
   state.baomingbiao.profession = res.data.profession
+  state.baomingbiao.file = res.data.file
   state.baomingbiao.audit = res.data.audit
   state.baomingbiao.english = res.data.english
   state.baomingbiao.average = res.data.average

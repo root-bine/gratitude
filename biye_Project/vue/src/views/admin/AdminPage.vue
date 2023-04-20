@@ -1,19 +1,17 @@
 <template>
   <div class="img">
-    <h1 class="setting">欢迎进入后台信息管理系统</h1>
+    <h1 class="setting">欢迎进入学院信息管理系统</h1>
   </div>
 </template>
 
 <script>
-export default {
-  name: "FrontPage"
-}
+
 </script>
 
 <style scoped>
 .img {
   display: flex;
-  background-image: url("static/bg-house.png");
+  background-image: url("static/wallhaven-girl.jpg");
   width: 100%;
   height: 680px;
   justify-content: center;

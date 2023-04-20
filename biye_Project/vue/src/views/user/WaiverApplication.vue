@@ -62,7 +62,7 @@
               <el-button type="primary">Click to upload</el-button>
               <template #tip>
                 <div class="el-upload__tip">
-                  应届毕业证明、四六级证书、毕业体检报告
+                  压缩包(应届毕业证明、四六级证书、毕业体检报告), , 后缀: .zip
                 </div>
               </template>
             </el-upload>
@@ -126,9 +126,6 @@ const rules = reactive({
   course: [
     {required: true, message: '请介绍专业修读情况', trigger: 'blur'},
   ],
-  /*file: [
-    {required: true, message: '请上传相关附件', trigger: 'blur'},
-  ],*/
   myself: [
     {required: true, message: '请做自我介绍', trigger: 'blur'},
   ],
@@ -157,21 +154,6 @@ const Submit = () => {
   })
 }
 
-/*const handleRemove: UploadProps['onRemove'] = (file, uploadFiles) => {
-  console.log(file, uploadFiles)
-}
-
-const handlePreview: UploadProps['onPreview'] = (uploadFile) => {
-  console.log(uploadFile)
-}
-
-const handleExceed: UploadProps['onExceed'] = (files, uploadFiles) => {
-  ElMessage.warning(
-      `The limit is 3, you selected ${files.length} files this time, add up to ${
-          files.length + uploadFiles.length
-      } totally`
-  )
-}*/
 </script>
 
 <style>
@@ -192,7 +174,7 @@ const handleExceed: UploadProps['onExceed'] = (files, uploadFiles) => {
   color: cyan;
 }
 .el-upload__tip {
-  color: brown;
+  color: lightblue;
   font-size: 10px;
 }
 </style>

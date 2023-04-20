@@ -9,8 +9,8 @@ import java.util.List;
 @Mapper
 public interface AdminDao {
     List<Admin> findAll();
-
-    Admin findAdmin(String username, String password);
+    Admin findByID(String studentid);
+    Admin findAdmin(String studentid, String password);
     //Admin findById(Integer id);
     int register(Admin admin);
     int updatePass(Admin admin);

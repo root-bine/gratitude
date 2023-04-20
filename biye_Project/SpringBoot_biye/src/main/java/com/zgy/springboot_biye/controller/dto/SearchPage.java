@@ -11,7 +11,12 @@ public class SearchPage {
     private Integer currentPage;
     private Integer pageNum;
     private Integer pageSize;
+    // user表
     private String username;
-    private String phone;
-    private String email;
+    private String department;
+    private String studentid;
+    //申请表 报名表
+    private String stuName;
+    private String stuID;
+    private String profession;
 }

@@ -48,6 +48,13 @@
           </el-col>
 
           <el-col :span="24">
+            <el-form-item label="文件审核" prop="file" style="background-color: red">
+              <el-input v-model="state.application.file"
+                        disabled style="width: 400px;height: 35px"/>
+            </el-form-item>
+          </el-col>
+
+          <el-col :span="24">
             <el-form-item label="申请结果" prop="audit" style="background-color: red">
               <el-input v-model="state.application.audit"
                         disabled style="width: 400px;height: 35px"/>
@@ -70,6 +77,9 @@
   const state = reactive({
     application: {},
     rules: {
+      file: [
+        {required: true, trigger: 'blur'},
+      ],
       audit: [
         {required: true, trigger: 'blur'},
       ],
@@ -85,8 +95,8 @@
     state.application.audit = res.data.audit
     state.application.profession = res.data.profession
     state.application.test = res.data.test
+    state.application.file = res.data.file
     state.application.average = res.data.average
-    console.log(res.data)
   })
 </script>
 

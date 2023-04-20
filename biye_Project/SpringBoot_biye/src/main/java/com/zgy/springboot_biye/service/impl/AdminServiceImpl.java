@@ -18,8 +18,13 @@ public class AdminServiceImpl implements AdminService {
     }
 
     @Override
-    public Admin findAdmin(String username, String password) {
-        return adminDao.findAdmin(username, password);
+    public Admin findByID(String studentid) {
+        return adminDao.findByID(studentid);
+    }
+
+    @Override
+    public Admin findAdmin(String studentid, String password) {
+        return adminDao.findAdmin(studentid, password);
     }
 
     @Override

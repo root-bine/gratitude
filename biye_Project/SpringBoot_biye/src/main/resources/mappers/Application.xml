@@ -6,20 +6,28 @@
 
     <insert id="insert">
         insert into
-            shenqingbiao(stuID, stuName, profession, test, average, course, myself, school, file)
+            shenqingbiao(stuID, stuName, profession, test, average, course, myself, school)
         values
                (#{stuID}, #{stuName}, #{profession}, #{test},
-                #{average}, #{course}, #{myself}, #{school}, #{file})
+                #{average}, #{course}, #{myself}, #{school})
     </insert>
     <update id="update">
         update shenqingbiao set
                         stuID=#{stuID}, school=#{school}, profession=#{profession}, stuName=#{stuName},
-                        test=#{test}, average=#{average}, course=#{course}, myself=#{myself}, file=#{file}
+                        test=#{test}, average=#{average}, course=#{course}, myself=#{myself}
         where stuID=#{stuID}
+    </update>
+    <update id="updateList">
+        update shenqingbiao set
+            file=#{file}, audit=#{audit}
+        where id=#{id}
     </update>
     <delete id="delete">
         delete from shenqingbiao where stuID=
                 (select studentid from user where id=#{id})
+    </delete>
+    <delete id="deleteList">
+        delete from shenqingbiao where id=#{id}
     </delete>
     <select id="findAll" resultType="com.zgy.springboot_biye.domain.Application">
         select * from shenqingbiao
@@ -31,5 +39,19 @@
     <select id="search" resultType="com.zgy.springboot_biye.domain.Application">
         select stuID, stuName, school, profession, test, average, audit from shenqingbiao where (stuID, stuName) in
             (select studentid, username from user u where u.id = #{id} )
+    </select>
+    <select id="findPageHelper" resultType="com.zgy.springboot_biye.domain.Application">
+        select * from shenqingbiao
+        <where>
+            <if test="stuName != null and stuName !=''">
+                and stuName like concat('%', #{stuName}, '%')
+            </if>
+            <if test="stuID != null and stuID !=''">
+                and stuID like concat('%', #{stuID}, '%')
+            </if>
+            <if test="profession != null and profession !=''">
+                and profession like concat('%', #{profession}, '%')
+            </if>
+        </where>
     </select>
 </mapper>
