@@ -21,7 +21,7 @@
 </template>
 
 <script setup>
-import {getCurrentInstance, reactive, ref} from 'vue'
+import {getCurrentInstance, reactive} from 'vue'
 import router from "../../router/index.js"
 import request from "../../utils/request.js";
 import {ElMessage, ElNotification} from "element-plus";

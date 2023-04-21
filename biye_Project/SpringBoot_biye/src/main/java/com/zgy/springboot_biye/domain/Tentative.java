@@ -4,15 +4,15 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+/**
+ * 暂拟名单
+ */
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-public class Admin {
+public class Tentative {
     private int id;
-    private String username;
-    private String password;
-    private String studentid;
-    private String department;
-    private String college;
-    private String region;
+    private String stuID;
+    private String stuName;
+    private String profession;
 }

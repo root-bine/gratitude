@@ -20,12 +20,12 @@
       <span style="font-size: 25px">邮件通知</span>
     </el-menu-item>
 
-    <el-menu-item index="5">
+    <el-menu-item index="tentativeList">
       <el-icon><Promotion /></el-icon>
       <span style="font-size: 25px">拟定名单</span>
     </el-menu-item>
 
-    <el-menu-item index="5">
+    <el-menu-item index="adminManagement">
       <el-icon><UserFilled /></el-icon>
       <span style="font-size: 25px">用户管理</span>
     </el-menu-item>

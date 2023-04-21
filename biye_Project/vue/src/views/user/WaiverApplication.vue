@@ -101,7 +101,6 @@
 <script setup>
 import {getCurrentInstance, reactive} from "vue";
 import {ElMessage, ElNotification} from 'element-plus'
-//import type { UploadProps, UploadUserFile } from 'element-plus'
 import request from "../../utils/request.js";
 import router from "../../router/index.js";
 

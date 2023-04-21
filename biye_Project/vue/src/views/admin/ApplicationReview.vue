@@ -1,15 +1,20 @@
 <template>
   <!--添加按钮-->
-  <div style="margin-top: 20px; margin-left: 30px">
+  <div style="margin-top: 30px; margin-left: 30px">
     <el-input style="width: 260px; margin-right: 10px" v-model="stuName" placeholder="请输入用户名" clearable></el-input>
     <el-input style="width: 260px; margin-right: 10px" v-model="stuID" placeholder="请输入学号" clearable></el-input>
     <el-input style="width: 260px; margin-right: 10px" v-model="profession" placeholder="请输入专业" clearable></el-input>
     <el-button size="default" type="primary" style="margin-left: 10px" @click="load">
       <el-icon style="margin-right: 3px"><Search /></el-icon>查询
     </el-button>
+    <el-button size="default" type="primary" @click="handleOut">
+      <el-icon style="margin-right: 3px"><Plus /></el-icon>导出
+    </el-button>
   </div>
 
-  <el-table :data="state.tableData" stripe style="width: 95%;margin-top: 10px;margin-left: 20px" >
+  <el-table :data="state.tableData" stripe
+            :header-cell-style="{background:'#6495ed',color:'black',height: '60px'}"
+            style="width: 95%;margin-top: 30px;margin-left: 20px" >
     <el-table-column prop="id" label="ID" width="60"/>
     <el-table-column prop="stuID" label="学号" width="100"/>
     <el-table-column prop="stuName" label="姓名" width="90"/>
@@ -57,6 +62,22 @@
     />
   </div>
 
+  <el-dialog v-model="dialogFormVisible1" title="筛选条件" width="50%">
+    <el-form :model="state.form" :rules="state.rules" ref="ruleFormRef" label-width="100px">
+      <el-form-item label="请选择" prop="audit">
+        <el-radio-group v-model="state.form.audit" class="ml-4">
+          <el-radio label="已通过" size="large" border></el-radio>
+        </el-radio-group>
+      </el-form-item>
+    </el-form>
+    <template #footer>
+      <span class="dialog-footer">
+        <el-button @click="dialogFormVisible1 = false">取消</el-button>
+        <el-button type="primary" @click="Confirm">确认</el-button>
+      </span>
+    </template>
+  </el-dialog>
+
   <el-dialog v-model="dialogFormVisible" title="编辑信息" width="50%">
     <el-form :model="state.form" :rules="state.rules" ref="ruleFormRef" label-width="100px">
       <el-form-item label="姓名" prop="stuName">
@@ -86,14 +107,14 @@
 
       <el-form-item label="文件审核" prop="file">
         <el-radio-group v-model="state.form.file" class="ml-4">
-          <el-radio label="已通过" size="large"></el-radio>
-          <el-radio label="未通过" size="large"></el-radio>
+          <el-radio label="已通过" size="large" border></el-radio>
+          <el-radio label="未通过" size="large" border></el-radio>
         </el-radio-group>
       </el-form-item>
       <el-form-item label="申请结果" prop="audit">
         <el-radio-group v-model="state.form.audit" class="ml-4">
-          <el-radio label="已通过" size="large"></el-radio>
-          <el-radio label="未通过" size="large"></el-radio>
+          <el-radio label="已通过" size="large" border></el-radio>
+          <el-radio label="未通过" size="large" border></el-radio>
         </el-radio-group>
       </el-form-item>
     </el-form>
@@ -114,7 +135,7 @@
   const {proxy} = getCurrentInstance()
   // 弹窗配置
   const dialogFormVisible = ref(false)
-
+  const dialogFormVisible1 = ref(false)
   const state = reactive({
     tableData: [],
     form: {},
@@ -161,6 +182,12 @@
     load()
   }
 
+  //将申请表通过的人员, 导入到拟定名单中
+  const handleOut = () =>{
+    dialogFormVisible1.value = true
+    state.form = {} //初始化, 避免新增时, 存在已有数据的情况
+  }
+
   // 编辑
   const handleEdit= (row)=>{
     dialogFormVisible.value = true
@@ -192,6 +219,18 @@
               load()
             }else {
               ElMessage({ type: 'error', message: res.msg})
+            }
+          })
+        }else{
+          request.post("/apply/out", state.form).then(res => {
+            if(res.code === '200') {
+              ElMessage({ type: 'success', message: '添加成功！！！'})
+              /*关闭弹窗*/
+              dialogFormVisible1.value = false
+              /*刷新表格*/
+              load()
+            } else {
+              ElMessage.error(res.msg)
             }
           })
         }

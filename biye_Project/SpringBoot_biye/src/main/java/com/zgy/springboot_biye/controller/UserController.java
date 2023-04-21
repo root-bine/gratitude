@@ -97,15 +97,6 @@ public class UserController {
     // 修改密码
     @RequestMapping(value = "/new", method = RequestMethod.PUT)
     public  Result newPass(@RequestBody User user){
-        /*Map<String, String> map = new HashMap<>();
-        List<User> all = userDao.findAll();
-        map.put(user.getUsername(),user.getPassword());
-        for (int i = 0; i < all.size(); i++) {
-            if(map.containsKey(all.get(i).getUsername())) {
-                return Result.error("该用户不存在");
-            }
-            break;
-        }*/
         List<User> all = userService.findAll();
         for (int i = 0; i < all.size(); i++) {
             User result = all.get(i);
@@ -115,6 +106,7 @@ public class UserController {
         }
         return Result.error("该用户不存在");
     }
+
     // 查询单个数据, 用于前端获取用户名并展示在页面右上角
     @GetMapping("/{id}") // https://localhost:8090/users/id
     public Result findById(@PathVariable Integer id){

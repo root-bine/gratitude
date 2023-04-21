@@ -34,9 +34,9 @@ const routers = [
                 meta: { title: "报名信息表" }
             },
             {
-                path:'new',
-                name:'NewPassword',
-                component:() => import('../views/user/NewPassword.vue'),
+                path:'newPass',
+                name:'NewPass',
+                component:() => import('../views/user/NewPass.vue'),
                 meta: { title: "修改密码" }
             },
             {
@@ -124,6 +124,18 @@ const routers = [
                 path:'applicationReview',
                 name:'ApplicationReview',
                 component:() => import('../views/admin/ApplicationReview.vue'),
+                meta: { title: "申请审核" }
+            },
+            {
+                path:'tentativeList',
+                name:'TentativeList',
+                component:() => import('../views/admin/TentativeList.vue'),
+                meta: { title: "申请审核" }
+            },
+            {
+                path:'adminManagement',
+                name:'AdminManagement',
+                component:() => import('../views/admin/AdminManagement.vue'),
                 meta: { title: "申请审核" }
             },
         ]

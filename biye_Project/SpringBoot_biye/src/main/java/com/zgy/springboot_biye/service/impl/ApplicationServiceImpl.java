@@ -60,4 +60,9 @@ public class ApplicationServiceImpl implements ApplicationService {
     public List<Application> findPageHelper(SearchPage searchPage) {
         return applicationDao.findPageHelper(searchPage);
     }
+
+    @Override
+    public int insertByFin(Application application) {
+        return applicationDao.insertByFin(application);
+    }
 }

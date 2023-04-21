@@ -11,6 +11,13 @@
                (#{stuID}, #{stuName}, #{profession}, #{test},
                 #{average}, #{course}, #{myself}, #{school})
     </insert>
+    <insert id="insertByFin">
+        insert into
+            nidingmingdan(stuID, stuName, profession)
+        select stuID, stuName, profession
+            from shenqingbiao s
+        where s.audit=#{audit}
+    </insert>
     <update id="update">
         update shenqingbiao set
                         stuID=#{stuID}, school=#{school}, profession=#{profession}, stuName=#{stuName},
@@ -37,7 +44,7 @@
             (select s.id from shenqingbiao s left outer join user u on s.stuID=u.studentid where u.id=#{id})
     </select>
     <select id="search" resultType="com.zgy.springboot_biye.domain.Application">
-        select stuID, stuName, school, profession, test, average, audit from shenqingbiao where (stuID, stuName) in
+        select stuID, stuName, school, profession, test, file,average, audit from shenqingbiao where (stuID, stuName) in
             (select studentid, username from user u where u.id = #{id} )
     </select>
     <select id="findPageHelper" resultType="com.zgy.springboot_biye.domain.Application">

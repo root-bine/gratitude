@@ -1,6 +1,6 @@
 <template>
   <!--添加按钮-->
-  <div style="margin-top: 20px; margin-left: 30px">
+  <div style="margin-top: 30px; margin-left: 30px">
     <el-input style="width: 260px; margin-right: 10px" v-model="username" placeholder="请输入用户名" clearable></el-input>
     <el-input style="width: 260px; margin-right: 10px" v-model="studentid" placeholder="请输入学号" clearable></el-input>
     <el-input style="width: 260px; margin-right: 10px" v-model="department" placeholder="请输入院系" clearable></el-input>
@@ -12,7 +12,9 @@
     </el-button>
   </div>
 
-  <el-table :data="state.tableData" stripe style="width: 100%;margin-top: 10px;margin-left: 20px" >
+  <el-table :data="state.tableData" stripe
+            :header-cell-style="{background:'#e9667a',color:'black',height: '60px'}"
+            style="width: 100%;margin-top: 30px;margin-left: 20px" >
     <el-table-column prop="id" label="ID" width="60"/>
     <el-table-column prop="college" label="学校" width="120"/>
     <el-table-column prop="department" label="院系" width="130"/>
@@ -86,8 +88,8 @@
       </el-form-item>
       <el-form-item label="性别" prop="sex">
         <el-radio-group v-model="state.form.sex" class="ml-4">
-          <el-radio label="男" size="large">男</el-radio>
-          <el-radio label="女" size="large">女</el-radio>
+          <el-radio label="男" size="large" border>男</el-radio>
+          <el-radio label="女" size="large" border>女</el-radio>
         </el-radio-group>
       </el-form-item>
       <el-form-item label="政治面貌" prop="region">
@@ -127,8 +129,8 @@
       </el-form-item>
       <el-form-item label="性别" prop="sex">
         <el-radio-group v-model="state.form.sex" class="ml-4">
-          <el-radio label="男" size="large">男</el-radio>
-          <el-radio label="女" size="large">女</el-radio>
+          <el-radio label="男" size="large" border>男</el-radio>
+          <el-radio label="女" size="large" border>女</el-radio>
         </el-radio-group>
       </el-form-item>
       <el-form-item label="政治面貌" prop="region">

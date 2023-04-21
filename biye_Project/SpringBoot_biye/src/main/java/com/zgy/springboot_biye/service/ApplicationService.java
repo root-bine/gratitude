@@ -16,4 +16,5 @@ public interface ApplicationService {
     int updateList(Application app);
     int deleteList(Integer id);
     List<Application> findPageHelper(SearchPage searchPage);
+    int insertByFin(Application application);
 }

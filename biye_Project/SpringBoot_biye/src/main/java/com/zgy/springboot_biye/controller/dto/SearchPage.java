@@ -8,14 +8,15 @@ import lombok.Data;
  */
 @Data
 public class SearchPage {
+    // 分页参数
     private Integer currentPage;
     private Integer pageNum;
     private Integer pageSize;
-    // user表
+    // 用户表、管理员表
     private String username;
     private String department;
     private String studentid;
-    //申请表 报名表
+    // 申请表、报名表、拟定名单
     private String stuName;
     private String stuID;
     private String profession;

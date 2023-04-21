@@ -85,4 +85,9 @@ public class ApplicationController {
         /*返回数据库操作记录数, > 0: 成功, < 0: 失败*/
         return Result.success(applicationService.deleteList(id) == 1);
     }
+
+    @PostMapping("/out")
+    public Result insertByFin(@RequestBody Application app) {
+        return Result.success(applicationService.insertByFin(app));
+    }
 }

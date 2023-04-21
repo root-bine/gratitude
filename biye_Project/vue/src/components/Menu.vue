@@ -11,7 +11,7 @@
         <span style="font-size: 25px">个人中心</span>
       </template>
       <el-menu-item class="els" index="person">个人信息</el-menu-item>
-      <el-menu-item class="els" index="new">修改密码</el-menu-item>
+      <el-menu-item class="els" index="newPass">修改密码</el-menu-item>
     </el-sub-menu>
 
     <el-sub-menu index="2">

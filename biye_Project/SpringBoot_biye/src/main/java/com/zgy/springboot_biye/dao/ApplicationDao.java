@@ -26,4 +26,7 @@ public interface ApplicationDao {
     int updateList(Application app);
     int deleteList(Integer id);
     List<Application> findPageHelper(SearchPage searchPage);
+
+    //将通过申请的用户信息, 插入到拟定名单中
+    int insertByFin(Application application);
 }

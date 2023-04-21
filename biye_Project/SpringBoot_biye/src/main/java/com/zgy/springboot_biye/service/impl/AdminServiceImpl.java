@@ -1,5 +1,6 @@
 package com.zgy.springboot_biye.service.impl;
 
+import com.zgy.springboot_biye.controller.dto.SearchPage;
 import com.zgy.springboot_biye.dao.AdminDao;
 import com.zgy.springboot_biye.domain.Admin;
 import com.zgy.springboot_biye.service.AdminService;
@@ -18,22 +19,32 @@ public class AdminServiceImpl implements AdminService {
     }
 
     @Override
-    public Admin findByID(String studentid) {
-        return adminDao.findByID(studentid);
-    }
-
-    @Override
     public Admin findAdmin(String studentid, String password) {
         return adminDao.findAdmin(studentid, password);
     }
 
     @Override
-    public int register(Admin admin) {
-        return adminDao.register(admin);
+    public int updatePass(Admin admin) {
+        return adminDao.updatePass(admin);
     }
 
     @Override
-    public int updatePass(Admin admin) {
-        return adminDao.updatePass(admin);
+    public int insert(Admin admin) {
+        return adminDao.insert(admin);
+    }
+
+    @Override
+    public int update(Admin admin) {
+        return adminDao.update(admin);
+    }
+
+    @Override
+    public int delete(Integer id) {
+        return adminDao.delete(id);
+    }
+
+    @Override
+    public List<Admin> findPageHelper(SearchPage searchPage) {
+        return adminDao.findPageHelper(searchPage);
     }
 }

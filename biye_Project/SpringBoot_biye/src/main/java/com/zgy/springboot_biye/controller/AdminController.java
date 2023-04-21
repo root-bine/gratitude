@@ -43,4 +43,35 @@ public class AdminController {
         }
         return Result.error("该用户不存在");
     }
+
+    // 新增 or 保存
+    @PostMapping
+    public Result add(@RequestBody Admin admin) {
+        return Result.success(adminService.insert(admin));
+    }
+
+    // 修改 or 更新
+    @PutMapping
+    public Result update(@RequestBody Admin admin) {
+        return Result.success(adminService.update(admin));
+    }
+
+    // 删除
+    @DeleteMapping("/{id}")
+    public Result delete(@PathVariable Integer id) {
+        return Result.success(adminService.delete(id));
+    }
+
+    // 分页 + 查询
+    @GetMapping("/page")
+    public Result findPage(SearchPage searchPage) {
+        Integer currentPage = searchPage.getCurrentPage();
+        Integer pageSize = searchPage.getPageSize();
+        if(currentPage == null || currentPage < 1 || pageSize == null || pageSize < 1) {
+            return Result.error("参数错误");
+        }
+        PageHelper.startPage(currentPage, pageSize);
+        List<Admin> page = adminService.findPageHelper(searchPage);
+        return Result.success(new PageInfo<>(page));
+    }
 }
