@@ -130,13 +130,19 @@ const routers = [
                 path:'tentativeList',
                 name:'TentativeList',
                 component:() => import('../views/admin/TentativeList.vue'),
-                meta: { title: "申请审核" }
+                meta: { title: "拟定名单" }
             },
             {
                 path:'adminManagement',
                 name:'AdminManagement',
                 component:() => import('../views/admin/AdminManagement.vue'),
-                meta: { title: "申请审核" }
+                meta: { title: "用户管理" }
+            },
+            {
+                path:'applicationEmail',
+                name:'ApplicationEmail',
+                component:() => import('../views/admin/ApplicationEmail.vue'),
+                meta: { title: "申请通过邮件" }
             },
         ]
     },

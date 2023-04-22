@@ -15,7 +15,7 @@
       <span style="font-size: 25px">推免申请</span>
     </el-menu-item>
 
-    <el-menu-item index="4">
+    <el-menu-item index="applicationEmail">
       <el-icon><Comment /></el-icon>
       <span style="font-size: 25px">邮件通知</span>
     </el-menu-item>
