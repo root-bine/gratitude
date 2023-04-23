@@ -6,20 +6,35 @@
     <insert id="insert">
         insert into
             baomingbiao(stuID, stuName, sex, profession, english, average, gratitude,
-                        stuStatus, phone, myself, file)
+                        stuStatus, phone, myself)
         values(#{stuID}, #{stuName}, #{sex}, #{profession}, #{english}, #{average},
-               #{gratitude}, #{stuStatus}, #{phone}, #{myself}, #{file})
+               #{gratitude}, #{stuStatus}, #{phone}, #{myself})
+    </insert>
+    <insert id="insertList">
+        insert into
+            luqumingdan(stuID, stuName, profession)
+        select stuID, stuName, profession
+        from baomingbiao b
+        where b.audit=#{audit}
     </insert>
     <update id="update">
         update baomingbiao set
                 stuID=#{stuID}, stuName=#{stuName}, sex=#{sex}, profession=#{profession},
                 english=#{english}, average=#{average}, gratitude=#{gratitude},
-                stuStatus=#{stuStatus}, phone=#{phone}, myself=#{myself}, file=#{file}
+                stuStatus=#{stuStatus}, phone=#{phone}, myself=#{myself}
         where stuID=#{stuID}
+    </update>
+    <update id="updateList">
+        update baomingbiao set
+                file=#{file}, audit=#{audit}
+        where id=#{id}
     </update>
     <delete id="delete">
         delete from baomingbiao where stuID=
             (select studentid from user where id=#{id})
+    </delete>
+    <delete id="deleteList">
+        delete from baomingbiao where id=#{id}
     </delete>
     <select id="findAll" resultType="com.zgy.springboot_biye.domain.Enrollment">
         select * from baomingbiao
@@ -31,5 +46,9 @@
     <select id="search" resultType="com.zgy.springboot_biye.domain.Enrollment">
         select stuID, stuName, file, audit, profession, english, average from baomingbiao where (stuID, stuName) in
             (select studentid, username from user u where u.id = #{id} )
+    </select>
+    <select id="findPageHelper" resultType="com.zgy.springboot_biye.domain.Enrollment">
+        select * from baomingbiao where stuID in
+            (select s.stuID from shenqingbiao s where s.audit = "已通过")
     </select>
 </mapper>

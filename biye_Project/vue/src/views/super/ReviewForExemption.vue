@@ -1,0 +1,233 @@
+<template>
+  <h1 style="text-align: center;font-size: 35px;color: darkolivegreen">推免研究生资格审核</h1>
+  <!--添加按钮-->
+  <div style="margin-top: 30px; margin-left: 30px">
+    <el-button size="default" type="primary" @click="handleOut">
+      <el-icon style="margin-right: 3px"><Plus /></el-icon>导出
+    </el-button>
+  </div>
+
+  <el-table :data="state.tableData" stripe
+            :header-cell-style="{background:'#6495ed',color:'black',height: '60px'}"
+            style="width: 95%;margin-top: 30px;margin-left: 20px" >
+    <el-table-column prop="id" label="ID" width="60"/>
+    <el-table-column prop="stuID" label="学号" width="100"/>
+    <el-table-column prop="stuName" label="姓名" width="90"/>
+    <el-table-column prop="sex" label="性别" width="90"/>
+    <el-table-column prop="profession" label="专业" width="90"/>
+    <el-table-column prop="stuStatus" label="政治面貌" width="90"/>
+    <el-table-column prop="english" label="四/六级" width="120"/>
+    <el-table-column prop="average" label="平均绩点" width="90"/>
+    <el-table-column prop="file" label="文件审核" width="100"/>
+    <el-table-column prop="audit" label="申请审核" width="100"/>
+
+    <!--修改和删除按钮-->
+    <el-table-column fixed="right" label="操作">
+      <template #default="scope">
+        <el-button size="small" type="success" @click="handleEdit(scope.row)">
+          <!--设置按钮大小、图标与字体间距-->
+          <el-icon size="20" style="margin-right: 3px"><Edit /></el-icon>编辑
+        </el-button>
+        <el-popconfirm title="是否要删除此条信息?" confirm-button-text="确定"
+                       cancel-button-text="取消" @confirm="handleDelete(scope.row.id)">
+          <template #reference>
+            <el-button size="small" type="danger">
+              <el-icon size="20" style="margin-right: 3px"><Delete/></el-icon>删除
+            </el-button>
+          </template>
+        </el-popconfirm>
+      </template>
+    </el-table-column>
+  </el-table>
+
+  <!--分页配置-->
+  <div style="margin: 10px 0;margin-left: 20px">
+    <el-pagination
+        v-model:current-page="currentPage"
+        v-model:page-size="pageSize"
+        :page-sizes="[5, 10, 15, 25]"
+        :small="large"
+        :disabled="false"
+        :background="true"
+        layout="total, sizes, prev, pager, next, jumper"
+        :total="total"
+        @size-change="handleSizeChange"
+        @current-change="handleCurrentChange"
+    />
+  </div>
+
+  <el-dialog v-model="dialogFormVisible1" title="筛选条件" width="50%">
+    <el-form :model="state.form" :rules="state.rules" ref="ruleFormRef" label-width="100px">
+      <el-form-item label="请选择" prop="audit">
+        <el-radio-group v-model="state.form.audit" class="ml-4">
+          <el-radio label="已通过" size="large" border></el-radio>
+        </el-radio-group>
+      </el-form-item>
+    </el-form>
+    <template #footer>
+      <span class="dialog-footer">
+        <el-button @click="dialogFormVisible1 = false">取消</el-button>
+        <el-button type="primary" @click="Confirm">确认</el-button>
+      </span>
+    </template>
+  </el-dialog>
+
+  <el-dialog v-model="dialogFormVisible" title="编辑信息" width="50%">
+    <el-form :model="state.form" :rules="state.rules" ref="ruleFormRef" label-width="100px">
+      <el-form-item label="学号" prop="stuID">
+        <el-input v-model="state.form.stuID" autocomplete="off" disabled style="width: 20%"/>
+      </el-form-item>
+      <el-form-item label="姓名" prop="stuName">
+        <el-input v-model="state.form.stuName" autocomplete="off" disabled style="width: 20%"/>
+      </el-form-item>
+      <el-form-item label="性别" prop="sex">
+        <el-input v-model="state.form.sex" autocomplete="off" disabled style="width: 20%"/>
+      </el-form-item>
+      <el-form-item label="政治面貌" prop="stuStatus">
+        <el-input v-model="state.form.stuStatus" autocomplete="off" disabled style="width: 35%"/>
+      </el-form-item>
+      <el-form-item label="专业" prop="profession">
+        <el-input v-model="state.form.profession" autocomplete="off" disabled style="width: 35%"/>
+      </el-form-item>
+      <el-form-item label="四/六级" prop="english">
+        <el-input v-model="state.form.english" autocomplete="off" disabled style="width: 35%"/>
+      </el-form-item>
+      <el-form-item label="平均绩点" prop="average">
+        <el-input v-model="state.form.average" autocomplete="off" disabled style="width: 35%"/>
+      </el-form-item>
+      <el-form-item label="毕设内容" prop="gratitude">
+        <el-input  type="textarea" v-model="state.form.gratitude" autocomplete="off" disabled style="width: 60%"/>
+      </el-form-item>
+      <el-form-item label="自我介绍" prop="myself">
+        <el-input  type="textarea" v-model="state.form.myself" autocomplete="off" disabled style="width: 60%"/>
+      </el-form-item>
+
+      <el-form-item label="文件审核" prop="file">
+        <el-radio-group v-model="state.form.file" class="ml-4">
+          <el-radio label="已通过" size="large" border></el-radio>
+          <el-radio label="未通过" size="large" border></el-radio>
+        </el-radio-group>
+      </el-form-item>
+      <el-form-item label="申请结果" prop="audit">
+        <el-radio-group v-model="state.form.audit" class="ml-4">
+          <el-radio label="已通过" size="large" border></el-radio>
+          <el-radio label="未通过" size="large" border></el-radio>
+        </el-radio-group>
+      </el-form-item>
+    </el-form>
+    <template #footer>
+      <span class="dialog-footer">
+        <el-button @click="dialogFormVisible = false">取消</el-button>
+        <el-button type="primary" @click="Confirm">确认</el-button>
+      </span>
+    </template>
+  </el-dialog>
+</template>
+<script setup>
+  import {Edit, Delete,Plus,Search} from "@element-plus/icons-vue";
+  import {getCurrentInstance, reactive, ref} from "vue";
+  import request from "../../utils/request.js";
+  import {ElMessage} from "element-plus";
+  // 表单校验引入
+  const {proxy} = getCurrentInstance()
+  // 弹窗配置
+  const dialogFormVisible = ref(false)
+  const dialogFormVisible1 = ref(false)
+  const state = reactive({
+    tableData: [],
+    form: {},
+    rules: {
+      file: [
+        {required: true, trigger: 'blur'},
+      ],
+      audit: [
+        {required: true, trigger: 'blur'},
+      ]
+    }
+  })
+
+  // 页面刷新 + 分页刷新
+  const currentPage = ref(1)
+  const pageSize = ref(5)
+  const total = ref(0)
+  const load= ()=>{
+    request.get("/add/page", {
+      params: {
+        currentPage: currentPage.value,
+        pageSize: pageSize.value,
+      }
+    }).then(res => {
+      if (res.code === '200') {
+        state.tableData = res.data.list
+        total.value = res.data.total
+      }
+    })
+  }
+  load()
+  const handleSizeChange = (val)=>{
+    pageSize.value = val
+    load()
+  }
+  const handleCurrentChange = (val)=>{
+    currentPage.value = val
+    load()
+  }
+
+  //将申请表通过的人员, 导入到拟定名单中
+  const handleOut = () =>{
+    dialogFormVisible1.value = true
+    state.form = {} //初始化, 避免新增时, 存在已有数据的情况
+  }
+
+  // 编辑
+  const handleEdit= (row)=>{
+    dialogFormVisible.value = true
+    state.form = JSON.parse(JSON.stringify(row))
+  }
+  // 删除
+  const handleDelete= (id)=>{
+    request.delete("/add/list/"+id).then(res => {
+      if(res.code === '200' && res.data === true){
+        ElMessage.success("删除成功！")
+      }else {
+        ElMessage.error(res.msg)
+      }
+      load()
+    })
+  }
+  // 确定选项
+  const Confirm= ()=>{
+    // 表单验证
+    proxy.$refs.ruleFormRef.validate((valid) => {
+      if(valid === true){ // 请求后台接口
+        if(state.form.id){
+          request.put("/add/list", state.form).then(res => {
+            if(res.code === '200') {
+              ElMessage({ type: 'success', message: '修改成功！！！'})
+              /*关闭弹窗*/
+              dialogFormVisible.value = false
+              /*刷新表格*/
+              load()
+            }else {
+              ElMessage({ type: 'error', message: res.msg})
+            }
+          })
+        }else{
+          request.post("/add/out", state.form).then(res => {
+            if(res.code === '200') {
+              ElMessage({ type: 'success', message: '添加成功！！！'})
+              /*关闭弹窗*/
+              dialogFormVisible1.value = false
+              /*刷新表格*/
+              load()
+            } else {
+              ElMessage.error(res.msg)
+            }
+          })
+        }
+      }else{
+        ElMessage({ type: 'error', message: '操作失败！！！'})
+      }
+    })
+  }
+</script>

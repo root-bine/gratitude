@@ -1,9 +1,9 @@
 <template>
   <!--添加按钮-->
-  <div style="margin-top: 20px">
+  <div style="margin-top: 30px; margin-left: 30px">
     <el-input style="width: 260px; margin-right: 10px" v-model="username" placeholder="请输入用户名" clearable></el-input>
-    <el-input style="width: 260px; margin-right: 10px" v-model="phone" placeholder="请输入电话" clearable></el-input>
-    <el-input style="width: 260px; margin-right: 10px" v-model="email" placeholder="请输入邮箱" clearable></el-input>
+    <el-input style="width: 260px; margin-right: 10px" v-model="studentid" placeholder="请输入学号" clearable></el-input>
+    <el-input style="width: 260px; margin-right: 10px" v-model="department" placeholder="请输入院系" clearable></el-input>
     <el-button size="default" type="primary" style="margin-left: 10px" @click="load">
       <el-icon style="margin-right: 3px"><Search /></el-icon>查询
     </el-button>
@@ -12,17 +12,20 @@
     </el-button>
   </div>
 
-  <el-table :data="state.tableData" stripe style="width: 100%;margin-top: 10px" >
-    <el-table-column type="selection" width="55"/>
-    <el-table-column prop="id" label="ID" width="100"/>
-<!--    <el-table-column prop="avater" label="头像"/>-->
-    <el-table-column prop="username" label="用户名" width="120"/>
+  <el-table :data="state.tableData" stripe
+            :header-cell-style="{background:'#add8e6',color:'black',height: '60px'}"
+            style="width: 100%;margin-top: 30px;margin-left: 20px" >
+    <el-table-column prop="id" label="ID" width="60"/>
+    <el-table-column prop="college" label="学校" width="120"/>
+    <el-table-column prop="department" label="院系" width="130"/>
+    <el-table-column prop="username" label="用户名" width="100"/>
     <el-table-column prop="password" label="密码" width="120"/>
-    <el-table-column prop="age" label="年龄" width="120"/>
-    <el-table-column prop="sex" label="性别" width="120"/>
-    <el-table-column prop="phone" label="电话" width="120"/>
+    <el-table-column prop="studentid" label="学号" width="100"/>
+    <el-table-column prop="profession" label="专业" width="100"/>
+    <el-table-column prop="age" label="年龄" width="60"/>
+    <el-table-column prop="sex" label="性别" width="60"/>
+    <el-table-column prop="region" label="政治面貌" width="120"/>
     <el-table-column prop="email" label="邮箱" width="120"/>
-    <el-table-column prop="address" label="地址" width="140"/>
 
     <!--修改和删除按钮-->
     <el-table-column fixed="right" label="操作">
@@ -44,7 +47,7 @@
   </el-table>
 
   <!--分页配置-->
-  <div style="margin: 10px 0">
+  <div style="margin: 10px 0;margin-left: 20px">
     <el-pagination
         v-model:current-page="currentPage"
         v-model:page-size="pageSize"
@@ -62,36 +65,39 @@
   <!--弹窗界面-->
   <el-dialog v-model="dialogFormVisible1" title="新增信息" width="50%">
     <el-form :model="state.form" :rules="state.rules" ref="ruleFormRef" label-width="100px">
+      <el-form-item label="学校" prop="college">
+        <el-input v-model="state.form.college" autocomplete="off" placeholder="请输入学校名称" style="width: 20%"/>
+      </el-form-item>
+      <el-form-item label="院系" prop="department">
+        <el-input v-model="state.form.department" autocomplete="off" placeholder="请输入院系名称" style="width: 20%"/>
+      </el-form-item>
       <el-form-item label="用户名" prop="username">
         <el-input v-model="state.form.username" autocomplete="off" placeholder="请输入用户名" style="width: 20%"/>
       </el-form-item>
       <el-form-item label="密码" prop="password">
         <el-input v-model="state.form.password" autocomplete="off" placeholder="请输入密码" style="width: 20%"/>
       </el-form-item>
+      <el-form-item label="学号" prop="studentid">
+        <el-input v-model="state.form.studentid" autocomplete="off" placeholder="请输入学号" style="width: 20%"/>
+      </el-form-item>
+      <el-form-item label="专业" prop="profession">
+        <el-input v-model="state.form.profession" autocomplete="off" placeholder="请输入专业" style="width: 20%"/>
+      </el-form-item>
       <el-form-item label="年龄" prop="age">
         <el-input v-model="state.form.age" autocomplete="off" placeholder="请输入年龄" style="width: 20%"/>
       </el-form-item>
       <el-form-item label="性别" prop="sex">
-        <!--<el-input v-model="state.form.sex" autocomplete="off" placeholder="请输入性别" style="width: 60%"/>-->
-        <!--在性别选项设置单选框-->
         <el-radio-group v-model="state.form.sex" class="ml-4">
-          <el-radio label="男" size="large">男</el-radio>
-          <el-radio label="女" size="large">女</el-radio>
+          <el-radio label="男" size="large" border>男</el-radio>
+          <el-radio label="女" size="large" border>女</el-radio>
         </el-radio-group>
       </el-form-item>
-      <el-form-item label="电话" prop="phone">
-        <el-input v-model="state.form.phone" autocomplete="off" placeholder="请输入电话" style="width: 35%"/>
+      <el-form-item label="政治面貌" prop="region">
+        <el-input v-model="state.form.region" autocomplete="off" placeholder="请填写政治面貌" style="width: 20%"/>
       </el-form-item>
       <el-form-item label="邮箱" prop="email">
         <el-input v-model="state.form.email" autocomplete="off" placeholder="请输入邮箱" style="width: 35%"/>
       </el-form-item>
-      <el-form-item label="地址" prop="address">
-                    <!--文本域-->
-        <el-input  type="textarea" v-model="state.form.address" autocomplete="off" placeholder="请输入地址" style="width: 60%"/>
-      </el-form-item>
-<!--      <el-form-item label="头像" prop="avater">-->
-<!--        <el-input v-model="state.form.avater" autocomplete="off" placeholder="请设置头像" style="width: 60%"/>-->
-<!--      </el-form-item>-->
     </el-form>
     <template #footer>
       <span class="dialog-footer">
@@ -103,32 +109,35 @@
 
   <el-dialog v-model="dialogFormVisible" title="编辑信息" width="50%">
     <el-form :model="state.form" :rules="state.rules" ref="ruleFormRef" label-width="100px">
+      <el-form-item label="学校" prop="college">
+        <el-input v-model="state.form.college" autocomplete="off" placeholder="请输入学校名称" style="width: 20%"/>
+      </el-form-item>
+      <el-form-item label="院系" prop="department">
+        <el-input v-model="state.form.department" autocomplete="off" placeholder="请输入学院名称" style="width: 20%"/>
+      </el-form-item>
       <el-form-item label="用户名" prop="username">
         <el-input v-model="state.form.username" autocomplete="off" placeholder="请输入用户名" style="width: 20%"/>
       </el-form-item>
-<!--      <el-form-item label="密码" prop="password">
-        <el-input v-model="state.form.password" autocomplete="off" placeholder="请输入密码" style="width: 20%"/>
-      </el-form-item>-->
       <el-form-item label="年龄" prop="age">
         <el-input v-model="state.form.age" autocomplete="off" placeholder="请输入年龄" style="width: 20%"/>
       </el-form-item>
+      <el-form-item label="学号" prop="studentid">
+        <el-input v-model="state.form.studentid" autocomplete="off" placeholder="请输入学号" style="width: 20%"/>
+      </el-form-item>
+      <el-form-item label="专业" prop="profession">
+        <el-input v-model="state.form.profession" autocomplete="off" placeholder="请输入专业" style="width: 20%"/>
+      </el-form-item>
       <el-form-item label="性别" prop="sex">
-        <!--<el-input v-model="state.form.sex" autocomplete="off" placeholder="请输入性别" style="width: 60%"/>-->
-        <!--在性别选项设置单选框-->
         <el-radio-group v-model="state.form.sex" class="ml-4">
-          <el-radio label="男" size="large">男</el-radio>
-          <el-radio label="女" size="large">女</el-radio>
+          <el-radio label="男" size="large" border>男</el-radio>
+          <el-radio label="女" size="large" border>女</el-radio>
         </el-radio-group>
       </el-form-item>
-      <el-form-item label="电话" prop="phone">
-        <el-input v-model="state.form.phone" autocomplete="off" placeholder="请输入电话" style="width: 35%"/>
+      <el-form-item label="政治面貌" prop="region">
+        <el-input v-model="state.form.region" autocomplete="off" placeholder="请填写政治面貌" style="width: 35%"/>
       </el-form-item>
       <el-form-item label="邮箱" prop="email">
         <el-input v-model="state.form.email" autocomplete="off" placeholder="请输入邮箱" style="width: 35%"/>
-      </el-form-item>
-      <el-form-item label="地址" prop="address">
-        <!--文本域-->
-        <el-input  type="textarea" v-model="state.form.address" autocomplete="off" placeholder="请输入地址" style="width: 60%"/>
       </el-form-item>
     </el-form>
     <template #footer>
@@ -142,7 +151,7 @@
 <script setup>
   import {Edit, Delete,Plus,Search} from "@element-plus/icons-vue";
   import {getCurrentInstance, reactive, ref} from "vue";
-  import request from "../utils/request.js";
+  import request from "../../utils/request.js";
   import {ElMessage} from "element-plus";
   // 表单校验引入
   const {proxy} = getCurrentInstance()
@@ -162,9 +171,19 @@
         {required: true, message: '请输入密码', trigger: 'blur'},
         {min:3, message: '密码不能少于3位', trigger: 'blur'}
       ],
-      address: [
-        {required: true, message: '请输入地址', trigger: 'blur'},
-        {max:255, message: '最多输入255个字符', trigger: 'blur'}
+      studentid: [
+        {required: true, message: '请输入学号', trigger: 'blur'},
+        {max:12, message: '最多输入12个字符', trigger: 'blur'}
+      ],
+      college: [
+        {required: true, message: '请输入学校名称', trigger: 'blur'},
+      ],
+      department: [
+        {required: true, message: '请输入学院名称', trigger: 'blur'},
+      ],
+      region: [
+        {required: true, message: '请填写政治面貌', trigger: 'blur'},
+        {max:4, message: '最多输入4个字符', trigger: 'blur'}
       ]
     }
   })
@@ -174,21 +193,16 @@
   const pageSize = ref(5)
   const total = ref(0)
   const username = ref('')
-  const phone = ref('')
-  const email = ref('')
- /* const load=() =>{
-    request.get("/users/page").then(res => {
-      state.tableData = res.data.list
-    })
-  }*/
+  const studentid = ref('')
+  const department = ref('')
   const load= ()=>{
     request.get("/users/page", {
       params: {
         currentPage: currentPage.value,
         pageSize: pageSize.value,
         username: username.value,
-        phone: phone.value,
-        email: email.value
+        studentid: studentid.value,
+        department: department.value
       }
     }).then(res => {
       if (res.code === '200') {

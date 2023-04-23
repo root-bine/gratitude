@@ -10,7 +10,7 @@
       <!--<span class="demonstration">用户</span>-->
       <el-dropdown trigger="click">
           <span class="el-dropdown-link">
-            院级管理员
+            管理员: 院级
             <el-icon class="el-icon--right"><arrow-down /></el-icon>
           </span>
         <template #dropdown>
@@ -48,6 +48,6 @@
   font-size: 25px;
   margin-bottom: 20px;
   margin-top: 10px;
-  color: coral;
+  color: gold;
 }
 </style>

@@ -1,6 +1,6 @@
 <template>
   <div class="email">
-    <el-card style="width: 600px;height: 650px; background-color: lightblue">
+    <el-card style="width: 600px;height: 650px; background-color: burlywood">
       <h1 style="text-align: center;font-size: 30px">
         推免申请邮件发送
       </h1>
@@ -40,7 +40,7 @@
 
         <el-form-item style="margin-left: 170px;margin-top: 40px">
           <el-button type="primary" @click="load">确认</el-button>
-          <el-button type="danger" @click="$router.push({name: 'UserList'})">查询</el-button>
+          <el-button type="danger" @click="$router.push({name: 'UserMessage'})">查询</el-button>
         </el-form-item>
       </el-form>
     </el-card>
@@ -70,10 +70,10 @@ const state = reactive({
 })
 
 const load= ()=>{
-  request.post("/email", state.form).then(res => {
+  request.post("/email/ano", state.form).then(res => {
     if(res.code === '200') {
       ElMessage({type: 'success', message: '发送成功！！！'})
-      router.push({name: 'UserList'})
+      router.push({name: 'UserMessage'})
     }
   })
 }
@@ -82,7 +82,7 @@ const load= ()=>{
 <style scoped>
 .email {
   display: flex;
-  background-image: url("../static/bg-row.png");
+  background-image: url("../static/bg-block.jpg");
   width: 100%;
   height: 680px;
   justify-content: center;

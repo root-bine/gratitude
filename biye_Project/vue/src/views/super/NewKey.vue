@@ -13,7 +13,7 @@
         </el-form-item>
         <el-form-item style="margin-left: 100px">
           <el-button type="success" size="large" style="margin-right: 5px" @click="updatePass">确认</el-button>
-          <el-button type="primary" size="large" style="margin-right: 5px" @click="$router.push({name: 'AdminPag'})">取消</el-button>
+          <el-button type="primary" size="large" style="margin-right: 5px" @click="$router.push({name: 'SuperPage'})">取消</el-button>
         </el-form-item>
       </el-form>
     </div>
@@ -21,7 +21,7 @@
 </template>
 
 <script setup>
-import {getCurrentInstance, reactive, ref} from 'vue'
+import {getCurrentInstance, reactive} from 'vue'
 import router from "../../router/index.js"
 import request from "../../utils/request.js";
 import {ElMessage, ElNotification} from "element-plus";
@@ -46,7 +46,7 @@ const updatePass = () => {
         ElMessage.error("密码不一致")
         return false
       }
-      request.put('/root/set',user).then(res => {
+      request.put('/super/change',user).then(res => {
         if(res.code === '200'){ // 请求成功
           ElMessage({
             type: 'success',

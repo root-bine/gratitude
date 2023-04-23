@@ -1,7 +1,6 @@
 package com.zgy.springboot_biye.service;
 
 import com.zgy.springboot_biye.controller.dto.SearchPage;
-import com.zgy.springboot_biye.controller.dto.UserDTO;
 import com.zgy.springboot_biye.domain.User;
 
 import java.util.List;

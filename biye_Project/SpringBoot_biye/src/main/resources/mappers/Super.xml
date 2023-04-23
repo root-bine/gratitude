@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zgy.springboot_biye.dao.SuperDao">
+    <update id="updatePass">
+        update super set
+            password=#{password}
+        where studentid=#{studentid}
+    </update>
+    <select id="findAdmin" resultType="com.zgy.springboot_biye.domain.Super">
+        select * from super where studentid=#{studentid} and password=#{password}
+    </select>
+    <select id="findAll" resultType="com.zgy.springboot_biye.domain.Super">
+        select * from super
+    </select>
+</mapper>

@@ -3,7 +3,6 @@ package com.zgy.springboot_biye.service.impl;
 import com.zgy.springboot_biye.controller.dto.SearchPage;
 import com.zgy.springboot_biye.dao.ApplicationDao;
 import com.zgy.springboot_biye.domain.Application;
-import com.zgy.springboot_biye.domain.User;
 import com.zgy.springboot_biye.service.ApplicationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

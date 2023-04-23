@@ -133,12 +133,6 @@ const routers = [
                 meta: { title: "拟定名单" }
             },
             {
-                path:'adminManagement',
-                name:'AdminManagement',
-                component:() => import('../views/admin/AdminManagement.vue'),
-                meta: { title: "用户管理" }
-            },
-            {
                 path:'applicationEmail',
                 name:'ApplicationEmail',
                 component:() => import('../views/admin/ApplicationEmail.vue'),
@@ -151,6 +145,57 @@ const routers = [
         name: 'inLogin',
         redirect: '/Login',
         meta: {title: "在分权后, 强制进入登陆界面"}
+    },
+    {
+        path: '/',
+        name: 'Super',
+        component:() => import('../layout/Super.vue'),
+        meta: { title: "页面布局" },
+        redirect: '/login',
+        children: [
+            {
+                path: 'superPage',
+                name: 'SuperPage',
+                component:() => import('../views/super/SuperPage.vue'),
+                meta: { title: "主页演示" }
+            },
+            {
+                path: 'newKey',
+                name: 'NewKey',
+                component:() => import('../views/super/NewKey.vue'),
+                meta: { title: "更新密码" }
+            },
+            {
+                path: 'userMessage',
+                name: 'UserMessage',
+                component:() => import('../views/super/UserMessage.vue'),
+                meta: { title: "学生信息列表" }
+            },
+            {
+                path:'adminManagement',
+                name:'AdminManagement',
+                component:() => import('../views/super/AdminManagement.vue'),
+                meta: { title: "用户管理" }
+            },
+            {
+                path:'email',
+                name:'Email',
+                component:() => import('../views/super/Email.vue'),
+                meta: { title: "校级邮件发送" }
+            },
+            {
+                path:'reviewForExemption',
+                name:'ReviewForExemption',
+                component:() => import('../views/super/ReviewForExemption.vue'),
+                meta: { title: "推免审核" }
+            },
+            {
+                path:'admissionList',
+                name:'AdmissionList',
+                component:() => import('../views/super/AdmissionList.vue'),
+                meta: { title: "录取结果" }
+            },
+        ]
     }
 ]
 

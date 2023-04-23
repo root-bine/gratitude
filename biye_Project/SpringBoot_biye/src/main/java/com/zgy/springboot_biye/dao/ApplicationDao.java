@@ -2,7 +2,6 @@ package com.zgy.springboot_biye.dao;
 
 import com.zgy.springboot_biye.controller.dto.SearchPage;
 import com.zgy.springboot_biye.domain.Application;
-import com.zgy.springboot_biye.domain.User;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;

@@ -52,14 +52,12 @@
 
         <el-col :span="12">
           <el-form-item label="政治面貌" prop="stuStatus" class="imset">
-            <el-select v-model="baomingbiao.stuStatus" placeholder="请选择" size="large">
-              <el-option
-                  v-for="item in options"
-                  :key="item.value"
-                  :label="item.label"
-                  :value="item.value"
-              />
-            </el-select>
+            <el-radio-group v-model="baomingbiao.stuStatus" class="ml-4">
+              <el-radio label="普通群众" size="large" border></el-radio>
+              <el-radio label="共青团员" size="large" border></el-radio>
+              <el-radio label="预备党员" size="large" border></el-radio>
+              <el-radio label="正式党员" size="large" border></el-radio>
+            </el-radio-group>
           </el-form-item>
         </el-col>
 
@@ -129,24 +127,6 @@ import request from "../../utils/request.js";
 //import type { UploadProps, UploadUserFile } from 'element-plus'
 import router from "../../router/index.js";
 const {proxy} = getCurrentInstance()
-const options = [
-  {
-    value: '1',
-    label: '正式党员',
-  },
-  {
-    value: '2',
-    label: '预备党员',
-  },
-  {
-    value: '3',
-    label: '共青团员',
-  },
-  {
-    value: '4',
-    label: '普通群众'
-  }
-]
 const baomingbiao = reactive({})
 const rules = reactive({
   stuID: [
@@ -176,9 +156,6 @@ const rules = reactive({
   phone: [
     {required: true, message: '请填写电话号码', trigger: 'blur'},
   ],
-  /*file: [
-    {required: true, message: '请上传相关附件', trigger: 'blur'},
-  ],*/
   myself: [
     {required: true, message: '请做自我介绍', trigger: 'blur'},
   ],

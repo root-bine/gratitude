@@ -3,13 +3,8 @@ package com.zgy.springboot_biye.controller;
 import com.zgy.springboot_biye.config.Result;
 import com.zgy.springboot_biye.controller.dto.Send;
 import com.zgy.springboot_biye.service.SendMailService;
-import com.zgy.springboot_biye.utils.MailUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-import javax.mail.MessagingException;
-import java.io.UnsupportedEncodingException;
-import java.util.Random;
 
 @RestController
 @RequestMapping("/email")

@@ -5,7 +5,6 @@ import com.github.pagehelper.PageInfo;
 import com.zgy.springboot_biye.config.Result;
 import com.zgy.springboot_biye.controller.dto.SearchPage;
 import com.zgy.springboot_biye.domain.Application;
-import com.zgy.springboot_biye.domain.User;
 import com.zgy.springboot_biye.service.ApplicationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

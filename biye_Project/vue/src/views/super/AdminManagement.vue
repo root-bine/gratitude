@@ -1,5 +1,6 @@
 <template>
   <!--添加按钮-->
+  <h1 style="text-align: center;font-size: 35px;color: coral">学院账户信息</h1>
   <div style="margin-top: 30px; margin-left: 30px">
     <el-input style="width: 260px; margin-right: 10px" v-model="username" placeholder="请输入用户名" clearable></el-input>
     <el-input style="width: 260px; margin-right: 10px" v-model="studentid" placeholder="请输入学号" clearable></el-input>

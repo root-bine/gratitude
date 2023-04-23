@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zgy.springboot_biye.dao.AdmissionDao">
+    <delete id="delete">
+        delete from luqumingdan where id=#{id}
+    </delete>
+    <select id="findPageHelpers" resultType="com.zgy.springboot_biye.domain.Admission">
+        select * from luqumingdan
+        <where>
+            <if test="stuName != null and stuName !=''">
+                and stuName like concat('%', #{stuName}, '%')
+            </if>
+            <if test="stuID != null and stuID !=''">
+                and stuID like concat('%', #{stuID}, '%')
+            </if>
+            <if test="profession != null and profession !=''">
+                and profession like concat('%', #{profession}, '%')
+            </if>
+        </where>
+    </select>
+</mapper>

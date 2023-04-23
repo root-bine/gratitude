@@ -11,10 +11,11 @@
         <el-form-item prop="password">
           <el-input style="height: 50px" v-model="OBJECT.password" :prefix-icon="Lock" show-password clearable/>
         </el-form-item>
-        <el-form-item style="margin-left: 100px">
+        <el-form-item style="margin-left: 50px">
           <el-radio-group v-model="radio" class="ml-4">
-            <el-radio label="1" size="large" >管理员</el-radio>
-            <el-radio label="2" size="large">学生</el-radio>
+            <el-radio label="3" size="large" border>校级</el-radio>
+            <el-radio label="1" size="large" border>院级</el-radio>
+            <el-radio label="2" size="large" border>学生</el-radio>
           </el-radio-group>
         </el-form-item>
         <el-form-item style="margin-left: 100px">
@@ -80,6 +81,21 @@
                   message: '登录成功'})
                 /*登录成功, 进行页面跳转*/
                 router.push({name: 'AdminPag'})
+              }else{ // 请求失败
+                ElNotification({
+                  type: 'error',
+                  message: res.msg
+                })
+              }
+            })
+          } else if(valid && radio.value == 3) {
+            request.post('/super/inner', OBJECT).then(res => {
+              if(res.code === '200'){ // 请求成功
+                ElMessage({
+                  type: 'success',
+                  message: '登录成功'})
+                /*登录成功, 进行页面跳转*/
+                router.push({name: 'SuperPage'})
               }else{ // 请求失败
                 ElNotification({
                   type: 'error',

@@ -1,5 +1,6 @@
 package com.zgy.springboot_biye.service.impl;
 
+import com.zgy.springboot_biye.controller.dto.SearchPage;
 import com.zgy.springboot_biye.dao.EnrollmentDao;
 import com.zgy.springboot_biye.domain.Enrollment;
 import com.zgy.springboot_biye.service.EnrollmentService;
@@ -12,7 +13,6 @@ import java.util.List;
 public class EnrollmentServiceImpl implements EnrollmentService {
     @Autowired
     private EnrollmentDao mentDao;
-
 
     @Override
     public List<Enrollment> findAll() {
@@ -42,5 +42,25 @@ public class EnrollmentServiceImpl implements EnrollmentService {
     @Override
     public Enrollment search(Integer id) {
         return mentDao.search(id);
+    }
+
+    @Override
+    public int updateList(Enrollment ment) {
+        return mentDao.updateList(ment);
+    }
+
+    @Override
+    public int deleteList(Integer id) {
+        return mentDao.deleteList(id);
+    }
+
+    @Override
+    public List<Enrollment> findPageHelper(SearchPage searchPage) {
+        return mentDao.findPageHelper(searchPage);
+    }
+
+    @Override
+    public int insertList(Enrollment ment) {
+        return mentDao.insertList(ment);
     }
 }

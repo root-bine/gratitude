@@ -5,17 +5,15 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
- * 院级表
+ * 校级表
  */
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-public class Admin {
+public class Super {
     private int id;
+    private String studentid;
     private String username;
     private String password;
-    private String studentid;
-    private String department;
     private String college;
-    private String region;
 }
