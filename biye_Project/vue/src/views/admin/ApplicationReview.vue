@@ -1,4 +1,5 @@
 <template>
+  <h1 style="text-align: center;font-size: 35px;color: darkolivegreen">推免研究生申请审核</h1>
   <!--添加按钮-->
   <div style="margin-top: 30px; margin-left: 30px">
     <el-input style="width: 260px; margin-right: 10px" v-model="stuName" placeholder="请输入用户名" clearable></el-input>

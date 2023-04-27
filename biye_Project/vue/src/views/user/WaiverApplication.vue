@@ -49,17 +49,11 @@
         <el-col :span="24">
           <el-form-item label="相关附件" prop="file" class="imset">
             <el-upload
-                v-model:file-list="application.file"
                 class="upload-demo"
-                action="https://run.mocky.io/v3/9d059bf9-4660-45f2-925d-ce80ad6c4d15"
-                multiple
-                :on-preview="handlePreview"
-                :on-remove="handleRemove"
-                :before-remove="beforeRemove"
-                :limit="3"
-                :on-exceed="handleExceed"
-            >
-              <el-button type="primary">Click to upload</el-button>
+                :action="uploadUrl"
+                :file-list="fileList"
+                :on-success="handleSuccess">
+              <el-button size="large" type="danger">点击上传</el-button>
               <template #tip>
                 <div class="el-upload__tip">
                   压缩包(应届毕业证明、四六级证书、毕业体检报告), , 后缀: .zip
@@ -99,7 +93,7 @@
 </template>
 
 <script setup>
-import {getCurrentInstance, reactive} from "vue";
+import {getCurrentInstance, reactive, ref} from "vue";
 import {ElMessage, ElNotification} from 'element-plus'
 import request from "../../utils/request.js";
 import router from "../../router/index.js";
@@ -152,7 +146,15 @@ const Submit = () => {
     }
   })
 }
-
+const fileList = ref([]);
+const uploadUrl = 'http://localhost:9090/file/upload';
+const handleSuccess = (response, file) => {
+  ElMessage.success('上传成功')
+  fileList.value.push({
+    name: file.name,
+    url: URL.createObjectURL(file.raw),
+  })
+}
 </script>
 
 <style>

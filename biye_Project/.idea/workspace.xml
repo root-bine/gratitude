@@ -5,31 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f6cf6e5c-e033-463f-8c0b-f6cea27fcb50" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SpringBoot_biye/src/main/java/com/zgy/springboot_biye/controller/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/SpringBoot_biye/src/main/java/com/zgy/springboot_biye/controller/AdminController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SpringBoot_biye/src/main/java/com/zgy/springboot_biye/controller/ApplicationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/SpringBoot_biye/src/main/java/com/zgy/springboot_biye/controller/ApplicationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SpringBoot_biye/src/main/java/com/zgy/springboot_biye/controller/EnrollmentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/SpringBoot_biye/src/main/java/com/zgy/springboot_biye/controller/EnrollmentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SpringBoot_biye/src/main/java/com/zgy/springboot_biye/controller/SendMailController.java" beforeDir="false" afterPath="$PROJECT_DIR$/SpringBoot_biye/src/main/java/com/zgy/springboot_biye/controller/SendMailController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SpringBoot_biye/src/main/java/com/zgy/springboot_biye/dao/ApplicationDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/SpringBoot_biye/src/main/java/com/zgy/springboot_biye/dao/ApplicationDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SpringBoot_biye/src/main/java/com/zgy/springboot_biye/dao/EnrollmentDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/SpringBoot_biye/src/main/java/com/zgy/springboot_biye/dao/EnrollmentDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SpringBoot_biye/src/main/java/com/zgy/springboot_biye/dao/UserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/SpringBoot_biye/src/main/java/com/zgy/springboot_biye/dao/UserDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SpringBoot_biye/src/main/java/com/zgy/springboot_biye/domain/Admin.java" beforeDir="false" afterPath="$PROJECT_DIR$/SpringBoot_biye/src/main/java/com/zgy/springboot_biye/domain/Admin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SpringBoot_biye/src/main/java/com/zgy/springboot_biye/service/ApplicationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/SpringBoot_biye/src/main/java/com/zgy/springboot_biye/service/ApplicationService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SpringBoot_biye/src/main/java/com/zgy/springboot_biye/service/EnrollmentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/SpringBoot_biye/src/main/java/com/zgy/springboot_biye/service/EnrollmentService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SpringBoot_biye/src/main/java/com/zgy/springboot_biye/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/SpringBoot_biye/src/main/java/com/zgy/springboot_biye/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SpringBoot_biye/src/main/java/com/zgy/springboot_biye/service/impl/ApplicationServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/SpringBoot_biye/src/main/java/com/zgy/springboot_biye/service/impl/ApplicationServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SpringBoot_biye/src/main/java/com/zgy/springboot_biye/service/impl/EnrollmentServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/SpringBoot_biye/src/main/java/com/zgy/springboot_biye/service/impl/EnrollmentServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SpringBoot_biye/src/main/resources/mappers/Enrollment.xml" beforeDir="false" afterPath="$PROJECT_DIR$/SpringBoot_biye/src/main/resources/mappers/Enrollment.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue/src/components/Admin-H.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/components/Admin-H.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue/src/components/Admin-M.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/components/Admin-M.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue/src/components/Header.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/components/Header.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/router/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue/src/views/Home.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/views/Home.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue/src/views/Login.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/views/Login.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue/src/views/admin/AdminManagement.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue/src/views/admin/ApplicationEmail.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/views/admin/ApplicationEmail.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue/src/views/admin/NewPassword.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/views/admin/NewPassword.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SpringBoot_biye/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/SpringBoot_biye/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SpringBoot_biye/src/main/java/com/zgy/springboot_biye/config/MailConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SpringBoot_biye/src/main/java/com/zgy/springboot_biye/service/SendMailService.java" beforeDir="false" afterPath="$PROJECT_DIR$/SpringBoot_biye/src/main/java/com/zgy/springboot_biye/service/SendMailService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SpringBoot_biye/src/main/java/com/zgy/springboot_biye/service/impl/SendMailServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/SpringBoot_biye/src/main/java/com/zgy/springboot_biye/service/impl/SendMailServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SpringBoot_biye/src/main/java/com/zgy/springboot_biye/utils/MailUtil.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SpringBoot_biye/src/main/resources/WEmail.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SpringBoot_biye/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/SpringBoot_biye/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SpringBoot_biye/src/main/resources/mappers/Admin.xml" beforeDir="false" afterPath="$PROJECT_DIR$/SpringBoot_biye/src/main/resources/mappers/Admin.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/src/views/admin/ApplicationReview.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/views/admin/ApplicationReview.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vue/src/views/user/ApplicationForm.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/views/user/ApplicationForm.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/src/views/user/ConsolidatedTable.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/views/user/ConsolidatedTable.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/src/views/user/WaiverApplication.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/views/user/WaiverApplication.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/src/views/user/WaiverLgo.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/views/user/WaiverLgo.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,9 +84,9 @@
     <property name="jdk.selected.JAVA_MODULE" value="1.8" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/vue/src/views/super" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="MavenSettings" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -279,6 +269,9 @@
       <workItem from="1682146703933" duration="6848000" />
       <workItem from="1682236107844" duration="12130000" />
       <workItem from="1682251735491" duration="2500000" />
+      <workItem from="1682320634005" duration="3898000" />
+      <workItem from="1682494606723" duration="4046000" />
+      <workItem from="1682498731843" duration="1117000" />
     </task>
     <servers />
   </component>

@@ -9,6 +9,12 @@ spring:
       url: jdbc:mysql://localhost:3306/springboot_biye?serverTimezone=UTC&characterEncoding=utf-8
       username: root
       password: 123456
+  servlet:
+    multipart:
+      # 设置单个文件大小
+      max-file-size: 50MB
+      # 设置单次请求文件的总大小
+      max-request-size: 50MB
   mail:
     # QQ邮箱
     host: smtp.qq.com

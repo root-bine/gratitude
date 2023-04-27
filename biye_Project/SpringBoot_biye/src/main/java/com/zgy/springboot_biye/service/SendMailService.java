@@ -8,5 +8,4 @@ public interface SendMailService {
      * @param send
      */
     void sendMail(Send send);
-    void sendMails(Send send);
 }

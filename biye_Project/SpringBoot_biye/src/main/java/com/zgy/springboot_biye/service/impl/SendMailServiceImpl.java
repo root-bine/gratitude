@@ -15,23 +15,11 @@ public class SendMailServiceImpl implements SendMailService {
 
     @Value("${spring.mail.username}")
     private String from;
-    @Value("${spring.mail.mailUsername}")
-    private String on;
 
     @Override
     public void sendMail(Send send) {
         SimpleMailMessage message = new SimpleMailMessage();
         message.setFrom(from);
-        message.setTo(send.getTo());
-        message.setSubject(send.getSubject());
-        message.setText(send.getContent());
-        javaMailSender.send(message);
-    }
-
-    @Override
-    public void sendMails(Send send) {
-        SimpleMailMessage message = new SimpleMailMessage();
-        message.setFrom(on);
         message.setTo(send.getTo());
         message.setSubject(send.getSubject());
         message.setText(send.getContent());

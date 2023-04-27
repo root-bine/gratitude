@@ -33,12 +33,13 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
-        <!--获取文件后缀-->
+        <!--文件上传依赖-->
         <dependency>
             <groupId>commons-fileupload</groupId>
             <artifactId>commons-fileupload</artifactId>
             <version>1.4</version>
         </dependency>
+
         <!--邮件发送-->
         <dependency>
             <groupId>org.springframework.boot</groupId>

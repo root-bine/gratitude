@@ -45,14 +45,6 @@
                       disabled style="width: 400px;height: 35px"/>
           </el-form-item>
         </el-col>
-
-<!--        <el-col :span="24">
-          <el-form-item label="相关附件" class="imset">
-            <el-input style="min-width: 100px; max-width: 600px;" :rows="3"
-                      disabled v-model="state.application.file"
-                      type="textarea" autocomplete="off"/>
-          </el-form-item>
-        </el-col>-->
       </el-row>
 
       <el-row>
@@ -117,12 +109,16 @@
       </el-form-item>
       <el-form-item label="相关文件">
         <el-upload
-            action="http://localhost:8080/api/upload"
-            :auto-upload="false"
-            :on-change="handleUploadChange"
-            :file-list="fileList">
-          <el-button slot="trigger" size="small" type="primary">选取文件</el-button>
-          <el-button style="margin-left: 10px;" size="small" type="success" @click="uploadFile">上传文件</el-button>
+            class="upload-demo"
+            :action="uploadUrl"
+            :file-list="fileList"
+            :on-success="handleSuccess">
+          <el-button size="large" type="danger">点击上传</el-button>
+          <template #tip>
+            <div class="el-upload__tip">
+              压缩包(应届毕业证明、四六级证书、毕业体检报告), , 后缀: .zip
+            </div>
+          </template>
         </el-upload>
       </el-form-item>
     </el-form>
@@ -149,6 +145,14 @@ export default {
   name: 'FileUpload',
   setup() {
     const fileList = ref([]);
+    const uploadUrl = 'http://localhost:9090/file/upload';
+    const handleSuccess = (response, file) => {
+      ElMessage.success('上传成功')
+      fileList.value.push({
+        name: file.name,
+        url: URL.createObjectURL(file.raw),
+      })
+    }
     function handleUploadChange(file, fileList) {
       console.log('uploaded:', file, fileList);
     }
@@ -251,7 +255,9 @@ export default {
       Confirm,
       state,
       rules,
-      dialogFormVisible
+      dialogFormVisible,
+      uploadUrl,
+      handleSuccess
     }
   }
 }

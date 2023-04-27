@@ -30,17 +30,17 @@
         select * from root where studentid=#{studentid} and password=#{password}
     </select>
     <select id="findPageHelper" resultType="com.zgy.springboot_biye.domain.Admin">
-        select * from root
-        <where>
-            <if test="username != null and username !=''">
-                and username like concat('%', #{username}, '%')
-            </if>
-            <if test="studentid != null and studentid !=''">
-                and studentid like concat('%', #{studentid}, '%')
-            </if>
-            <if test="department != null and department !=''">
-                and department like concat('%', #{department}, '%')
-            </if>
-        </where>
-    </select>
+    select * from root
+    <where>
+        <if test="username != null and username !=''">
+            and username like concat('%', #{username}, '%')
+        </if>
+        <if test="studentid != null and studentid !=''">
+            and studentid like concat('%', #{studentid}, '%')
+        </if>
+        <if test="department != null and department !=''">
+            and department like concat('%', #{department}, '%')
+        </if>
+    </where>
+</select>
 </mapper>
