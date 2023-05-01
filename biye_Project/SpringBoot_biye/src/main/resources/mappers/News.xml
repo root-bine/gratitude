@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zgy.springboot_biye.dao.NewsDao">
+    <insert id="insert">
+        insert into news(title, content, updater, time)
+        values(#{title}, #{content}, #{updater}, #{time, jdbcType=TIMESTAMP})
+    </insert>
+    <update id="update">
+        update news set
+            title=#{title}, content=#{content}, updater=#{updater},
+            time=#{time, jdbcType=TIMESTAMP}
+        where id=#{id}
+    </update>
+    <delete id="delete">
+        delete from news where id=#{id}
+    </delete>
+    <select id="findPageHelper" resultType="com.zgy.springboot_biye.domain.News">
+        select * from news
+        <where>
+            <if test="title != null and title !=''">
+                and title like concat('%', #{title}, '%')
+            </if>
+            <if test="updater != null and updater !=''">
+                and updater like concat('%', #{updater}, '%')
+            </if>
+        </where>
+    </select>
+</mapper>

@@ -70,7 +70,7 @@ const state = reactive({
 })
 
 const load= ()=>{
-  request.post("/email/ano", state.form).then(res => {
+  request.post("/email", state.form).then(res => {
     if(res.code === '200') {
       ElMessage({type: 'success', message: '发送成功！！！'})
       router.push({name: 'UserMessage'})

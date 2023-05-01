@@ -15,7 +15,7 @@
           </span>
         <template #dropdown>
           <el-dropdown-menu>
-            <el-dropdown-item :icon="CirclePlus" style="font-size: 20px">系统公告</el-dropdown-item>
+            <el-dropdown-item :icon="CirclePlus" style="font-size: 20px" @click="$router.push({name: 'NewsUser'})">系统公告</el-dropdown-item>
             <el-dropdown-item :icon="Edit" style="font-size: 20px" @click="$router.push({name: 'EditPerson'})">编辑信息</el-dropdown-item>
             <el-dropdown-item :icon="CircleCheck" style="font-size: 20px" @click="$router.push('/login')">退出登录</el-dropdown-item>
           </el-dropdown-menu>

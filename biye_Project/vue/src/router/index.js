@@ -81,6 +81,12 @@ const routers = [
                 component:() => import('../views/user/ResultAp.vue'),
                 meta: { title: "修改申请记录" }
             },
+            {
+                path:'newsUser',
+                name:'NewsUser',
+                component:() => import('../views/user/NewsUser.vue'),
+                meta: { title: "公告页面" }
+            },
         ]
     },
     {
@@ -138,6 +144,12 @@ const routers = [
                 component:() => import('../views/admin/ApplicationEmail.vue'),
                 meta: { title: "申请通过邮件" }
             },
+            {
+                path:'newsAdmin',
+                name:'NewsAdmin',
+                component:() => import('../views/admin/NewsAdmin.vue'),
+                meta: { title: "公告页面" }
+            },
         ]
     },
     {
@@ -194,6 +206,18 @@ const routers = [
                 name:'AdmissionList',
                 component:() => import('../views/super/AdmissionList.vue'),
                 meta: { title: "录取结果" }
+            },
+            {
+                path:'news',
+                name:'News',
+                component:() => import('../views/super/News.vue'),
+                meta: { title: "公告管理" }
+            },
+            {
+                path:'newsBulletin',
+                name:'NewsBulletin',
+                component:() => import('../views/super/NewsBulletin.vue'),
+                meta: { title: "公告页面" }
             },
         ]
     }

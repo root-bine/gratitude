@@ -22,4 +22,9 @@ public class TentativeServiceImpl implements TentativeService {
     public List<Tentative> findPageHelper(SearchPage searchPage) {
         return ten.findPageHelper(searchPage);
     }
+
+    @Override
+    public List<Tentative> findAll() {
+        return ten.findAll();
+    }
 }

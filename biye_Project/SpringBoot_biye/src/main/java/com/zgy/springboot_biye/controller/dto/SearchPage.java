@@ -20,4 +20,7 @@ public class SearchPage {
     private String stuName;
     private String stuID;
     private String profession;
+    // 公告表
+    private String title;
+    private String updater;
 }

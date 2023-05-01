@@ -10,4 +10,6 @@ public interface AdmissionService {
     List<Admission> findPageHelpers(SearchPage searchPage);
 
     int delete(Integer id);
+
+    List<Admission> findAll();
 }

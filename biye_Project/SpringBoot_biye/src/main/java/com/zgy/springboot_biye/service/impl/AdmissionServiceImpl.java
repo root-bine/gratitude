@@ -23,4 +23,9 @@ public class AdmissionServiceImpl implements AdmissionService {
     public int delete(Integer id) {
         return admissionDao.delete(id);
     }
+
+    @Override
+    public List<Admission> findAll() {
+        return admissionDao.findAll();
+    }
 }

@@ -28,11 +28,16 @@
       <el-icon><UserFilled /></el-icon>
       <span style="font-size: 25px">用户管理</span>
     </el-menu-item>
+    <el-menu-item index="news">
+      <el-icon><Histogram /></el-icon>
+      <span style="font-size: 25px">公告管理</span>
+    </el-menu-item>
+
   </el-menu>
 </template>
 
 <script setup>
-import {HomeFilled, Finished, Grid, Comment, Promotion, UserFilled} from '@element-plus/icons-vue'
+import {HomeFilled, Finished, Grid, Comment, Promotion, UserFilled, Histogram} from '@element-plus/icons-vue'
 </script>
 
 <style scoped>

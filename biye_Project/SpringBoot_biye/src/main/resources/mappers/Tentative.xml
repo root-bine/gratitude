@@ -20,4 +20,7 @@
             </if>
         </where>
     </select>
+    <select id="findAll" resultType="com.zgy.springboot_biye.domain.Tentative">
+        select * from nidingmingdan
+    </select>
 </mapper>

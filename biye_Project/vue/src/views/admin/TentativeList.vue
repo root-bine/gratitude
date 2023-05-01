@@ -7,6 +7,9 @@
     <el-button size="default" type="primary" style="margin-left: 10px" @click="load">
       <el-icon style="margin-right: 3px"><Search /></el-icon>查询
     </el-button>
+    <el-button size="default" type="warning" style="margin-left: 10px">
+      <el-link href="http://localhost:9090/ten/excelDownloads" target="_blank">导出Excel</el-link>
+    </el-button>
   </div>
 
   <el-table :data="state.tableData" stripe

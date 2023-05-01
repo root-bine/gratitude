@@ -6,9 +6,13 @@ spring:
   datasource:
     druid:
       driver-class-name: com.mysql.cj.jdbc.Driver
-      url: jdbc:mysql://localhost:3306/springboot_biye?serverTimezone=UTC&characterEncoding=utf-8
+      url: jdbc:mysql://localhost:3306/springboot_biye?serverTimezone=GMT%2B8&useSSL=false&characterEncoding=utf-8
       username: root
       password: 123456
+  # 解决前端与数据库日期格式不一致问题
+  jackson:
+    dateFormat: yyyy-MM-dd HH:mm:ss
+    timeZone: GMT+8
   servlet:
     multipart:
       # 设置单个文件大小
@@ -18,13 +22,10 @@ spring:
   mail:
     # QQ邮箱
     host: smtp.qq.com
-    # 院级
-    username: "1379355515@qq.com"
-    password: "oyoyadysenuiichg"
+    # 院级/校级
+    username: "2749775885@qq.com"
+    password: "pznpwmwscpaqdfbg"
     port: 587
-    # 校级
-    mailUsername: "2749775885@qq.com"
-    mailPassword: "pznpwmwscpaqdfbg"
 
 
 mybatis:

@@ -7,4 +7,5 @@ import java.util.List;
 public interface TentativeService {
     int delete(Integer id);
     List<Tentative> findPageHelper(SearchPage searchPage);
+    List<Tentative> findAll();
 }

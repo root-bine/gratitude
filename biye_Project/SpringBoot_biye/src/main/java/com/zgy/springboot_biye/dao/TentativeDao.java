@@ -13,4 +13,6 @@ public interface TentativeDao {
     int delete(Integer id);
     // 分页+查询
     List<Tentative> findPageHelper(SearchPage searchPage);
+    // 数据导出
+    List<Tentative> findAll();
 }

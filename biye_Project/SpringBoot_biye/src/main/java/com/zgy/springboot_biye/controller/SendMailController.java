@@ -17,10 +17,4 @@ public class SendMailController {
         sendMailService.sendMail(send);
         return Result.success("发送成功");
     }
-
-    @PostMapping("/ano")
-    public Result send(@RequestBody Send send) {
-        sendMailService.sendMail(send);
-        return Result.success("发送成功");
-    }
 }

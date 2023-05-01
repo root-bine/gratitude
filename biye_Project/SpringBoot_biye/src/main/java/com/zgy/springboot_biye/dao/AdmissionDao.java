@@ -12,4 +12,7 @@ public interface AdmissionDao {
     List<Admission> findPageHelpers(SearchPage searchPage);
 
     int delete(Integer id);
+
+    // 导出Excel
+    List<Admission> findAll();
 }
