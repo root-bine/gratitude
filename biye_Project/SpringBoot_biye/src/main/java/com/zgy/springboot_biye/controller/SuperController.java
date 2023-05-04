@@ -19,7 +19,14 @@ public class SuperController {
     // 登录
     @RequestMapping(value = "/inner",method = RequestMethod.POST)
     public Result findUser(@RequestBody Super su){
+        if(su.getStudentid() == null || su.getPassword() == null) {
+            return Result.error("用户名或者密码错误！！！");
+        }
+        List<Super> all = service.findAll();
         Super result = service.findAdmin(su.getStudentid(), su.getPassword());
+        if(!all.contains(result)) {
+            return Result.error("用户不存在！！！");
+        }
         return Result.success(result);
     }
 

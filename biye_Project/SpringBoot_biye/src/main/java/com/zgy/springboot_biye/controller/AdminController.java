@@ -5,6 +5,7 @@ import com.github.pagehelper.PageInfo;
 import com.zgy.springboot_biye.config.Result;
 import com.zgy.springboot_biye.controller.dto.SearchPage;
 import com.zgy.springboot_biye.domain.Admin;
+import com.zgy.springboot_biye.domain.User;
 import com.zgy.springboot_biye.service.AdminService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -25,7 +26,14 @@ public class AdminController {
     // 登录
     @RequestMapping(value = "/in",method = RequestMethod.POST)
     public Result findUser(@RequestBody Admin admin){
+        if(admin.getStudentid() == null|| admin.getPassword() == null){
+            return Result.error("用户名或密码为空");
+        }
+        List<Admin> list = adminService.findAll();
         Admin result = adminService.findAdmin(admin.getStudentid(), admin.getPassword());
+        if(!list.contains(result)) {
+            return Result.error("用户不存在, 请注册");
+        }
         return Result.success(result);
     }
 

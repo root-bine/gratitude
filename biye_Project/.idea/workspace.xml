@@ -6,40 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="f6cf6e5c-e033-463f-8c0b-f6cea27fcb50" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SpringBoot_biye/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/SpringBoot_biye/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SpringBoot_biye/src/main/java/com/zgy/springboot_biye/controller/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/SpringBoot_biye/src/main/java/com/zgy/springboot_biye/controller/AdminController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SpringBoot_biye/src/main/java/com/zgy/springboot_biye/controller/AdmissionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/SpringBoot_biye/src/main/java/com/zgy/springboot_biye/controller/AdmissionController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SpringBoot_biye/src/main/java/com/zgy/springboot_biye/controller/SendMailController.java" beforeDir="false" afterPath="$PROJECT_DIR$/SpringBoot_biye/src/main/java/com/zgy/springboot_biye/controller/SendMailController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SpringBoot_biye/src/main/java/com/zgy/springboot_biye/controller/TentativeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/SpringBoot_biye/src/main/java/com/zgy/springboot_biye/controller/TentativeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SpringBoot_biye/src/main/java/com/zgy/springboot_biye/controller/dto/SearchPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/SpringBoot_biye/src/main/java/com/zgy/springboot_biye/controller/dto/SearchPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SpringBoot_biye/src/main/java/com/zgy/springboot_biye/dao/AdmissionDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/SpringBoot_biye/src/main/java/com/zgy/springboot_biye/dao/AdmissionDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SpringBoot_biye/src/main/java/com/zgy/springboot_biye/dao/TentativeDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/SpringBoot_biye/src/main/java/com/zgy/springboot_biye/dao/TentativeDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SpringBoot_biye/src/main/java/com/zgy/springboot_biye/domain/Admission.java" beforeDir="false" afterPath="$PROJECT_DIR$/SpringBoot_biye/src/main/java/com/zgy/springboot_biye/domain/Admission.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SpringBoot_biye/src/main/java/com/zgy/springboot_biye/service/AdmissionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/SpringBoot_biye/src/main/java/com/zgy/springboot_biye/service/AdmissionService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SpringBoot_biye/src/main/java/com/zgy/springboot_biye/service/SendMailService.java" beforeDir="false" afterPath="$PROJECT_DIR$/SpringBoot_biye/src/main/java/com/zgy/springboot_biye/service/SendMailService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SpringBoot_biye/src/main/java/com/zgy/springboot_biye/service/TentativeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/SpringBoot_biye/src/main/java/com/zgy/springboot_biye/service/TentativeService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SpringBoot_biye/src/main/java/com/zgy/springboot_biye/service/impl/AdmissionServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/SpringBoot_biye/src/main/java/com/zgy/springboot_biye/service/impl/AdmissionServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SpringBoot_biye/src/main/java/com/zgy/springboot_biye/service/impl/TentativeServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/SpringBoot_biye/src/main/java/com/zgy/springboot_biye/service/impl/TentativeServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SpringBoot_biye/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/SpringBoot_biye/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SpringBoot_biye/src/main/resources/mappers/Admission.xml" beforeDir="false" afterPath="$PROJECT_DIR$/SpringBoot_biye/src/main/resources/mappers/Admission.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SpringBoot_biye/src/main/resources/mappers/Tentative.xml" beforeDir="false" afterPath="$PROJECT_DIR$/SpringBoot_biye/src/main/resources/mappers/Tentative.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/js-cookie/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/js-cookie/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/js-cookie/dist/js.cookie.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/js-cookie/dist/js.cookie.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/js-cookie/dist/js.cookie.min.mjs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/js-cookie/dist/js.cookie.mjs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/js-cookie/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/js-cookie/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue/src/components/Admin-H.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/components/Admin-H.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue/src/components/Header.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/components/Header.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue/src/components/Super-H.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/components/Super-H.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue/src/components/Super-M.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/components/Super-M.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/router/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue/src/views/admin/TentativeList.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/views/admin/TentativeList.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue/src/views/super/AdmissionList.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/views/super/AdmissionList.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue/src/views/super/Email.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/views/super/Email.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SpringBoot_biye/src/main/java/com/zgy/springboot_biye/controller/SuperController.java" beforeDir="false" afterPath="$PROJECT_DIR$/SpringBoot_biye/src/main/java/com/zgy/springboot_biye/controller/SuperController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -311,6 +279,7 @@
       <workItem from="1682864025831" duration="2454000" />
       <workItem from="1682905693150" duration="6679000" />
       <workItem from="1682922347005" duration="7718000" />
+      <workItem from="1683165040093" duration="1793000" />
     </task>
     <servers />
   </component>
