@@ -1,4 +1,5 @@
 <template>
+  <h1 style="text-align: center;font-size: 35px;color: cadetblue">推免研究生录取列表</h1>
   <!--添加按钮-->
   <div style="margin-top: 40px; margin-left: 30px">
     <el-input style="width: 260px; margin-right: 10px" v-model="stuName" placeholder="请输入用户名" clearable></el-input>
@@ -8,7 +9,9 @@
       <el-icon style="margin-right: 3px"><Search /></el-icon>查询
     </el-button>
     <el-button size="default" type="danger" style="margin-left: 10px">
-      <el-link href="http://localhost:9090/admission/excelDownloads" target="_blank">导出Excel</el-link>
+      <el-link href="http://localhost:9090/admission/excelDownloads" target="_blank">
+        导出Excel
+      </el-link>
     </el-button>
   </div>
 

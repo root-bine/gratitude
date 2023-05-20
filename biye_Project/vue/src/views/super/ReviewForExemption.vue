@@ -26,7 +26,7 @@
       <template #default="scope">
         <el-button size="small" type="success" @click="handleEdit(scope.row)">
           <!--设置按钮大小、图标与字体间距-->
-          <el-icon size="20" style="margin-right: 3px"><Edit /></el-icon>编辑
+          <el-icon size="20" style="margin-right: 3px"><Edit /></el-icon>评定
         </el-button>
         <el-popconfirm title="是否要删除此条信息?" confirm-button-text="确定"
                        cancel-button-text="取消" @confirm="handleDelete(scope.row.id)">

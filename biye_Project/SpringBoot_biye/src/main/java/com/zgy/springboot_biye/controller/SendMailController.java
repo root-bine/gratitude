@@ -14,6 +14,9 @@ public class SendMailController {
 
     @PostMapping
     public Result QQsend(@RequestBody Send send) {
+        if(send.getSubject()==null || send.getSubject()==null) {
+            return Result.error("内容不完整");
+        }
         sendMailService.sendMail(send);
         return Result.success("发送成功");
     }

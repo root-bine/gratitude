@@ -26,7 +26,7 @@
         </el-col>
 
         <el-col :span="12">
-          <el-form-item label="学校名称" prop="school" class="imset">
+          <el-form-item label="报考学校" prop="school" class="imset">
             <el-input v-model="application.school" placeholder="学校名称"
                       clearable style="width: 400px;height: 35px"/>
           </el-form-item>
@@ -76,7 +76,7 @@
 
       <el-row>
         <el-col :span="24">
-          <el-form-item label="处分/奖励" prop="myself" class="imset">
+          <el-form-item label="处分/获奖" prop="myself" class="imset">
             <el-input style="min-width: 100px; max-width: 600px;" :rows="3"
                       placeholder="个人获奖或处分" v-model="application.myself"
                       type="textarea" autocomplete="off"/>

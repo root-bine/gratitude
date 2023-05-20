@@ -12,7 +12,7 @@ public interface ApplicationDao {
     int insert(Application application);
     // 查询全部信息
     List<Application> findAll();
-    // 根据ID查询用户信息
+    // 根据ID查询用户信息 (在申请记录页面显示已填写的信息)
     Application findByID(Integer id);
     // 修改单一用户信息
     int update(Application application);

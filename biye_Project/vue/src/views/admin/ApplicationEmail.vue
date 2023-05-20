@@ -74,6 +74,8 @@ const load= ()=>{
     if(res.code === '200') {
       ElMessage({type: 'success', message: '发送成功！！！'})
       router.push({name: 'UserList'})
+    }else {
+      ElMessage.error(res.msg)
     }
   })
 }

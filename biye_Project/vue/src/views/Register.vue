@@ -68,7 +68,7 @@
                 })
               }
             })
-          }else{
+          } else{
             ElNotification({
               type: 'error',
               message: '用户名或密码错误'

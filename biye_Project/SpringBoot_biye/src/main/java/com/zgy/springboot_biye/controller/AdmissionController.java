@@ -5,8 +5,6 @@ import com.github.pagehelper.PageInfo;
 import com.zgy.springboot_biye.config.Result;
 import com.zgy.springboot_biye.controller.dto.SearchPage;
 import com.zgy.springboot_biye.domain.Admission;
-import com.zgy.springboot_biye.domain.Application;
-import com.zgy.springboot_biye.domain.Tentative;
 import com.zgy.springboot_biye.service.AdmissionService;
 import org.apache.poi.hssf.usermodel.*;
 import org.springframework.beans.factory.annotation.Autowired;
