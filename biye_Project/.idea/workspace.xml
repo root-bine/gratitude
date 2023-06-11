@@ -5,19 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f6cf6e5c-e033-463f-8c0b-f6cea27fcb50" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../201931061198-张根源-本科毕业论文.doc" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SpringBoot_biye/src/main/java/com/zgy/springboot_biye/controller/AdmissionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/SpringBoot_biye/src/main/java/com/zgy/springboot_biye/controller/AdmissionController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SpringBoot_biye/src/main/java/com/zgy/springboot_biye/controller/SendMailController.java" beforeDir="false" afterPath="$PROJECT_DIR$/SpringBoot_biye/src/main/java/com/zgy/springboot_biye/controller/SendMailController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SpringBoot_biye/src/main/java/com/zgy/springboot_biye/dao/AdminDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/SpringBoot_biye/src/main/java/com/zgy/springboot_biye/dao/AdminDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SpringBoot_biye/src/main/java/com/zgy/springboot_biye/dao/ApplicationDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/SpringBoot_biye/src/main/java/com/zgy/springboot_biye/dao/ApplicationDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue/src/views/Register.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/views/Register.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue/src/views/admin/ApplicationEmail.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/views/admin/ApplicationEmail.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue/src/views/admin/ApplicationReview.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/views/admin/ApplicationReview.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue/src/views/admin/TentativeList.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/views/admin/TentativeList.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue/src/views/super/AdmissionList.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/views/super/AdmissionList.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue/src/views/super/Email.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/views/super/Email.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue/src/views/super/ReviewForExemption.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/views/super/ReviewForExemption.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue/src/views/user/WaiverApplication.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/views/user/WaiverApplication.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,7 +69,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="jdk.selected.JAVA_MODULE" value="1.8" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/vue/src/views/user" />
+    <property name="last_opened_file_path" value="E:/JavaCode/学生成绩管理系统/StudentScore" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
@@ -267,7 +256,19 @@
       <workItem from="1684412153779" duration="27000" />
       <workItem from="1684412201634" duration="620000" />
       <workItem from="1684478324887" duration="8541000" />
-      <workItem from="1684581349677" duration="6269000" />
+      <workItem from="1684581349677" duration="7136000" />
+      <workItem from="1684825483319" duration="2258000" />
+      <workItem from="1685355000342" duration="563000" />
+      <workItem from="1685518945773" duration="728000" />
+      <workItem from="1685524275238" duration="110000" />
+      <workItem from="1685525267149" duration="606000" />
+      <workItem from="1685534959579" duration="607000" />
+      <workItem from="1685539604925" duration="567000" />
+      <workItem from="1685541057713" duration="137000" />
+      <workItem from="1685676278374" duration="1002000" />
+      <workItem from="1685684164586" duration="594000" />
+      <workItem from="1685688717367" duration="895000" />
+      <workItem from="1685700821402" duration="897000" />
     </task>
     <servers />
   </component>
